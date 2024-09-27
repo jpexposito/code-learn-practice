@@ -8,7 +8,7 @@ En este ejercicio, aprenderás a asociar tu usuario local de __Git con tu cuenta
 
 2. Tener una cuenta de GitHub. Si aún no la tienes, puedes crearla [aquí](https://github.com/join).
 
-## __Paso 1: Configurar el nombre de usuario y el correo en Git local__
+## Paso 1: Configurar el nombre de usuario y el correo en Git local
 
 Abre tu terminal o línea de comandos y ejecuta los siguientes comandos para configurar tu nombre de usuario y tu correo electrónico en Git. __Asegúrate de usar el correo electrónico asociado a tu cuenta de GitHub.__
 
@@ -36,7 +36,7 @@ Por ejemplo:
 git config --global user.email "juan.perez@example.com"
 ```
 
-## __Paso 2: Verificar la configuración
+## Paso 2: Verificar la configuración
 
 Para asegurarte de que la configuración ha sido aplicada correctamente, puedes usar los siguientes comandos para verificar los valores configurados:
 
