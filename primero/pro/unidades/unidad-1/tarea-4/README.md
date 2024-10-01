@@ -2,6 +2,8 @@
 
 > ___Si no conoces una temática, investiga un poco___
 
+> AYUDA. PARA RESOLVER LOS PROBLEMAS LEE EL SIGUIENTE [ENLACE](https://github.com/jpexposito/code-learn/blob/main/primero/pro/unidades/unidad-2/CLASE-STRING.md)
+
 ## 1. Contando midiclorianos
 
 Crea un array que represente los midiclorianos de 10 Jedi. Calcula la media de midiclorianos en el array. ¿Quién tiene más y quién tiene menos?
