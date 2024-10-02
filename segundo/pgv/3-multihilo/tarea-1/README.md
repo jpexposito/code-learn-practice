@@ -1,4 +1,4 @@
-# <img src=../../../../../images/computer.png width="40"> Code, Learn & Practice(Programación de Servicios y Procesos: "Comenzando con Hilos en Java")
+# <img src=../../../../images/computer.png width="40"> Code, Learn & Practice(Programación de Servicios y Procesos: "Comenzando con Hilos en Java")
 
 ## Ejemplo - Carrera entre Goku y Vegeta
 
@@ -46,7 +46,7 @@ public class SaiyanRace implements Runnable {
 }
 ```
 
-> ___Test de verificación__
+> __Test de verificación__
 >
 >Este test verificará si uno de los dos ha ganado la carrera, basándose en la salida del programa.
 
