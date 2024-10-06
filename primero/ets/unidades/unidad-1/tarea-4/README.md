@@ -43,17 +43,17 @@ Inicializa el repositorio con un archivo README.md básico con el título del pr
 2. Realiza una clonación del repositorio. Recuerda que debes utilizar `git clone`.
 3. Crea un nuevo `branch`o `rama` para los nuevos cambios que vas a introducir.
 
-   ```code
-        git checkout -b ejercicio1-branch
-    ```
+```code
+    git checkout -b ejercicio1-branch
+```
 
-   ó
+ó
 
-    ```code
-        git branch ejercicio1-branch
-        git checkout  ejercicio1-branch
-        ```
-        
+```code
+    git branch ejercicio1-branch
+    git checkout  ejercicio1-branch
+```
+
 4. Añade la siguiente clase al repositorio:
 
    ```java
