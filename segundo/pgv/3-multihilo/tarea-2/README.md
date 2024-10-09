@@ -39,11 +39,15 @@ Imaginemos un mapa de tamaño `5x5`, con un cazador y un monstruo ubicados en di
 .  .  .  .  .
 ```
 
-#### Leyenda
+### Leyenda
 
 - `.`: Representa una casilla vacía.
 - `C`: Representa a un cazador en una coordenada específica. Ubicado en la posición `(0,4)`.
 - `M`: Representa a un monstruo en una coordenada específica. Ubicado en la posición `(1,1)`.
+
+## Solución
+
+Incluye código, y salida de tu solución, las consideraciones que hayas tomado, etc.
 
 ## Licencia 📄
 

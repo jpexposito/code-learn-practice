@@ -34,6 +34,10 @@ Una solución es utilizar un sistema de mensajería concurrente donde los cazado
 
 > **Recuerda**: Dos monstruos no pueden estas en la misma posición, ni dos cazados.
 
+## Solución
+
+Incluye código, y salida de tu solución, las consideraciones que hayas tomado, etc.
+
 ## Licencia 📄
 
 Este proyecto está bajo la Licencia (Apache 2.0) - mira el archivo [LICENSE.md]([../../../LICENSE.md](https://github.com/jpexposito/code-learn-practice/blob/main/LICENSE)) para detalles.
