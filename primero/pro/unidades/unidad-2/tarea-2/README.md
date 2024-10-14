@@ -36,18 +36,6 @@ Modifica la clase `Persona` para que tenga métodos getter y setter para el atri
 
 Crea una clase `Coche` con los atributos `marca`, `modelo` y `año`. Incluye un constructor y métodos getter y setter para cada atributo.
 
-### Fórmula del perímetro de un rectángulo
-
-La fórmula para calcular el **perímetro** de un rectángulo es:
-
-_P_=2⋅(b+h)
-
-Donde:
-- \(P\) es el perímetro.
-- \(b\) es la longitud de la base del rectángulo.
-- \(h\) es la altura del rectángulo.
-
-
 ## Ejercicio 4
 
 Modifica la clase `Coche` para que el setter del atributo `año` solo permita valores mayores o iguales a 1886 (año de creación del primer coche).
