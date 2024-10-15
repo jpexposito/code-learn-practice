@@ -83,7 +83,7 @@ Antes de comenzar, asegúrate de haber realizado las siguientes acciones:
 
 1. Realiza un **merge** de la rama `nueva-funcionalidad` en la rama `main`.
 
-2. Ahora, imagina que no querías hacer esa fusión. Usa `git revert` para revertir el merge.
+2. Ahora, imagina que no querías hacer esa fusión. Usa [git revert](https://github.com/jpexposito/code-learn/blob/main/comun/git/COMANDOS.md#revert) para revertir el merge.
 
    > **Pista:** Revertir un merge requiere utilizar el flag `-m` para especificar qué padre del merge debe considerarse.
 
@@ -93,11 +93,11 @@ Antes de comenzar, asegúrate de haber realizado las siguientes acciones:
 
 1. Borra la etiqueta **v1.0** localmente y en el repositorio remoto.
 
-   > **Pista:** Usa `git tag -d` para borrar la etiqueta localmente y `git push origin :refs/tags/<nombre-tag>` para eliminarla del remoto.
+   > **Pista:** Usa [git tag -d](https://github.com/jpexposito/code-learn/blob/main/comun/git/COMANDOS.md#git-tag) para borrar la etiqueta localmente y `git push origin :refs/tags/<nombre-tag>` para eliminarla del remoto.
 
 ---
 
-## Ejercicio 8: Restablecer un commit (Reset)
+## Ejercicio 8: Restablecer un commit ([Reset](https://github.com/jpexposito/code-learn/blob/main/comun/git/COMANDOS.md#git-reset))
 
 1. Haz un commit en la rama `main` y luego restablece el estado del repositorio al commit anterior utilizando `git reset --hard`.
 
