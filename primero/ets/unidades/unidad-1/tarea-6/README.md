@@ -1,107 +1,117 @@
-# <img src=../../../../../images/computer.png width="40"> Code, Learn & Practice(Entornos de Desarrollo: Comenzando con Git "Trabajando con Branchs")
+# <img src=../../../../../images/computer.png width="40"> Code, Learn & Practice(Entornos de Desarrollo: Avanzando en Git "Creando tags (etiquetas)")
 
-```plaintext
-* main
-|
-| o---o---o---------------------- merge --> Ejercicio1 (main)
-|              \
-|               o---o---o-------- merge --> Ejercicio2 (main)
-|                        \
-|                         o---o---o--- merge --> Ejercicio3 (main)
-|
-```
+<img src="images/git-workflow.png" width="400px">
 
-## ¿Qué muestra el dibujo?
+En esta tarea vamos a continuar con de Git, aplicando comandos que son útiles en situaciones más avanzadas como el uso de etiquetas (`tags`), `revertir commits`, `cherry-picking`, y la comparación entre ramas.
 
-- `o` representa un commit en la rama.
-- `|` es la línea vertical que representa la rama principal.
-- `---` representa la conexión entre commits en una rama.
-- `merge -->` indica el punto donde una rama es fusionada de nuevo a `main`.
+---
 
-## ¿Qué vamos a trabajar?
+## ¿Qué vamos a trabajar en esta tarea?
 
-Este diagrama refleja cómo cada nueva tarea o(***ejercicio en este caso***) se puede desarrollar en una nueva rama, realizar varios commits, y luego fusionarse en la rama principal.
+Veremos cómo trabajar con **etiquetas** para marcar versiones importantes del proyecto, cómo **revertir cambios** de commits específicos, cómo aplicar commits de una rama en otra con **cherry-pick**, y cómo hacer comparaciones entre ramas. Además, profundizaremos en los **conflictos de fusión**.
 
-## ¿Qué debes de realizar?
+## Pre-requisitos
 
-Debes de realizar cada uno de los pasos que se indican a continuación generando un informe (`README.md`) dentro del repositorio creado para trabajar, guardando los comandos que se indican, los que utilizas y las salidas de esos comandos.
+Antes de comenzar, asegúrate de haber realizado las siguientes acciones:
 
-Recuerda utilizar en markdown esto:
+1. Tener el repositorio `ejercicio-git-libro` clonado en tu máquina local.
+2. Haber seguido los ejercicios anteriores de control de versiones, ramas y commits.
 
-\```java\code\console o bash
+---
 
-AQUÍ LAS CAPTURAS DE CÓDIGO
+## Ejercicio 1: Etiquetar una versión
 
-\```
+1. Crea una nueva etiqueta en la rama principal que marque el estado actual del repositorio como la **versión 1.0**.
+2. Empuja la etiqueta al repositorio remoto.
 
-### Pasos
+   > **Pista:** Usa `git tag` para crear una etiqueta y `git push origin --tags` para enviarla al repositorio remoto.
 
-1. Crear un ***nuevo repositorio en GitHub
-Ve a GitHub y crea un nuevo repositorio con el nombre ejercicio-git-branch***.
-Inicializa el repositorio con un archivo README.md básico con el título del proyecto.
+3. Muestra la lista de etiquetas presentes en el repositorio usando `git tag`.
 
-2. Realiza una clonación del repositorio. Recuerda que debes utilizar `git clone`.
-3. Crea un nuevo `branch`o `rama` para los nuevos cambios que vas a introducir.
+---
 
-```code
-    git checkout -b ejercicio1-branch
-```
+## Ejercicio 2: Revertir un commit
 
-ó
+1. Haz un cambio sencillo en uno de los archivos (puedes agregar una línea de texto en el archivo `capitulo1.txt`), y realiza un **commit** con un mensaje apropiado, como *"Agregada una línea en capítulo 1"*.
 
-```code
-    git branch ejercicio1-branch
-    git checkout  ejercicio1-branch
-```
+2. Imagina que te has equivocado y no querías hacer ese cambio. Reviértelo usando `git revert`.
 
-4. Añade la siguiente clase al repositorio:
+3. Muestra el historial de commits para verificar que el commit de reversión se ha realizado correctamente.
 
-   ```java
-        public class Ejercicio1 {
-        public static void main(String[] args) {
-            System.out.println("Ejercicio 1 realizado.");
-        }
-    }    
-   ```
+---
 
-5. Hacer commit de los cambios
+## Ejercicio 3: Aplicar cambios de otra rama con Cherry-pick
 
-Realiza un commit de los cambios que has realizado.
+1. Crea una **nueva rama** llamada `nueva-funcionalidad` y haz un cambio en la rama, por ejemplo, crea un nuevo archivo `capitulo5.txt` con el siguiente contenido:
 
-```code
-git commit -m "Se incluye el Ejercicio1.java"
-```
+    ```bash
+    En este capítulo veremos cómo gestionar múltiples ramas en Git.
+    ```
 
->_Importante_: ___¿Te ha faltado algo que hacer?. Si fuera así realizalo e indica los pasos.___
+2. Realiza un **commit** del cambio.
 
-6. Sube los cambios a tu repositorio
+3. Vuelve a la rama `main` y usa `git cherry-pick` para aplicar el commit de la rama `nueva-funcionalidad` en `main`.
 
-Sube la rama nueva con los cambios realizados al repositorio remoto:
+   > **Pista:** Usa `git cherry-pick <hash-commit>` para aplicar el commit.
 
-```code
-git push origin ejercicio2-branch
-```
+4. Muestra el historial de la rama `main` para comprobar que el commit ha sido agregado.
 
-7. Fusiona la rama en main
+---
 
-Accede a tu repositorio en GitHub y verifica que existe la rama (ejercicio1-branch).
+## Ejercicio 4: Comparar ramas
 
-Una vez que hayas revisado que todo esté correcto, realiza la fusión de la rama.
+1. Haz un cambio en la rama `main` (puedes modificar el archivo `README.md` agregando una breve descripción).
 
-```code
-git checkout main
-git merge ejercicio1-branch
-```
-> Esto se trae los cambios de la rama `ejercicio1-branch` a `main`. Realiza la subida de los cambios al repositorio.
+2. Usa el comando `git diff` para comparar los cambios entre la rama `main` y la rama `nueva-funcionalidad`.
 
-```code
-git push
-```
+3. Documenta las diferencias encontradas.
 
-Añade los ejercicios `2` y `3`, creando nuevas ramas y realizando los pasos descritos anteriormente.
+---
 
-> La entrega del informe es el enlace del README.md de tu repositorio que muestra todos los cambios.
+## Ejercicio 5: Resolver conflictos de fusión
 
+1. Crea un **conflicto de fusión** modificando el mismo archivo en ambas ramas (`main` y `nueva-funcionalidad`). 
+   - Por ejemplo, edita el archivo `capitulo2.txt` en ambas ramas con contenido diferente.
+
+2. Intenta hacer un **merge** de la rama `nueva-funcionalidad` en `main` y resuelve el conflicto manualmente.
+
+3. Realiza un commit una vez resuelto el conflicto, y muestra la historia del repositorio.
+
+---
+
+## Ejercicio 6: Revertir un merge
+
+1. Realiza un **merge** de la rama `nueva-funcionalidad` en la rama `main`.
+
+2. Ahora, imagina que no querías hacer esa fusión. Usa `git revert` para revertir el merge.
+
+   > **Pista:** Revertir un merge requiere utilizar el flag `-m` para especificar qué padre del merge debe considerarse.
+
+---
+
+## Ejercicio 7: Eliminar una etiqueta
+
+1. Borra la etiqueta **v1.0** localmente y en el repositorio remoto.
+
+   > **Pista:** Usa `git tag -d` para borrar la etiqueta localmente y `git push origin :refs/tags/<nombre-tag>` para eliminarla del remoto.
+
+---
+
+## Ejercicio 8: Restablecer un commit (Reset)
+
+1. Haz un commit en la rama `main` y luego restablece el estado del repositorio al commit anterior utilizando `git reset --hard`.
+
+2. Verifica el estado del repositorio después del reset.
+
+---
+
+## Conclusión
+
+En esta tarea has aprendido a trabajar con etiquetas para marcar versiones importantes, a revertir cambios y fusiones, a aplicar commits seleccionados entre ramas, y a resolver conflictos de fusión. Estos comandos son esenciales para gestionar un proyecto en Git de manera eficaz.
+
+Recuerda ir documentando los pasos que has seguido y los comandos que has utilizado en el archivo `README.md` del repositorio.
+
+---
 
 ## Licencia 📄
 
