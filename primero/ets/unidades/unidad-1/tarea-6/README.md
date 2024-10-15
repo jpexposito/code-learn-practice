@@ -2,7 +2,7 @@
 
 <img src="images/git-workflow.png" width="400px">
 
-En esta tarea vamos a continuar con de Git, aplicando comandos que son útiles en situaciones más avanzadas como el uso de etiquetas (`tags`), `revertir commits`, `cherry-picking`, y la comparación entre ramas.
+En esta tarea vamos a continuar con el uso de Git, aplicando comandos que son útiles en situaciones más avanzadas como el uso de etiquetas (`tags`), `revertir commits`, `cherry-picking`, y la comparación entre ramas.
 
 ---
 
@@ -14,7 +14,7 @@ Veremos cómo trabajar con **etiquetas** para marcar versiones importantes del p
 
 Antes de comenzar, asegúrate de haber realizado las siguientes acciones:
 
-1. Tener el repositorio `ejercicio-git-libro` clonado en tu máquina local.
+1. Tener el repositorio **ejercicio-git-libro** clonado en tu máquina local. Para ello lo debes de tener de la tarea anterior.
 2. Haber seguido los ejercicios anteriores de control de versiones, ramas y commits.
 
 ---
