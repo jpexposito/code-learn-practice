@@ -1,5 +1,7 @@
 # <img src=../../../../images/computer.png width="40"> Code, Learn & Practice(Programación de Servicios y Procesos: "Cazadores de Monstruos Mejorado")
 
+<img src="https://i.ytimg.com/vi/t-tfbMcZ8Hc/maxresdefault.jpg" width="300px">
+
 ## Descripción del juego
 
 Dada la descripción del juego indicada en la tarea [anterior](../tarea-2/README.md), implementa las siguientes mejoras.
