@@ -36,9 +36,9 @@ Una solución es utilizar un sistema de mensajería concurrente donde los cazado
 
 > **Recuerda**: Dos monstruos no pueden estas en la misma posición, ni dos cazados.
 
-## Solución
+## Se pide
 
-Incluye código, y salida de tu solución, las consideraciones que hayas tomado, etc.
+- Implementación del código y descrición en el README.md de las soluciones aportadas, asi como la descripción del código, salida de este derante la ejecución con 3 valores de salida.
 
 ## Licencia 📄
 

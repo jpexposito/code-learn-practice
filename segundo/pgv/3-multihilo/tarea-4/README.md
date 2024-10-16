@@ -73,6 +73,10 @@ En este ejercicio, simularás un mundo donde varios **cazadores** intentan captu
 - **Sincronización**: Es importante evitar condiciones de carrera, donde varios cazadores intenten capturar el mismo monstruo o donde los monstruos intenten entrar a la cueva al mismo tiempo.
 - **Deadlocks**: Asegúrate de que los semáforos y los hilos estén bien coordinados para evitar bloqueos donde tanto cazadores como monstruos queden esperando indefinidamente.
 
+## Se pide
+
+- Implementación del código y descrición en el README.md de las soluciones aportadas, asi como la descripción del código, salida de este derante la ejecución con 3 valores de salida.
+
 ## Licencia 📄
 
 Este proyecto está bajo la Licencia (Apache 2.0) - mira el archivo [LICENSE.md]([../../../LICENSE.md](https://github.com/jpexposito/code-learn-practice/blob/main/LICENSE)) para detalles.

@@ -84,9 +84,9 @@ Imaginemos un mapa de tamaño `5x5`, con un cazador y un monstruo ubicados en di
 - `C`: Representa a un cazador en una coordenada específica. Ubicado en la posición `(0,4)`.
 - `M`: Representa a un monstruo en una coordenada específica. Ubicado en la posición `(1,1)`.
 
-## Solución
+## Se pide
 
-Incluye código, y salida de tu solución, las consideraciones que hayas tomado, etc.
+- Implementación del código y descrición en el README.md de las soluciones aportadas, asi como la descripción del código, salida de este derante la ejecución con 3 valores de salida.
 
 ## Licencia 📄
 
