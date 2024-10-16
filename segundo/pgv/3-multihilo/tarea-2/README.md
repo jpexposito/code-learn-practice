@@ -86,7 +86,9 @@ Imaginemos un mapa de tamaño `5x5`, con un cazador y un monstruo ubicados en di
 
 ## Se pide
 
-- Implementación del código y descrición en el README.md de las soluciones aportadas, asi como la descripción del código, salida de este derante la ejecución con 3 valores de salida.
+- Implementa la solución en una rama del repositorio.
+- Describe en el README.md de las soluciones aportadas, asi como la descripción del código, salida de este derante la ejecución con 3 valores de salida.
+- Realiza la misma operación con las versiones 1 y 2 de la tarea que deben de estar en ramas distintas.
 
 ## Licencia 📄
 
