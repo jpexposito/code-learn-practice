@@ -1,164 +1,314 @@
 # <img src=../../../../../images/computer.png width="40"> Code, Learn & Practice(Programación: Introducción a la Programación "Definición de Clases, constructores, getters, setters, toString y equals")
 
-## Ejercicio 1: Universo Marvel - Superhéroes
+## 1. Clase Persona con Métodos Simples
 
-Crea una clase `Superheroe` que tenga como atributos el nombre, alias y habilidad principal. Sobrescribe `toString()` para imprimir la información del superhéroe y `equals()` para comparar superhéroes en función de su alias.
+Crea una clase `Persona` con atributos `nombre`, `edad`, y `genero`. Sobrescribe `toString()` para devolver su información como cadena.
 
-- **Ejemplo**: Comparar si “Iron Man” y “Hombre de Hierro” son el mismo héroe.
+---
 
-> Nota: Crea la clase `Ejercicio1`, para comprobar el comportamiento.
+## 2. Clase Producto con Métodos y `equals()`
 
-## Ejercicio 2: Streaming - Plataformas de Video
+Crea una clase `Producto` con los atributos `id`, `nombre` y `precio`, y `cantidad`. Implementa el método `equals()` para comparar dos productos según su nombre y precio, y también `toString()` para mostrar su información.
 
-Crea una clase `PlataformaStreaming` con nombre, número de suscriptores y catálogo principal. Sobrescribe `toString()` para mostrar los detalles de la plataforma y `equals()` para comparar si dos plataformas tienen el mismo catálogo principal.
+---
 
-- **Ejemplo**: Compara Netflix y Disney+ basados en su catálogo.
+## 3. Clase Coche con Funciones y Encapsulamiento
 
-> Nota: Crea la clase `Ejercicio2`, para comprobar el comportamiento.
+Define la clase `Coche` con atributos `marca`, `modelo`, `año` y `velocidad`. Incluye métodos `acelerar()` y `frenar()`, que modifiquen la velocidad. Usa getters y setters para controlar el acceso a los atributos.
 
-## Ejercicio 3: Vectores en 2D
+---
 
-Crea una clase `Vector2D` con componentes `x` y `y`. Sobrescribe `toString()` para mostrar el vector en formato `(x, y)` y `equals()` para comparar si dos vectores tienen las mismas componentes.
+## 4. Clase Rectángulo con `equals()` y `toString()`
 
-- **Ejemplo**: ¿Son iguales los vectores (3, 4) y (3, 4)?
+Crea una clase `Rectangulo` con atributos `ancho` y `alto`. Implementa los métodos `carea()` y `perimetro()`. Sobrescribe `equals()` para comparar rectángulos por sus dimensiones y `toString()` para describir el rectángulo.
 
-> Nota: Crea la clase `Ejercicio3`, para comprobar el comportamiento.
- 
-## Ejercicio 4: Star Wars - Naves Espaciales
+---
 
-Define una clase `NaveEspacial` con atributos como nombre, modelo y capacidad de pasajeros. Sobrescribe `toString()` para mostrar los detalles de la nave, y `equals()` para comparar si dos naves son iguales en función de su modelo.
+## 5. Clase Libro con Sobrecarga de Constructores
 
-- **Ejemplo**: ¿Es el Halcón Milenario igual a la nave de Han Solo por su modelo?
+Define una clase `Libro` con atributos `titulo`, `autor` y `paginas`. Crea varios constructores para inicializar diferentes combinaciones de estos atributos. Implementa `toString()` para devolver una descripción del libro.
 
-> Nota: Crea la clase `Ejercicio4`, para comprobar el comportamiento.
+---
 
-## Ejercicio 5: Redes Sociales - Influencers
+## 6. Clase Estudiante con Getters y Setters
 
-Implementa una clase `Influencer` con nombre, red social principal y número de seguidores. Sobrescribe `toString()` para mostrar los detalles del influencer y `equals()` para ver si dos influencers tienen el mismo número de seguidores.
+Crea una clase `Estudiante` con atributos privados `nombre`, `matricula` y `calificacion`. Proporciona getters y setters para acceder a estos valores y un método `toString()` para mostrar la información.
 
-- **Ejemplo**: Compara dos influencers para ver si tienen la misma cantidad de seguidores.
+---
 
-> Nota: Crea la clase `Ejercicio5`, para comprobar el comportamiento.
+## 7. Clase CuentaBancaria con Métodos Simples y `equals()`
 
-## Ejercicio 6: Criptomonedas - Monedas Digitales
+Define una clase `CuentaBancaria` con los atributos `saldo`, `titular`, y `numero`. Implementa métodos `depositar()` y `retirar()`. Utiliza `equals()` para comparar dos cuentas por el **número de cuenta** y `toString()` para mostrar el estado actual de la cuenta.
 
-Define una clase `Criptomoneda` con nombre, valor actual y capitalización de mercado. Sobrescribe `toString()` para mostrar los detalles de la criptomoneda y `equals()` para comparar monedas en función de su valor.
+---
 
-- **Ejemplo**: Compara Bitcoin y Ethereum por su valor actual.
+## 8. Clase Fracción con Métodos Matemáticos
 
-> Nota: Crea la clase `Ejercicio6`, para comprobar el comportamiento.
+Crea una clase `Fraccion` con atributos `numerador` y `denominador`. Implementa métodos para sumar, restar, multiplicar y dividir fracciones. Sobrescribe `toString()` para mostrar la fracción en formato `numerador/denominador`.
 
-## Ejercicio 7: Harry Potter - Varitas Mágicas
+---
 
-Implementa la clase `VaritaMagica` con propiedades como el tipo de madera, el núcleo y la longitud. Sobrescribe `equals()` para considerar dos varitas iguales si tienen el mismo tipo de madera y núcleo, y `toString()` para describir la varita.
+## 9. Clase Empleado con Salario y Comparaciones
 
-- **Ejemplo**: Compara la varita de Harry con la de Voldemort.
+Define una clase `Empleado` con atributos `nombre`, `puesto`, y `salario`. Implementa un método `aumentarSalario(double porcentaje)` y `equals()` para comparar **empleados por nombre y puesto**.
 
-> Nota: Crea la clase `Ejercicio7`, para comprobar el comportamiento.
+---
 
-## Ejercicio 8: Vehículos Eléctricos - Autos del Futuro
+## 10. Clase Pila con Métodos para Apilar y Desapilar
 
-Crea una clase `AutoElectrico` con marca, modelo y autonomía en kilómetros. Sobrescribe `toString()` para describir el auto y `equals()` para comparar autos basados en su autonomía.
+Crea una clase `Pila` (simulando una estructura de datos LIFO) con métodos `apilar()` y `desapilar()`. Usa un array para almacenar los datos y sobrescribe `toString()` para mostrar el contenido de la pila.
 
-- **Ejemplo**: ¿Tiene el Tesla Model 3 la misma autonomía que un Nissan Leaf?
+---
 
-> Nota: Crea la clase `Ejercicio8`, para comprobar el comportamiento.
+## 11. Clase Vehículo
 
-## Ejercicio 9: Fracciones
+Define una clase base `Vehiculo` con atributos `marca` y `modelo`. Usa `toString()` para describir el vehículo.
 
-Crea una clase `Fraccion` con numerador y denominador. Sobrescribe `toString()` para mostrar la fracción en formato `a/b` y `equals()` para comparar si dos fracciones son equivalentes (tienen el mismo valor).
+---
 
-- **Ejemplo**: ¿Son equivalentes las fracciones 1/2 y 2/4?
+## 12. Clase Calculadora con Métodos Estáticos
 
-> Nota: Crea la clase `Ejercicio9`, para comprobar el comportamiento.
+Crea una clase `Calculadora` con métodos estáticos para `sumar`, `restar`, `multiplicar` y `dividir` dos números.
 
-## Ejercicio 10: Pokémon - Entrenadores Pokémon
+---
 
-Crea la clase `EntrenadorPokemon` con nombre, número de medallas y su Pokémon principal. Sobrescribe `toString()` para mostrar la información del entrenador, y `equals()` para compararlos por el Pokémon principal que tienen.
+## 13. Clase Alumno con Métodos para Notas
 
-- **Ejemplo**: ¿Ash Ketchum y otro entrenador tienen el mismo Pokémon principal?
+Crea una clase `Alumno` con los atributos `nombre`, `notaMatematicas`, `notaCiencias` y `notaProgramacion`. Implementa un método `promedio()` y usa `equals()` para comparar alumnos por sus notas.
 
-> Nota: Crea la clase `Ejercicio10`, para comprobar el comportamiento.
+---
 
-## Ejercicio 11: Puntos en el Plano Cartesiano
+## 14. Clase Coordenada con Métodos Matemáticos
 
-Implementa una clase `Punto` con coordenadas `x` y `y`. Sobrescribe `toString()` para mostrar la posición del punto y `equals()` para ver si dos puntos tienen las mismas coordenadas.
+Define una clase `Coordenada` con atributos `x` y `y`. Implementa métodos para calcular la distancia a otra coordenada y el desplazamiento a partir de un ángulo y una distancia. Sobrescribe `toString()` para mostrar la coordenada.
 
-- **Ejemplo**: ¿Los puntos (5, 5) y (5, 5) son iguales?
+---
 
-> Nota: Crea la clase `Ejercicio11`, para comprobar el comportamiento.
+## 15. Clase Polígono
 
-## Ejercicio 12: Star Trek - Naves y Comandantes
+Crea una clase `Poligono` con un método `area()`. Implementa los métodos `toString()`y `equals`.
 
-Crea una clase `NaveStarTrek` con nombre, clase de nave y capitán. Sobrescribe `toString()` para imprimir los detalles de la nave y `equals()` para comparar naves por su clase.
+---
 
-- **Ejemplo**: ¿Son iguales la nave Enterprise y una nave Klingon en cuanto a clase?
+## 16. Clase Fecha con Métodos de Validación
 
-> Nota: Crea la clase `Ejercicio12`, para comprobar el comportamiento.
+Crea una clase `Fecha` con atributos `dia`, `mes` y `anio`. Implementa métodos para validar si la fecha es correcta y para comparar dos fechas con `equals()`.
 
-## Ejercicio 13: Matrix - Agentes vs Humanos
+---
 
-Define una clase `PersonajeMatrix` con atributos como nombre, tipo (humano o agente) y nivel de habilidad. Sobrescribe `toString()` para mostrar los detalles del personaje y `equals()` para comparar si dos personajes tienen el mismo nivel de habilidad.
+## 17. Clase Libro con Comparación de Páginas
 
-- **Ejemplo**: Compara las habilidades de Neo y el Agente Smith.
+Crea una clase `Libro` con atributos `titulo`, `autor`, y `paginas`. Sobrescribe `equals()` para comparar libros por su número de páginas y `toString()` para mostrar los detalles del libro.
 
-> Nota: Crea la clase `Ejercicio13`, para comprobar el comportamiento.
+---
 
-## Ejercicio 14: Dragon Ball - Guerreros Z
+## 18. Clase Circulo con Métodos para Área y Perímetro
 
-Crea una clase `GuerreroZ` con nombre, poder de pelea y planeta de origen. Sobrescribe `toString()` para mostrar la información del guerrero y `equals()` para comparar si dos guerreros tienen el mismo nivel de poder.
+Define una clase `Circulo` con el atributo `radio`. Implementa los métodos `area()` y `perimetro()`. Usa `equals()` para comparar círculos por su radio.
 
-- **Ejemplo**: ¿Son Goku y Vegeta iguales en nivel de poder?
+---
 
-> Nota: Crea la clase `Ejercicio14`, para comprobar el comportamiento.
+## 19. Clase Conversor con Métodos de Conversión estáticos
 
-## Ejercicio 15: Ecuaciones de Segundo Grado
+Crea una clase `Conversor` con métodos para convertir unidades de longitud (metros a pies__, __kilómetros a millas__). Usa `toString()` para mostrar el valor convertido. 
 
-Implementa una clase `EcuacionCuadratica` con coeficientes `a`, `b`, `c`. Sobrescribe `toString()` para mostrar la ecuación en formato `ax^2 + bx + c` y `equals()` para comparar ecuaciones por sus coeficientes.
+> __Utiliza métodos estáticos__.
 
-- **Ejemplo**: Compara las ecuaciones `x^2 + 2x + 1` y `x^2 + 2x + 1`.
+---
 
-> Nota: Crea la clase `Ejercicio15`, para comprobar el comportamiento.
+## 20. Clase Factura con Métodos de Cálculo
 
-## Ejercicio 16: Señor de los Anillos - Objetos Mágicos
+Crea una clase `Factura` con atributos `producto`, `cantidad` y `precio`. Implementa métodos para calcular el total de la factura y usa `toString()` para mostrar la información de la factura.
 
-Crea una clase `ObjetoMagico` con nombre, poder mágico y portador. Sobrescribe `toString()` para describir el objeto y `equals()` para ver si dos objetos mágicos tienen el mismo poder mágico.
+---
 
-- **Ejemplo**: Compara el Anillo Único con otros objetos mágicos.
+## 21. Clase Empresa con Empleados
 
-> Nota: Crea la clase `Ejercicio16`, para comprobar el comportamiento.
+Crea una clase `Empresa` con una lista (**array**) de empleados. Implementa métodos para agregar, eliminar y listar empleados. Usa `toString()` para mostrar los detalles de la empresa.
 
-## Ejercicio 17: Metaverso - Tierras Virtuales
+> La lista (**array**) de empleados estará en un `array` de **Empleados del ejercicio 9**.
 
-Implementa una clase `TerrenoVirtual` con nombre, tamaño y propietario. Sobrescribe `toString()` para describir el terreno virtual y `equals()` para ver si dos terrenos tienen el mismo propietario.
+---
 
-- **Ejemplo**: Compara terrenos virtuales en el metaverso en función de su propietario.
+## 22. Clase Articulo con Stock
 
-> Nota: Crea la clase `Ejercicio17`, para comprobar el comportamiento.
+Crea una clase `Articulo` con atributos `nombre`, `precio`, y `stock`. Implementa métodos `aumentarStock()` y `disminuirStock()`. Usa `equals()` para comparar artículos por su nombre y `toString()` para mostrar su información.
 
-## Ejercicio 18: El Mandaloriano - Cazarrecompensas
+---
 
-Crea una clase `Cazarrecompensas` con nombre, planeta de origen y recompensa principal. Sobrescribe `toString()` para describir al personaje y `equals()` para compararlos por la recompensa ofrecida.
+## 23. Clase Pedido con Detalles de Productos
 
-- **Ejemplo**: Compara a Mando con otro cazarrecompensas según sus recompensas.
+Crea una clase `Pedido` que tenga una lista (**array**) de productos y la cantidad de cada uno. Implementa métodos para agregar productos, calcular el total y usar `toString()` para mostrar el pedido.
 
-> Nota: Crea la clase `Ejercicio18`, para comprobar el comportamiento.
+> Utiliza un array la clase **Producto del ejercicio 2**.
 
-## Ejercicio 19: Matemáticas - Matrices
+---
 
-Define una clase `Matriz` con un arreglo bidimensional de enteros. Sobrescribe `toString()` para mostrar la matriz en formato legible y `equals()` para comparar si dos matrices tienen los mismos valores en todas sus posiciones.
+## 24. Clase Zoológico con Animales
 
-- **Ejemplo**: Compara dos matrices 2x2 para ver si son iguales.
+Crea una clase `Zoologico` que almacene una lista (**array**) (**array**) de animales (clase `Animal`) con atributos `nombre` y `especie`. Implementa métodos para agregar, eliminar y listar animales. Usa `toString()` para describir el zoológico.
 
- > Nota: Crea la clase `Ejercicio19`, para comprobar el comportamiento.
+---
 
-## Ejercicio 20: DC Comics - Liga de la Justicia
+## 25. Clase Concesionaria con lista (**array**) de Vehículos
 
-Implementa una clase `MiembroLigaJusticia` con nombre, alias y superpoder. Sobrescribe `toString()` para mostrar la información del héroe y `equals()` para comparar si dos héroes tienen el mismo superpoder.
+Crea una clase `Concesionaria` con una lista (**array**) (**array**) de vehículos (clase `Vehiculo`). Implementa métodos para agregar vehículos, listar todos los vehículos y usar `toString()` para mostrar detalles.
 
-- **Ejemplo**: ¿Tienen Flash y Superman el mismo poder?
+---
 
-> Nota: Crea la clase `Ejercicio20`, para comprobar el comportamiento.
+## 26. Clase Biblioteca con Libros
+
+Crea una clase `Biblioteca` que almacene una lista (**array**) (**array**) de libros (clase `Libro`). Implementa métodos para agregar libros, eliminar libros y listar todos los libros. Usa `toString()` para describir la biblioteca.
+
+---
+
+## 27. Clase Planeta con Atributos Astronómicos
+
+Define una clase `Planeta` con atributos `nombre`, `masa`, y `radio`. Implementa métodos para calcular la gravedad en la superficie del planeta. Usa `toString()` para describir el planeta.
+
+---
+
+## 28. Clase Ciudad con Comparación por Población
+
+Crea una clase `Ciudad` con atributos `nombre`, `pais`, y `poblacion`. Implementa métodos para comparar ciudades por su población con `equals()` y usar `toString()` para describir la ciudad.
+
+---
+
+## 29. Clase Estantería con Libros
+
+Crea una clase `Estanteria` con una lista (**array**) (**array**) de libros. Implementa métodos para agregar libros y ordenarlos por título. Usa `toString()` para mostrar los detalles de la estantería.
+
+---
+
+## 30. Clase Playlist con Canciones
+
+Crea una clase `Playlist` que almacene una lista(**array**) de canciones (clase `Cancion`). Implementa métodos para agregar, eliminar y listar canciones. Usa `toString()` para mostrar la lista.
+
+---
+
+## 31. Clase Película con Atributos y Métodos
+
+Crea una clase `Pelicula` con atributos `titulo`, `director`, y `duracion`. Implementa métodos para comparar películas por duración con `equals()` y usar `toString()` para mostrar detalles.
+
+---
+
+## 32. Clase Hospital con Pacientes
+
+Crea una clase `Hospital` que almacene una lista (**array**) (**array**) de pacientes (clase `Paciente`). Implementa métodos para agregar, eliminar y listar pacientes. Usa `toString()` para describir el hospital.
+
+---
+
+## 33. Clase Computadora con Componentes
+
+Crea una clase `Computadora` con atributos `marca`, `modelo` y una lista (**array**) de componentes (como `Procesador`, `RAM`, etc.). Implementa métodos para agregar componentes y usar `toString()` para describir la computadora.
+
+---
+
+## 34. Clase Restaurante con Menú
+
+Crea una clase `Restaurante` con una lista (**array**) de platos (clase `Plato`). Implementa métodos para agregar y eliminar platos del menú y usar `toString()` para mostrar los detalles del restaurante.
+
+---
+
+## 35. Clase Bebida con Precio y Tamaño
+
+Crea una clase `Bebida` con atributos `nombre`, `precio` y `tamaño`. Implementa métodos para comparar bebidas por su tamaño con `equals()` y usar `toString()` para mostrar detalles.
+
+---
+
+## 36. Clase Colección de Monedas
+
+Crea una clase `ColeccionMonedas` que almacene una lista (**array**) de monedas (clase `Moneda`). Implementa métodos para agregar monedas y listar todas las monedas. Usa `toString()` para mostrar detalles de la colección.
+
+---
+
+## 37. Clase Partido con Equipos y Resultados
+
+Crea una clase `Partido` con atributos `equipoLocal`, `equipoVisitante`, y `resultado`. Implementa métodos para actualizar el resultado y usar `toString()` para mostrar los detalles del partido.
+
+---
+
+## 38. Clase Juego con Jugadores
+
+Crea una clase `Juego` que almacene una lista (**array**) de jugadores (clase `Jugador`). Implementa métodos para agregar y eliminar jugadores, y usar `toString()` para mostrar los detalles del juego.
+
+---
+
+## 39. Clase Tienda con Artículos
+
+Crea una clase `Tienda` que almacene una lista (**array**) de artículos (clase `Articulo` **ejercicio 22**). Implementa métodos para agregar y eliminar artículos y usar `toString()` para mostrar los detalles de la tienda.
+
+---
+
+## 40. Clase Biblioteca Digital con E-books
+
+Crea una clase `BibliotecaDigital` que almacene una lista (**array**) de e-books (clase `EBook` (con las propiedades: nombre isbn, y anio)). Implementa métodos para agregar, eliminar y buscar libros, y usa `toString()` para mostrar los detalles de la biblioteca.
+
+---
+
+## 41. Clase Colegio con Estudiantes
+
+Crea una clase `Colegio` que almacene una lista (**array**) de estudiantes. Implementa métodos para agregar y eliminar estudiantes, y usa `toString()` para mostrar los detalles del colegio.
+
+---
+
+## 42. Clase Cine con Proyecciones
+
+Crea una clase `Cine` que almacene una lista (**array**) de proyecciones (clase `Proyeccion`, clase con propiedades: ciudad, hora, y fecha). Implementa métodos para agregar y eliminar proyecciones, y usa `toString()` para mostrar los detalles del cine.
+
+---
+
+## 43. Clase Galería con Pinturas
+
+Crea una clase `Galeria` que almacene una lista (**array**) de pinturas (clase `Pintura`, con las propiedades: anio, artista, precio ). Implementa métodos para agregar, eliminar y listar pinturas. Usa `toString()` para describir la galería.
+
+---
+
+## 44. Clase Viaje con Itinerario
+
+Crea una clase `Viaje` que tenga una lista (**array**) de destinos (clase `Destino`con las propiedades: pais, ciudad, fecha ). Implementa métodos para agregar destinos al itinerario y usa `toString()` para describir el viaje.
+
+---
+
+## 45. Clase Aeropuerto con Vuelos
+
+Crea una clase `Aeropuerto` que almacene una lista (**array**) de vuelos (clase `Vuelo`, con las propiedades: aerolinea, fecha, numero). Implementa métodos para agregar y eliminar vuelos, y usa `toString()` para mostrar los detalles del aeropuerto.
+
+---
+
+## 46. Clase Restaurante con Reservas
+
+Crea una clase `Restaurante` que tenga una lista (**array**) de reservas (clase `Reserva`, con las propiedades: fecha, numero, comensales ). Implementa métodos para agregar y eliminar reservas y usa `toString()` para mostrar los detalles del restaurante.
+
+---
+
+## 47. Clase Supermercado con Carrito de Compras
+
+Crea una clase `Supermercado` con una lista (**array**) de productos en un carrito de compras. Implementa métodos para agregar y eliminar productos, y usa `toString()` para describir el contenido del carrito.
+
+> Utiliza un array la clase **Producto del ejercicio 2**.
+
+---
+
+## 48. Clase Parque con Atracciones
+
+Crea una clase `Parque` con una lista (**array**) de atracciones (clase `Atraccion`, con las propiedades:precio, nombre). Implementa métodos para agregar y eliminar atracciones, y usa `toString()` para describir el parque.
+
+---
+
+## 49. Clase Escuela con Profesores
+
+Crea una clase `Escuela` que almacene una lista (**array**) de profesores. Implementa métodos para agregar y eliminar profesores, y usa `toString()` para describir la escuela.
+
+---
+
+## 50. Clase Hospital con Médicos y Pacientes
+
+Crea una clase `Hospital` que tenga listas de médicos y pacientes. Implementa métodos para agregar, eliminar y listar médicos y pacientes, y usa `toString()` para mostrar los detalles del hospital.
+
+> Crea dos array para gestionar los médicos y pacientes.
+
+---
 
 ## Licencia 📄
 
