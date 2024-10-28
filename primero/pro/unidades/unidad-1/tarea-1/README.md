@@ -1,84 +1,63 @@
 # <img src=../../../../../images/computer.png width="40"> Code, Learn & Practice(Programación: Introducción a la Programación "Ejercicios de Variables en Java")
 
-## Ejercicio 1
+## Ejercicio 1: Tipo de Dato `int`
 
-Declara una variable entera para almacenar tu edad y muestra su valor por pantalla.
+Declara una variable de tipo `int` para representar la edad de una persona e inicialízala con un valor entero de ejemplo. Imprime el valor en la consola.
 
-## Ejercicio 2
+---
 
-Declara dos variables de tipo `double` para almacenar el precio de dos productos. Calcula la suma y muestra el resultado.
+## Ejercicio 2: Tipo de Dato `double`
 
-## Ejercicio 3
+Declara una variable de tipo `double` para representar el precio de un producto y asigna un valor decimal. Imprime el valor en la consola.
 
-Crea una variable `char` que almacene la primera letra de tu nombre y muéstrala por pantalla.
+---
 
-## Ejercicio 4
+## Ejercicio 3: Tipo de Dato `char`
 
-Declara una variable de tipo `boolean` que indique si una persona es mayor de edad (`true` o `false`). Asigna un valor y muéstralo por pantalla.
+Declara una variable de tipo `char` que represente la inicial de un nombre. Imprime el valor en la consola.
 
-## Ejercicio 5
+---
 
-Declara una variable de tipo `String` que almacene tu nombre completo. Muestra por pantalla el nombre.
+## Ejercicio 4: Tipo de Dato `boolean`
 
-## Ejercicio 6
+Declara una variable de tipo `boolean` que indique si un estudiante está matriculado (true o false). Imprime el valor en la consola.
 
-Declara tres variables enteras, asigna valores a cada una y calcula su promedio.
+---
 
-## Ejercicio 7
+## Ejercicio 5: Tipo de Dato `byte`
 
-Escribe un programa que convierta grados Celsius a Fahrenheit. Usa variables de tipo `double` para los cálculos.
+Declara una variable de tipo `byte` para almacenar la temperatura en grados y asigna un valor pequeño. Imprime el valor en la consola.
 
-## Ejercicio 8
+---
 
-Declara una variable de tipo `float` para almacenar el valor de pi (`3.1416`) y otra para el radio de un círculo. Calcula el área del círculo usando la fórmula `Área = pi * radio * radio`.
+## Ejercicio 6: Tipo de Dato `short`
 
-## Ejercicio 9
+Declara una variable de tipo `short` para representar la distancia en metros y asigna un valor. Imprime el valor en la consola.
 
-Declara una variable `int` que contenga tu año de nacimiento. Calcula y muestra tu edad actual utilizando otra variable para el año actual.
+---
 
-## Ejercicio 10
+## Ejercicio 7: Tipo de Dato `long`
 
-Crea una variable de tipo `byte` para almacenar un número del 0 al 127. Asigna un valor y muéstralo por pantalla.
+Declara una variable de tipo `long` que represente la población mundial y asigna un valor grande. Imprime el valor en la consola.
 
-## Ejercicio 11
+---
 
-Declara una variable de tipo `long` para almacenar un valor numérico grande, como la población mundial. Asigna un valor y muéstralo por pantalla.
+## Ejercicio 8: Tipo de Dato `float`
 
-## Ejercicio 12
+Declara una variable de tipo `float` para representar la altura de una persona y asigna un valor decimal. Imprime el valor en la consola.
 
-Declara una variable de tipo `short` para almacenar la cantidad de días en un año (365). Asigna el valor y muéstralo por pantalla.
+---
 
-## Ejercicio 13
+## Ejercicio 9: Tipo de Dato `String`
 
-Declara una variable de tipo `String` para almacenar una dirección de correo electrónico. Muéstrala en la consola.
+Declara una variable de tipo `String` para almacenar el nombre completo de una persona. Imprime el valor en la consola.
 
-## Ejercicio 14
+---
 
-Declara dos variables de tipo `boolean`: una que indique si una persona tiene licencia de conducir y otra si posee un vehículo. Muestra ambas variables.
+## Ejercicio 10: Tipo de Dato `Array`
 
-## Ejercicio 15
+Declara un arreglo de tipo `int` que contenga cinco números. Imprime el primer elemento del arreglo en la consola.
 
-Declara una variable de tipo `char` y asígnale un símbolo del teclado. Luego, muestra el código numérico ASCII de ese símbolo.
-
-## Ejercicio 16
-
-Declara dos variables de tipo `int` y realiza una división entre ambas. Muestra el resultado de la división entera y el residuo.
-
-## Ejercicio 17
-
-Escribe un programa que calcule el área de un rectángulo. Usa dos variables de tipo `int` para la base y la altura.
-
-## Ejercicio 18
-
-Declara una variable de tipo `float` que almacene el resultado de dividir 5 entre 2. Muestra el resultado en la consola.
-
-## Ejercicio 19
-
-Declara una variable `double` para almacenar la raíz cuadrada de 2. Usa la clase `Math` para calcular el valor y muéstralo por pantalla.
-
-## Ejercicio 20
-
-Crea un programa que intercambie los valores de dos variables enteras. Por ejemplo, si la variable `a` vale 5 y `b` vale 10, después del intercambio `a` debería valer 10 y `b` 5.
 
 
 ## Licencia 📄
