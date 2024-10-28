@@ -6,7 +6,8 @@
 
 ### Objetivo
 
-Crear un diagrama de casos de uso para un sistema de biblioteca.
+- Crear el [diagrama de casos de uso](https://github.com/jpexposito/code-learn/tree/main/primero/ets/unidades/unidad-3#1-diagrama-de-casos-de-uso) para un sistema de biblioteca.
+- Crea el [documento de especificación de caos de uso](https://github.com/jpexposito/code-learn/blob/main/primero/ets/unidades/unidad-3/casos-de-uso/ESPECIFICACION.md).
 
 ### Guía paso a paso
 
@@ -38,7 +39,8 @@ Crear un diagrama de casos de uso para un sistema de biblioteca.
 
 ### Objetivo
 
-Crear un diagrama de casos de uso para una tienda en línea.
+Crear [diagrama de casos de uso](https://github.com/jpexposito/code-learn/tree/main/primero/ets/unidades/unidad-3#1-diagrama-de-casos-de-uso) para una tienda en línea.
+- Crea el [documento de especificación de caos de uso](https://github.com/jpexposito/code-learn/blob/main/primero/ets/unidades/unidad-3/casos-de-uso/ESPECIFICACION.md).
 
 ### Guía paso a paso
 
@@ -70,7 +72,8 @@ Crear un diagrama de casos de uso para una tienda en línea.
 
 ### Objetivo
 
-Desarrollar un diagrama de casos de uso para una plataforma de cursos en línea.
+Desarrollar [diagrama de casos de uso](https://github.com/jpexposito/code-learn/tree/main/primero/ets/unidades/unidad-3#1-diagrama-de-casos-de-uso) para una plataforma de cursos en línea.
+- Crea el [documento de especificación de caos de uso](https://github.com/jpexposito/code-learn/blob/main/primero/ets/unidades/unidad-3/casos-de-uso/ESPECIFICACION.md).
 
 ### Guía paso a paso
 
