@@ -78,6 +78,21 @@ El propósito de esta tarea es que el alumno defina y describa en detalle al men
      4. Leer comentarios.
      5. Visualizar estadísticas básicas de la aplicación.
 
+5. Realiza la subida de la rama
+   
+   ```code
+   git add .
+   git commit -m "Se realiza la definición especifica del proyecto #5"
+   git push
+   git checkout main
+   git merge version-v2
+   git push
+   ```
+
+   >__IMPORTANTE__: `5`es el número del issu donde se especifica lo que hay que realizar.
+
+6. Realiza el informe en el issu espefificado de lo que has realizado indicando la salida de los comandos aplicacios, y las espeplicaciones que consideres necesarias.
+
 ## Licencia 📄
 
 Este proyecto está bajo la Licencia (Apache 2.0) - mira el archivo [LICENSE.md]([../../../LICENSE.md](https://github.com/jpexposito/code-learn-practice/blob/main/LICENSE)) para detalles.
