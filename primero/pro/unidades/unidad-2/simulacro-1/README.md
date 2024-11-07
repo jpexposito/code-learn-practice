@@ -27,19 +27,20 @@ La función devuelve `true` si la fecha es correcta, y `false` en cualquier otro
 ## Ejercicio 2: Algoritmo - Cálculo de Velocidad de un Cuerpo
 
 **Descripción**: Crea un programa en Java que permita calcular la velocidad final de un cuerpo en movimiento uniformemente acelerado. Los datos de entrada son:
+
 - Velocidad inicial \( v<sub>0</sub> \) (en metros por segundo).
 - Aceleración \( a \) (en metros por segundo al cuadrado).
 - Tiempo \( t \) (en segundos).
 
 La fórmula de velocidad final es:
 \[
-v = v<sub>0</sub> + a \cdot t
+v = v<sub>0</sub> + *a* * *t*.
 \]
 
 **A tener en cuenta**:
 
 - Solicita al usuario los tres valores y calcula la velocidad final.
-- Considera las restricciones de unidades y muestra la velocidad final en m/s.
+- Considera las restricciones de unidades y muestra la velocidad final en `m/s`.
 - Ten en cuenta los tipos de datos para realizar los calculos.
 
 **Ejemplo de salida**:
