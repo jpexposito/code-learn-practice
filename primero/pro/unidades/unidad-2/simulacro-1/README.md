@@ -17,10 +17,60 @@ La función devuelve `true` si la fecha es correcta, y `false` en cualquier otro
 - Entrada: `31/04/2023` → Salida: `Fecha no válida.`
 
 > La función se llama isBisiesto(int dia, int mes, int anio), y retorna `true/false`.
-
 > Un año es bisiesto si es divisible por 4 (anio % 4 == 0).
 > Si el año es divisible por 100, también debe ser divisible por 400 para ser bisiesto.
 > Esto se verifica con anio % 100 != 0 || anio % 400 == 0.
+
+<details>
+  <summary>SOLUCIÓN:</summary>
+  
+```java
+public class Ejercicio1 {
+
+    public static boolean isFechaValida(int dia, int mes, int anio) {
+        boolean bisiesto = esBisiesto(anio);
+
+        if (mes < 1 || mes > 12) {
+            return false;
+        }
+
+        int diasEnMes;
+        switch (mes) {
+            case 4: case 6: case 9: case 11:
+                diasEnMes = 30;
+                break;
+            case 2:
+                diasEnMes = bisiesto ? 29 : 28; 
+                break;
+            default:
+                diasEnMes = 31; 
+        }
+        return dia >= 1 && dia <= diasEnMes;
+    }
+
+    public static boolean esBisiesto(int anio) {
+        return (anio % 4 == 0) && (anio % 100 != 0 || anio % 400 == 0);
+    }
+
+    public static void main(String[] args) {
+        int dia1 = 29, mes1 = 2, anio1 = 2020;
+        if (isFechaValida(dia1, mes1, anio1)) {
+            System.out.println("Fecha válida, año bisiesto.");
+        } else {
+            System.out.println("Fecha no válida.");
+        }
+
+        int dia2 = 31, mes2 = 4, anio2 = 2023;
+        if (isFechaValida(dia2, mes2, anio2)) {
+            System.out.println("Fecha válida.");
+        } else {
+            System.out.println("Fecha no válida.");
+        }
+    }
+}
+```
+
+</details>  
 
 ---
 
@@ -46,6 +96,18 @@ v = v<sub>0</sub> + *a* * *t*.
 **Ejemplo de salida**:
 - Entrada: \( v<sub>0</sub> = 5 \), \( a = 3 \), \( t = 10 \) → Salida: `La velocidad final es: 35.0 m/s.`
 
+
+
+<details>
+  <summary>SOLUCIÓN:</summary>
+  
+  ```java
+  
+  ```
+
+</details>  
+
+
 ---
 
 ## Ejercicio 3: Construcción de Clases - Clase `Persona`
@@ -61,12 +123,20 @@ Define los métodos necesarios:
 1. **Constructor** que permita inicializar todos los atributos.
 2. **Método `esMayorDeEdad`** que devuelva `true` si la persona es mayor de edad (edad >= 18) y `false` en caso contrario.
 
-
 **Ejemplo de uso**:
 
 - Crear una instancia de `Persona`, por ejemplo `persona` y cuando hagamos un `sout de persona` debe de mostrar la información del objeto en memoria, que debería mostrar todos los datos ingresados.
 - Crea una segunda instancia de `Persona`, llamada `otraPersona` con los mismos datos y verifica que son la misma persona. El resultado debería de ser `true`.
+
+<details>
+  <summary>SOLUCIÓN:</summary>
   
+  ```java
+  
+  ```
+
+</details>  
+
 ---
 
 ## Ejercicio 4: Construcción de Clases - Clase `Producto`
@@ -86,6 +156,15 @@ Define los métodos necesarios:
 
 - Crear un objeto de tipo `Producto`, aplicar un descuento y mostrar la información actualizada.
 
+<details>
+  <summary>SOLUCIÓN:</summary>
+  
+  ```java
+  
+  ```
+
+</details>  
+
 ---
 
 ## Ejercicio 5: Gestión de Lista de Personas
@@ -101,6 +180,15 @@ Define los métodos necesarios:
 
 - Utiliza una estructura de datos como `array` para almacenar las personas.
 - Implementa un menú en el programa para seleccionar las opciones de CRUD y manipular la lista de personas.
+
+<details>
+  <summary>SOLUCIÓN:</summary>
+  
+  ```java
+  
+  ```
+
+</details>  
 
 ## Licencia 📄
 
