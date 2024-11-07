@@ -1,6 +1,6 @@
 # <img src=../../../../../images/computer.png width="40"> Code, Learn & Practice(Simulacro II-> Trabajo con clases)
 
-## Ejercicio 1
+## Ejercicio 1 Contador de dígitos
 
 **Descripción**: El objetivo de este ejercicio es escribir un programa en que permita contar cuántos dígitos tiene un número entero positivo. El programa debe recibir un número entero positivo como entrada del usuario y luego determinar cuántos dígitos tiene dicho número.
 
@@ -15,6 +15,14 @@
 - Dividir el número entre 10 repetidamente, incrementando un contador por cada división. Esto eliminará el último dígito del número en cada iteración.
 - El número de iteraciones realizadas (o el valor del contador) será igual a la cantidad de dígitos en el número original.
 - Mostrar el resultado, que es el número total de dígitos del número ingresado.
+
+**Realiza una función llamada contadorDigitos**
+
+```java
+int contadorDigitos(int numero) {
+    return tamanio;
+}
+```
 
 **Ejemplo de salida**:
 
@@ -37,13 +45,33 @@
 
 ---
 
-## Ejercicio 2
+## Ejercicio 2: Verificar si un número es un "Número de la Fuerza"
 
-**Descripción**
+**Descripción**: En el universo de **Star Wars**, un "**Número de la Fuerza**" es un número especial que solo puede ser usado por un **Jedi**. Un "**Número de la Fuerza**" es un número que cumple con la siguiente condición:*la suma de sus dígitos es divisible por el número de dígitos del mismo número. Si el número es un "Número de la Fuerza", significa que tiene el potencial de ser utilizado por un Jedi para acceder al poder de la Fuerza*.
 
-**A tener en cuenta**:
+Tu misión, **joven padawan**, es crear un programa en que verifique si un número es un "Número de la Fuerza". Si lo es, muestra un mensaje diciendo *"¡Este es un Número de la Fuerza!"* y si no lo es, muestra *"¡Este número no es digno de la Fuerza!"*.
 
-**Ejemplo de salida**:
+**Requisitos**:
+
+- El programa debe aceptar un número entero positivo.
+- Debe calcular la suma de los dígitos del número.
+- Debe dividir esa suma por la cantidad de dígitos del número.
+- Si la suma de los dígitos es divisible por el número de dígitos, es un "Número de la Fuerza".
+
+**Ejemplo de Entrada y Salida:**
+
+>Entrada: 123
+>Salida: ¡Este número es digno de la Fuerza!
+>Entrada: 36
+>Salida: ¡Este no es un Número de la Fuerza!
+
+
+**Explicación:**
+
+```code
+1+2+3 = 6;
+6/3 = 2 que es una división exacta.
+```
 
 <details>
   <summary>SOLUCIÓN:</summary>
