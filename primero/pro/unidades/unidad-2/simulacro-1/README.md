@@ -101,12 +101,41 @@ v = v<sub>0</sub> + *a* * *t*.
 <details>
   <summary>SOLUCIÓN:</summary>
   
-  ```java
-  
-  ```
+```java
+import java.util.Scanner;
+
+public class Ejercicio2 {
+
+    /**
+    Funcion para calcular la velocidad final
+    **/
+    public static double calcularVelocidadFinal(double velocidadInicial, double aceleracion, double tiempo) {
+        return velocidadInicial + (aceleracion * tiempo); 
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        
+        System.out.print("Ingrese la velocidad inicial (v0) en m/s: ");
+        double velocidadInicial = scanner.nextDouble();
+
+        System.out.print("Ingrese la aceleración (a) en m/s²: ");
+        double aceleracion = scanner.nextDouble();
+
+        System.out.print("Ingrese el tiempo (t) en segundos: ");
+        double tiempo = scanner.nextDouble();
+
+        double velocidadFinal = calcularVelocidadFinal(velocidadInicial, aceleracion, tiempo);
+
+        System.out.printf("La velocidad final es: %.2f m/s%n", velocidadFinal);
+
+        scanner.close();
+    }
+}
+```
 
 </details>  
-
 
 ---
 
