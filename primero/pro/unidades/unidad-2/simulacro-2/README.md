@@ -38,7 +38,23 @@ int contadorDigitos(int numero) {
   <summary>SOLUCIÓN:</summary>
   
 ```java
+public class Ejercicio1 {
+    public static void main(String[] args) {
+    
+    System.out.println("NUmero caracteres:"+contadorDigitos(555));    
+    }
 
+    /**
+     * Funcion que cuenta el numero de digitos
+     * @return
+     */
+    static int contadorDigitos(Integer numero){
+        if(numero==null || numero<1){
+            return 0;
+        }
+        return String.valueOf(numero).length();
+    }
+}
 ```
 
 </details>  
@@ -77,7 +93,33 @@ Tu misión, **joven padawan**, es crear un programa en que verifique si un núme
   <summary>SOLUCIÓN:</summary>
   
 ```java
+    public static void main(String[] args) {
+        int numero = 123;
 
+        if (isNumeroFuerza(numero)) {
+            System.out.println("Este numero es digo de la fuerza");
+        } else {
+            System.out.println("Este numero NO es digo de la fuerza");
+        }
+        
+
+    }
+    static boolean isNumeroFuerza(Integer numero){
+        if(numero==null || numero<1){
+            return false;
+        }
+        int tamanio = String.valueOf(numero).length();
+        int suma=0;
+        for(int i=0; i<tamanio;i++){
+            int digito = String.valueOf(numero).charAt(i);
+            suma += digito;
+        }
+        int resto = suma%tamanio;
+        if (resto==0){
+            return true;
+        }
+        return false;
+    }
 ```
 
 </details>  
@@ -108,7 +150,7 @@ Crea una clase llamada `CuentaBancaria` que represente una cuenta bancaria senci
   <summary>SOLUCIÓN:</summary>
   
 ```java
-
+//REALIAZADO ANTERIORMENTE
 ```
 
 </details>  
@@ -137,7 +179,98 @@ Crea una clase llamada `Mago` que represente a un personaje en un juego. El mago
   <summary>SOLUCIÓN:</summary>
   
 ```java
+public class Mago {
+    private String nombre;
+    private int nivel;
+    private int mana;
 
+    /**
+     * Constructor por defecto
+     */
+    public Mago(){}
+
+    /**
+     * Contructor con propiedades
+     * @param nombre
+     * @param nivel
+     * @param mana
+     */
+    public Mago(String nombre, int nivel, int mana) {
+        this.nombre = nombre;
+        this.nivel = nivel;
+        this.mana = mana;
+    }
+    
+
+    public String getNombre() {
+        return this.nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getNivel() {
+        return this.nivel;
+    }
+
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
+    }
+
+    public int getMana() {
+        return this.mana;
+    }
+
+    public void setMana(int mana) {
+        this.mana = mana;
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+            " nombre='" + getNombre() + "'" +
+            ", nivel='" + getNivel() + "'" +
+            ", mana='" + getMana() + "'" +
+            "}";
+    }
+    
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof Mago)) {
+            return false;
+        }
+        Mago mago = (Mago) o;
+        return Objects.equals(nombre, mago.nombre);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombre, nivel, mana);
+    }
+    /**
+     * 
+     * @param valor a restar
+     * @return
+     */
+    public boolean lanzarHechizo(int valor) {
+        if((this.mana - valor) > 0){
+            this.mana -= valor;
+            return true;
+        }
+        return false;
+    }
+
+    public int calcularDanio(){
+        return this.nivel*10;
+    }
+
+    public void recargar(int cantidad) {
+        this.mana += cantidad;
+    }
 ```
 
 </details>  
@@ -172,7 +305,37 @@ Crea una clase Mago que represente a cada miembro del consejo con sus atributos 
   <summary>SOLUCIÓN:</summary>
   
 ```java
+public class Consejo {
+    private Mago[] magos;
+    private int totalMagos = 0;
+    public Consejo() {
+        this.magos = new Mago[10];
+    }
+    public Consejo(int numeroMagos) {
+        this.magos = new Mago[numeroMagos];
+    }
 
+    public boolean agregarMago(Mago mago) {
+        if (mago == null) {
+            return false;
+        } 
+        if (totalMagos >= magos.length) {
+            return false;
+        }
+        magos[totalMagos] = mago;
+        totalMagos++;
+        return true;
+    }
+
+    public boolean eliminarMago() {
+         
+        if (totalMagos == 0) {
+            return false;
+        }
+        magos[totalMagos-1] = null;
+        totalMagos--;
+        return true;
+    }
 ```
 
 </details>  
