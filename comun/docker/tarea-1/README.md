@@ -1,4 +1,4 @@
-# <img src=../../../../../images/computer.png width="40"> Code, Learn & Practice(Docker: Hello Docker)
+# <img src=../../../images/computer.png width="40"> Code, Learn & Practice(Docker: Hello Docker)
 
 ## Paso 1: Trabajar con imágenes de Docker
 
