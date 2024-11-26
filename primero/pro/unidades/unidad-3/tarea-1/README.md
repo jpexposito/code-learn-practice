@@ -166,6 +166,8 @@ En los siguientes ejercicios vamos a trabajar con los métodos que proporciona l
 - Crea una copia exacta del `ArrayList` utilizando el método `clone`.
 - Imprime la lista clonada.
 
+> Ejemplo de utilización de [clone](https://www.w3schools.com/java/ref_arraylist_clone.asp).
+
 ---
 
 ## **16. Verificar si la Lista Está Vacía**
