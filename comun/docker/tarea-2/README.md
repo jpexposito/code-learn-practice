@@ -10,9 +10,9 @@ Consulta los comandos de docker en el siguiente [enlace](https://github.com/jpex
 
 1. Verifica que Docker está instalado y funcionando:
 
-   ```bash
-   docker --version
-   ```
+```bash
+docker --version
+```
 
 2. Asegúrate de que ningún servicio en tu máquina está utilizando el puerto 8080 (o el puerto que desees asignar).
 
@@ -22,37 +22,37 @@ Consulta los comandos de docker en el siguiente [enlace](https://github.com/jpex
 
 1. Descarga la imagen oficial de Apache Tomcat desde Docker Hub:
 
-   ```bash
-   docker pull tomcat
-   ```
+```bash
+docker pull tomcat
+```
 
-   Debes de obtener algo similar a lo siguiente:
+Debes de obtener algo similar a lo siguiente:
 
-   ```code
-    Using default tag: latest
-  latest: Pulling from library/tomcat
+```code
+   Using default tag: latest
+latest: Pulling from library/tomcat
 afad30e59d72:
-   ```
+```
 
 2. Confirma que la imagen fue descargada correctamente:
   
-   ```bash
-   docker images
-   ```
+```bash
+docker images
+```
 
-   Busca `tomcat` en la lista de imágenes disponibles.
+Busca `tomcat` en la lista de imágenes disponibles.
 
-   Debes de obtener algo similar a los siguiente:
+Debes de obtener algo similar a los siguiente:
 
-   ```code
-  tomcat                                 latest    f77539e7e45f   10 days ago     467MB
+```code
+tomcat                                 latest    f77539e7e45f   10 days ago     467MB
 bitnami/wildfly                        latest    fd834e6b2436   11 days ago     851MB
 tomcat                                 9.0       6dbc2b16532f   11 days ago     469MB
 httpd                                  latest    dad6ca1caf78   4 months ago    148MB
 mysql                                  latest    fcd86ff8ce8c   6 months ago    578MB
 jpexposito/trabajo-docker-kubernetes   1.0       094928f853db   7 months ago    533MB
 trabajo-docker-kubernetes              1.0       094928f853db   7 months ago    533MB
-   ```
+```
 
 ---
 
@@ -125,6 +125,7 @@ Debes de obtener algo similar a lo siguiente
 ```code
 com.docke 55811 user   91u  IPv6 0x9304e55e6b9ab60e      0t0  TCP *:websm (LISTEN)
 ```
+
 ---
 
 ## Paso 5: Detener y Eliminar el Contenedor
