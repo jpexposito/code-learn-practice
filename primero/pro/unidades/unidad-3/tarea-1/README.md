@@ -145,6 +145,8 @@ En los siguientes ejercicios vamos a trabajar con los métodos que proporciona l
 - Usa el método `removeIf` para eliminar todos los nombres del `ArrayList` que tengan más de 5 caracteres.
 - Imprime la lista resultante.
 
+> Ejemplo de utilización de [removeif](https://www.w3schools.com/java/ref_arraylist_removeif.asp).
+
 ---
 
 ## **14. Agregar Todos los Elementos de Otra Lista**
