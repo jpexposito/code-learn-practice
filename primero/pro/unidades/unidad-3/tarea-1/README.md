@@ -125,7 +125,7 @@ En los siguientes ejercicios vamos a trabajar con los métodos que proporciona l
 - Invierte el orden de los elementos del `ArrayList` utilizando el método `Collections.reverse`.
 - Imprime la lista invertida.
 
-> Ejemplo de utilización de [Collections.sort](https://www.geeksforgeeks.org/collections-reverse-method-in-java-with-examples/).
+> Ejemplo de utilización de [Collections.reverse](https://www.geeksforgeeks.org/collections-reverse-method-in-java-with-examples/).
 
 ---
 
