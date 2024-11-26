@@ -186,7 +186,7 @@ En los siguientes ejercicios vamos a trabajar con los métodos que proporciona l
 - Usa el método `replaceAll` para reemplazar todos los elementos del `ArrayList` con el valor `"Sin Nombre"`.
 - Imprime la lista resultante.
 
-> Ejemplo de utilización de [Collections](https://www.geeksforgeeks.org/replacing-all-occurrences-of-specified-element-of-java-arraylist/).
+> Ejemplo de utilización de [replaceAll](https://www.geeksforgeeks.org/replacing-all-occurrences-of-specified-element-of-java-arraylist/).
 
 ---
 
