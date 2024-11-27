@@ -139,18 +139,40 @@ Realiza la configuración del cliente:
 
 ---
 
+### Encontrar la BBDD
+
+`CloudBeaver` permite encontrar las BBDD que esten dentro de su red.
+
+<img src="../images/find-db.png" width="500px">
+
+- `+` -> `Find DataBase`. 
+- En el buscador escribe `localhost`.
+
+>**Importante**: *Debes de obtener una respuesta similar a la que se visualiza en la imagen*. Copia la `ip` que se encuentra asociada a `localhost`.
+
+---
+
 ### **Conectar CloudBeaver a MariaDB**
 
 - Desde la interfaz de CloudBeaver, selecciona `New Connection (Nueva conexión)`.
 - Selecciona `MariaDB/MySQL` como tipo de base de datos.
 - Introduce los datos de conexión:
- Host: `host.docker.internal` (para Windows o Mac) o `localhost/ip` (en Linux).
+ Host: `ip` -> `192.168....`.
 - Puerto: `3306` *(el puerto configurado para MariaDB)*.
 - Usuario: `root` *(u otro usuario configurado)*.
 - Contraseña: `admin` *(o la contraseña configurada para el usuario)*.
 - Base de datos: `exampledb` *(u otra base de datos que hayas configurado).
+
+<img src="../images/new-conection-db.png" width="500px">
+
 - Haz clic en `Test Connection` para verificar la conexión.
+
+<img src="../images/test-ok-db.png" width="200px">
+
 - Si la conexión es exitosa, haz clic en `Finish`.
+
+<img src="../images/conection-db.png" width="200px">
+
 
 ### **Detener y eliminar contenedores**
 
