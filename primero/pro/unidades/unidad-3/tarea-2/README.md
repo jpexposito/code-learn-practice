@@ -11,28 +11,30 @@ List<Integer> enteros = new ArrayList<>(Arrays.asList(1, 2, 3));
 List<String> diasDeLaSemana = new ArrayList<>(Arrays.asList(
     "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"
 ));
-
 ```
+
 ---
 >**IMPORTANTE: GENERA FUNCIONES PARA RESOLVER CADA UNA DE LAS FUNCIONALIDADES (LÓGICAS DE NEGOCIO) QUE SE PROPONEN**
 >
 > Por ejemplo utiliza el método addAll()
 >
 
-```java
-/**
- * Funcion que permite incluir un lista en otra
- */
-List<TipoElemento> addAll(List<TipoEjemento> listaIncial, List<TipoEjemento> lista){
-    //.... utilizamos la función addAll() de java, pero antes verificamos si alguna de las listas es null o empty, etc
-}
-```
+>```java
+>/**
+> * Funcion que permite incluir >un lista en otra
+> */
+>List<TipoElemento> addAll>(List<TipoEjemento> listaIncial, List<TipoEjemento> lista){
+>  //.... utilizamos la función >addAll() de java, pero antes verificamos si alguna de las listas es null o empty, etc
+>}
+>```
 
 ---
 
 ## **1. Verificar si una lista está vacía antes de agregar elementos**
 
-Verifica si una lista está vacía utilizando `isEmpty()`. Si está vacía, rellénala con números del 1 al 10. Si no está vacía, elimina todos los números menores que 5 usando `removeIf()`.
+Verifica si una lista está vacía utilizando `isEmpty()`. Si está vacía, rellénala con números del 1 al 10 . Si no está vacía, elimina todos los números menores que 5 usando `removeIf()`.
+
+> Verifica el comportamiento con cada una de las opciones que pueden suceder.
   
 >**Métodos a usar**:
 >  - `isEmpty()` de `List`.
@@ -43,18 +45,20 @@ Verifica si una lista está vacía utilizando `isEmpty()`. Si está vacía, rell
 
 ## **2. Agregar elementos a una lista si no existen**
 
-Agrega elementos a una lista solo si no están presentes, usando `contains()`. Luego, ordena la lista alfabéticamente con `Collections.sort()`.
+Agrega elementos a una lista `solo si no están presentes`, usando `contains()`. Luego, ordena la lista alfabéticamente con `Collections.sort()`.
 
 > **Métodos a usar**: 
 >  - `contains()` de `List`.
 >  - `add()` de `ArrayList`.
 >  - `sort()` de `Collections`.
 
+> Crea inicialmente una lista, para después utilizar el contains, y el sort.
+
 ---
 
-## **3. Eliminar elementos según un criterio y verificar después**
+## **3. Eliminar elementos según un criterio y verificar después si existe aún en la lista**
 
-Llena una lista con números aleatorios. Elimina todos los números mayores que 50 utilizando `removeIf()`. Después, verifica si la lista contiene números pares con `contains()` o recorriéndola con un bucle.
+Llena una lista con números aleatorios (Utiliza [Math](https://www.w3schools.com/java/java_howto_random_number.asp)). Elimina todos los números mayores que 50 utilizando `removeIf()`. Después, verifica si la lista contiene números pares con `contains()` o recorriéndola con un bucle.
 
 > - **Métodos a usar**: 
 > > - `Math.random()`
@@ -66,7 +70,7 @@ Llena una lista con números aleatorios. Elimina todos los números mayores que 
 
 ## **4. Comparar listas y fusionar solo elementos únicos**
 
-Crea dos listas de enteros. Agrega a una tercera lista solo los elementos que están en una de las dos listas pero no en ambas, usando `addAll()`, `retainAll()` y `removeAll()`.
+Crea dos listas de enteros, genera auna tercera lista solo los elementos que están en una de las dos listas pero no en ambas, usando `addAll()`, `retainAll()` y `removeAll()`.
 
 >**Métodos a usar**:
 >  - `addAll()` de `ArrayList`.
@@ -77,10 +81,10 @@ Crea dos listas de enteros. Agrega a una tercera lista solo los elementos que es
 
 ## **5. Contar elementos antes y después de realizar operaciones**
 
-Llena una lista con números del 1 al 20. Muestra el tamaño inicial con `size()`. Elimina los múltiplos de 3 utilizando `removeIf()`. Muestra el tamaño de la lista después de la operación.
+Llena una lista con números del 1 al 20 (`forEach y add`). Muestra el tamaño inicial con `size()`. Elimina los múltiplos de 3 utilizando `removeIf()`. Muestra el tamaño de la lista después de la operación.
 
 > **Métodos a usar**:
->  - `addAll()` de `ArrayList`.
+>  - `add` de `ArrayList`.
 >  - `removeIf()` de `List`.
 >  - `size()` de `List`.
 
@@ -88,7 +92,7 @@ Llena una lista con números del 1 al 20. Muestra el tamaño inicial con `size()
 
 ## **6. Validar y rellenar listas según un patrón**
 
-Escribe un método que reciba dos listas. Si alguna está vacía (`isEmpty()`), rellénala con números impares del 1 al 10. Si ambas están llenas, crea una tercera lista con el producto de los elementos en las mismas posiciones.
+Escribe un método que reciba dos listas de enteros. Si alguna está vacía (`isEmpty()`), rellénala con números impares del 1 al 10. Si ambas están llenas, crea una tercera lista con el `producto` de los elementos en las mismas posiciones.
 
 >**Métodos a usar**:
 >  - `isEmpty()` de `List`.
@@ -99,17 +103,16 @@ Escribe un método que reciba dos listas. Si alguna está vacía (`isEmpty()`), 
 
 ## **7. Eliminar elementos duplicados manteniendo el orden**
 
-Llena una lista con palabras repetidas. Usa un `Set` temporal para identificar y eliminar duplicados, manteniendo el orden de aparición original.
+Llena una lista con palabras repetidas. Usa una `List` temporal para identificar y eliminar duplicados, manteniendo el orden de aparición original.
 
 >**Métodos a usar**:
 > - `add()` de `ArrayList`.
-> - Uso de un `LinkedHashSet` para eliminar duplicados.
 
 ---
 
 ## **8. Eliminar elementos según varias condiciones**
 
-Llena una lista con números. Escribe un método que elimine números negativos y mayores que 100 en una sola operación con `removeIf()`. Verifica si la lista resultante no está vacía antes de imprimirla.
+Llena una lista con números aleatorios entre 90 y 110, con [Math](https://www.w3schools.com/java/java_howto_random_number.asp). Escribe un método que elimine números negativos y mayores que 100 en una sola operación con `removeIf()`. Verifica si la lista resultante no está vacía antes de imprimirla.
 
 >**Métodos a usar**:
 > - `addAll()` de `ArrayList`.

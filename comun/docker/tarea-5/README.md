@@ -4,6 +4,9 @@
 
 Configurar un balanceador de carga **[NGINX](https://kinsta.com/es/base-de-conocimiento/que-es-nginx/)** que distribuya el tráfico entre dos servidores **[Tomcat](https://es.wikipedia.org/wiki/Tomcat)** ejecutados en contenedores Docker.
 
+> **Documentación oficial**:
+> - [nginx](https://docs.redhat.com/es/documentation/red_hat_enterprise_linux/8/html/deploying_different_types_of_servers/configuring-nginx-as-an-http-load-balancer_setting-up-and-configuring-nginx#configuring-nginx-as-an-http-load-balancer_setting-up-and-configuring-nginx)
+
 Consulta los comandos de docker en el siguiente [enlace](https://github.com/jpexposito/code-learn/blob/main/comun/docker/COMANDOS.md), y las redes en docker en el siguiente [enlace](https://github.com/jpexposito/code-learn/tree/main/comun/docker/ud-5).
 
 > Recuerda que debes de tener el contenedor docker corriendo
