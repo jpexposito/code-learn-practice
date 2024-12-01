@@ -1,103 +1,150 @@
 # <img src=../../../../../images/computer.png width="40"> Code, Learn & Practice(Entornos de Desarrollo: Comenzando con los diagramas de Clases ")
 
-## Ejercicio: Diseñando el Sistema de una Tienda de Souvenirs
+## Ejercicio 1: Sistema de Reservas de Hoteles
 
-<img src=https://shopinporto.porto.pt/wp-content/uploads/2019/07/01-Porto-Souvenir_2_012_SIP_2808-2.jpg width="350">
+### Descripción
 
-### Objetivo
+Imagina que estás diseñando un sistema de reservas para un hotel. Este sistema debe gestionar las habitaciones disponibles, los clientes que realizan las reservas, y las reservas propiamente dichas.  
 
-- Crear el [diagrama de clases](https://github.com/jpexposito/code-learn/tree/main/primero/ets/unidades/unidad-4) para el sistema indicado.
+### Instrucciones  
 
-### Guía paso a paso
+1. Diseña un diagrama de clases que incluya las siguientes entidades:  
+   - **Habitación**: Representa las habitaciones del hotel.  
+   - **Cliente**: Representa a los clientes que realizan las reservas.  
+   - **Reserva**: Conecta a los clientes con las habitaciones reservadas.  
 
-Estamos diseñando el sistema para una tienda de souvenirs que vende camisetas, tazas, llaveros y otros artículos encantadores. Además, la tienda tiene `clientes` frecuentes y necesita registrar cada una de sus compras. Para organizar toda esta información, vamos a crear un **diagrama de clases**.
+2. Define al menos las siguientes propiedades y métodos para cada clase:  
+   - **Habitación**:  
+     - **Propiedades**:  
+       - Número de habitación  
+       - Tipo de habitación (individual, doble)  
+       - Precio por noche  
+     - **Métodos**:  
+       - `comprobarDisponibilidad()`  
+       - `cambiarEstado()`  
 
-Nuestro sistema tendrá tres componentes principales: **Producto**, **Cliente** y **Venta**.
+   - **Cliente**:  
+     - **Propiedades**:  
+       - Nombre  
+       - Número de contacto  
+       - Correo electrónico  
+     - **Métodos**:  
+       - `registrarCliente()`  
+       - `obtenerInformación()`  
 
----
+   - **Reserva**:  
+     - **Propiedades**:  
+       - Fecha de entrada  
+       - Fecha de salida  
+       - Cliente  
+       - Habitación  
+     - **Métodos**:  
+       - `calcularCostoTotal()`  
+       - `confirmarReserva()`  
 
-#### El Producto: La estrella de la tienda
-
-El primer elemento clave son los **productos**. Cada producto en la tienda tiene características importantes:  
-
-- **Nombre**: Esto nos dice qué es, como "Taza de cerámica".  
-- **Precio**: Indica cuánto cuesta, por ejemplo, 15.00€.  
-- **Cantidad en inventario**: Nos dice cuántas unidades tenemos disponibles, como 30.  
-- **Categoría**: Clasifica el producto, como "Souvenir" o "Ropa".  
-
-##### Métodos del Producto
-
-- **Actualizar el inventario**:  
-  Si un cliente compra un producto, necesitamos restar la cantidad comprada del inventario.  
-  - **Método**: `actualizarInventario(cantidad: int)`  
-  - **Función**: Resta/Suma la cantidad al inventario actual.  
-
-- **Calcular el precio total**:  
-  Si un cliente compra varias unidades de un producto, este método multiplica el precio por la cantidad solicitada y devuelve el precio total.  
-  - **Método**: `precioTotal(cantidad: int)`  
-  - **Función**: Multiplica `precio * cantidad` y devuelve el total.  
-
----
-
-## El Cliente: La pieza clave del negocio
-
-Por supuesto, los clientes son el motor de la tienda. Cada cliente tiene atributos únicos que necesitamos registrar:  
-
-- **Nombre**: Por ejemplo, "Juan Pérez".  
-- **Correo electrónico**: Así podemos enviarles promociones, como `juanperez@example.com`.  
-- **Historial de compras**: Una lista de todas las compras que ha realizado en la tienda.  
-
-### Métodos del Cliente
-
-- **Añadir una compra a su historial**:  
-  Cada vez que un cliente realiza una compra, esta se añade a su historial.  
-  - **Método**: `añadirHistorial(venta: Venta)`  
-  - **Función**: Agrega un objeto `Venta` al historial de compras del cliente.  
-
-- **Obtener información del cliente**:  
-  Si necesitamos datos rápidamente, este método devuelve el nombre, correo y cuántas compras ha realizado.  
-  - **Método**: `obtenerDatosCliente()`  
-  - **Función**: Devuelve una cadena con los datos del cliente.
-   > ¿Qué función de la clase realiza esta acción (`to...`)?
+3. Indica las relaciones entre las clases:  
+   - Un cliente puede realizar varias reservas.  
+   - Cada reserva está asociada con una habitación específica.  
 
 ---
 
-## Las Ventas
+## Ejercicio 2: Sistema de Gestión de Bibliotecas
 
-Cada transacción en la tienda se registra como una **venta**. Una venta conecta a un cliente con los productos que ha comprado y tiene las siguientes características:  
+### Descripción
 
-- **Fecha**: El día en que ocurrió, por ejemplo, "2024-12-01".  
-- **Cliente**: El comprador que realizó la compra (relación directa con la clase **Cliente**).  
-- **Lista de productos**: Todos los productos que el cliente adquirió durante esta compra (relación directa con la clase **Producto**).  
-- **Total**: El monto total pagado en la venta.  
-
-### Métodos de la Venta
-
-- **Calcular el total**:  
-  Este método recorre la lista de productos, suma sus precios y devuelve el total de la venta.  
-  - **Método**: `calcularTotal()`  
-  - **Función**: Suma los precios de los productos en `listaProductos` y actualiza el `total`.  
-
-- **Generar un recibo**:  
-  Crea un resumen con la información del cliente, los productos comprados y el total pagado.  
-  - **Método**: `generarRecibo()`  
-  - **Función**: Devuelve un recibo en formato texto.  
+Estás diseñando un sistema para gestionar una biblioteca. El sistema debe rastrear libros, miembros de la biblioteca, préstamos y otros elementos asociados.  
 
 ---
 
-## Relaciones entre las Clases
+#### Sistema A
 
-El sistema tiene tres relaciones importantes:  
+1. Diseña un diagrama de clases que incluya las siguientes entidades:  
+   - **Libro**: Representa los libros disponibles en la biblioteca.  
+   - **Miembro**: Representa a las personas registradas en la biblioteca.  
+   - **Préstamo**: Conecta a los miembros con los libros que han tomado prestados.  
+   - **Bibliotecario**: Representa al personal encargado de gestionar la biblioteca.  
+   - **Categoría**: Clasifica los libros por temas (como ficción, ciencia, historia).  
 
-1. **Un Cliente puede realizar muchas Ventas**:  
-   Por ejemplo, Juan Pérez puede comprar una taza hoy y una camiseta la próxima semana. Esta es una relación **1:N** entre la clase **Cliente** y la clase **Venta**.  
+2. Define las propiedades y métodos esenciales:  
+   - **Libro**:  
+     - **Propiedades**:  
+       - Título  
+       - Autor  
+       - ISBN  
+       - Categoría  
+     - **Métodos**:  
+       - `verificarDisponibilidad()`  
+       - `asignarCategoría()`  
 
-2. **Una Venta puede incluir muchos Productos**:  
-   Como una camiseta y un llavero en una sola compra. Además, un producto puede estar en muchas ventas (por ejemplo, una camiseta que compran varios clientes). Esto representa una relación **N:M** entre **Venta** y **Producto**.  
+   - **Miembro**:  
+     - **Propiedades**:  
+       - Nombre  
+       - ID de miembro  
+       - Historial de préstamos  
+     - **Métodos**:  
+       - `registrarMiembro()`  
+       - `verHistorial()`  
+
+   - **Préstamo**:  
+     - **Propiedades**:  
+       - Fecha de préstamo  
+       - Fecha de devolución  
+       - Libro  
+       - Miembro  
+     - **Métodos**:  
+       - `calcularMultaPorRetraso()`  
+       - `marcarComoDevuelto()`  
+
+   - **Bibliotecario**:  
+     - **Propiedades**:  
+       - Nombre  
+       - ID de empleado  
+     - **Métodos**:  
+       - `registrarLibros()`  
+       - `gestionarPréstamos()`  
+
+   - **Categoría**:  
+     - **Propiedades**:  
+       - Nombre de la categoría  
+       - Descripción  
+     - **Métodos**:  
+       - `agregarCategoría()`  
+       - `listarLibrosPorCategoría()`  
+
+3. Relaciona las clases:  
+   - Un miembro puede realizar varios préstamos.  
+   - Cada préstamo está asociado con un libro específico.  
+   - Un bibliotecario puede gestionar muchos préstamos y registrar múltiples libros.  
+   - Un libro pertenece a una categoría.  
 
 ---
 
-> ***Con toda la información aportada realiza el diagrama de clases y la implementación de las mismas***
+#### Sistema B
+
+1. Amplía el sistema añadiendo:  
+
+   - **Editorial**: Representa a las editoriales que publican los libros.  
+     - **Propiedades**:  
+       - Nombre  
+       - Dirección  
+       - Contacto  
+     - **Métodos**:  
+       - `registrarEditorial()`  
+       - `listarLibrosDeEditorial()`  
+
+   - **Sala de Lectura**: Representa los espacios físicos de lectura en la biblioteca.  
+     - **Propiedades**:  
+       - Nombre de la sala  
+       - Capacidad  
+     - **Métodos**:  
+       - `reservarSala()`  
+       - `verificarDisponibilidad()`  
+
+2. Relaciones adicionales:  
+   - Un libro puede estar asociado con una editorial.  
+   - Una sala de lectura puede ser reservada por un miembro para un tiempo específico.  
+
+> ***Con toda la información aportada realiza los diagrama de clases y la implementación de las mismas***
 
 ## Referencias
 
