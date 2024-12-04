@@ -6,6 +6,8 @@ En los siguientes ejercicios vamos a trabajar con los métodos que proporciona l
 > Con muchos de sus funciones se simplifica el problema.
 > En cada uno de los ejercicios incluye al menos 5 elementos para trabajar, a través de las `funciones correspondientes (add,..)` o de la siguiente forma.
 
+> La documentación en los apuntes se encuentra en el siguiente [enlace](https://github.com/jpexposito/code-learn/blob/main/primero/pro/unidades/unidad-3/collection/VECTOR.md).
+
 ```java
 Vector<Integer> enteros = new Vector<>(Arrays.asList(1, 2, 3));
         
