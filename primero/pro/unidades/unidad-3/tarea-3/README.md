@@ -2,8 +2,8 @@
 
 En los siguientes ejercicios vamos a trabajar con los métodos que proporciona la `Interfaz List que extiende de Collection` y que **implementa** `ArrayList`.
 
-> La documentación oficial de los métodos la tienes en el siguiente [enlace](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html).
-
+> La documentación oficial de los métodos de `Collections` la tienes en el siguiente [enlace](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collections.html).
+> Con muchos de sus funciones se simplifica el problema.
 > En cada uno de los ejercicios incluye al menos 5 elementos para trabajar, a través de las `funciones correspondientes (add,..)` o de la siguiente forma.
 
 ```java
@@ -41,7 +41,7 @@ List<String> diasDeLaSemana = new ArrayList<>(Arrays.asList(
 - **Función:** `String obtenerElemento(List<String> lista, int indice)`
 - **Lista de entrada:** `List<String> lista`  
   Ejemplo: `["Hola", "Mundo", "Java"]`
-- **Descripción:** Devuelve el elemento en el índice especificado de la lista. Si el índice es inválido, lanza una excepción.
+- **Descripción:** Devuelve el elemento en el índice especificado de la lista. Si el índice es inválido, lanza el mensaje "Error".
 
 ---
 
@@ -75,8 +75,8 @@ List<String> diasDeLaSemana = new ArrayList<>(Arrays.asList(
 
 ---
 
-
 ### 6. Ordenar una lista
+
 - **Función:** `List<Integer> ordenarLista(List<Integer> lista)`
 - **Lista de entrada:** `List<Integer> lista`  
   Ejemplo: `[4, 1, 3, 2]`
@@ -123,9 +123,9 @@ List<String> diasDeLaSemana = new ArrayList<>(Arrays.asList(
 - **Descripción:** Devuelve un arreglo de tamaño 2 donde el primer elemento es el mínimo y el segundo el máximo.  
   Resultado esperado: `[1, 9]`.
 
----
+  > Como puedes observar devuelve una lista con dos elementos.
 
-## Nivel Avanzado
+---
 
 ### 11. Copiar contenido de una lista
 
