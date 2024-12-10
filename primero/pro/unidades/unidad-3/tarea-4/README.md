@@ -9,12 +9,8 @@ En los siguientes ejercicios vamos a trabajar con los métodos que proporciona l
 > La documentación en los apuntes se encuentra en el siguiente [enlace](https://github.com/jpexposito/code-learn/blob/main/primero/pro/unidades/unidad-3/collection/VECTOR.md).
 
 ```java
-Vector<Integer> enteros = new Vector<>(Arrays.asList(1, 2, 3));
-        
-// Vector de días de la semana
-Vector<String> diasDeLaSemana = new Vector<>(Arrays.asList(
-    "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"
-));
+    static List<Integer> enteros = new ArrayList<>(Arrays.asList(1, 2, 3));
+    static Vector<Integer> vector = new Vector<>(enteros);    
 ```
 
 ---
