@@ -10,11 +10,88 @@ Siguiendo la solución realizada en la [tarea anterior](../tarea-7/). Se pide co
 
 El objetivo de este ejercicio es crear un entorno con Docker que incluya dos servidores `Tomcat`, una base de datos `MariaDB` y una `bbdd no sql` y así como los clientes para acceder a ambas bases de datos. Para esto, configuraremos los contenedores con redes personalizadas y un `volumen común` para persistir datos.
 
+## Docker Compose
+
+**Docker Compose** es una herramienta que permite definir y ejecutar aplicaciones de Docker de múltiples contenedores. A través de un archivo YAML (generalmente llamado `docker-compose.yml`), puedes definir todos los servicios, redes y volúmenes que tu aplicación necesita. Docker Compose facilita la orquestación de contenedores, permitiendo gestionar proyectos más complejos que requieren la interacción de varios contenedores.
+
 ---
 
-## Requisitos
+### ¿Por qué usar Docker Compose?
 
-- Crear una red Docker personalizada para los contenedores.
+En muchos casos, las aplicaciones modernas consisten en varios componentes que se ejecutan en contenedores independientes. Esto puede incluir bases de datos, servidores web, aplicaciones backend, y más. Docker Compose facilita la gestión de estas aplicaciones multicontenedor de manera simple y eficiente. Algunas de las razones para usar Docker Compose son:
+
+- **Orquestación de múltiples contenedores**: Puedes definir, ejecutar y administrar múltiples contenedores a la vez.
+- **Automatización**: Facilita la configuración de servicios y redes entre contenedores, evitando tener que configurar manualmente cada uno de ellos.
+- **Desarrollo local**: Permite a los desarrolladores crear entornos completos de desarrollo local con solo un comando.
+- **Portabilidad**: Puedes definir entornos consistentes que se pueden compartir fácilmente entre diferentes máquinas o equipos de desarrollo.
+
+---
+
+### Componentes principales de Docker Compose
+
+Docker Compose utiliza un archivo YAML donde se definen los siguientes componentes principales:
+
+#### 1. **Version**:
+
+Define la versión del archivo de configuración de Docker Compose. Asegura que se utilicen las características adecuadas de Docker y Docker Compose.
+
+#### 2. **Services**:
+
+Especifica los contenedores que formarán parte de la aplicación. Cada servicio corresponde a un contenedor y puede incluir configuraciones como:
+
+- **Imagen** del contenedor.
+- **Puertos** que deben exponerse.
+- **Volúmenes** que deben montarse.
+- **Variables de entorno** necesarias para la configuración del contenedor.
+
+#### 3. **Volumes**:
+
+Define los volúmenes persistentes que se utilizan para almacenar datos entre reinicios de contenedores. Esto es útil para bases de datos o cualquier servicio que necesite almacenar datos.
+
+#### 4. **Networks**:
+
+Configura redes personalizadas para que los contenedores puedan comunicarse entre sí. Esto es útil cuando se necesita aislar los contenedores de otros servicios externos.
+
+---
+
+### ¿Cómo funciona Docker Compose?
+
+Docker Compose funciona con los siguientes pasos:
+
+1. **Definir la configuración**: Crear un archivo `docker-compose.yml` que describa los contenedores, sus redes y volúmenes necesarios.
+2. **Levantar los contenedores**: Usando el comando `docker-compose up`, Docker Compose descargará las imágenes necesarias, creará los contenedores y los levantará según la configuración especificada.
+3. **Escalar y gestionar servicios**: Docker Compose permite escalar servicios (por ejemplo, ejecutar múltiples instancias de un contenedor) y gestionar su ciclo de vida, como detener, reiniciar o eliminar contenedores.
+4. **Conexión entre servicios**: Los contenedores definidos en Docker Compose pueden interactuar entre sí fácilmente a través de redes configuradas en el archivo `docker-compose.yml`.
+
+---
+
+### Ejemplo básico de un archivo `docker-compose.yml`
+
+```yaml
+version: '3.9'
+
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+```
+
+---
+
+En este ejemplo:
+
+- Se definen dos servicios: un contenedor web que usa la imagen de `Nginx` y un contenedor db que usa la imagen de `MySQL`.
+- web expone el puerto `8080` en la máquina anfitriona para acceder al servidor web.
+- db configura una variable de entorno para establecer la contraseña del usuario root de la base de datos.
+
+## Realiza
+
+- Crear una solución Docker personalizada para los contenedores.
 - Crear un conjunto de contenedores Tomcat para desplegar las aplicaciones web.
 - Crear un contenedor MariaDB para gestionar la base de datos.
 - Crear un contenedor Mongodb para gestionar la base de datos no sql.
