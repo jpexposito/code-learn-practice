@@ -2,7 +2,7 @@
 
 Siguiendo la solución realizada en la [tarea anterior](../tarea-7/). Se pide construir la solución propuesta en la siguiente imagen.
 
-<img src="../images/solucion-servicios.png" width="400px">
+<img src="../images/solucion-servicios.png" width="800px">
 
 ---
 
