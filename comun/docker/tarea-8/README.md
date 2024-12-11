@@ -140,40 +140,6 @@ RUN apt-get update -y && \
 ...
 ```
 
-### Paso 4: Construir y ejecutar la imagen
-
-Para construir la imagen desde el Dockerfile, usa el siguiente comando:
-
-```bash
-docker build -t solucion-servicios .
-```
-
-Lista los contenedores que tienes en tu equipo:
-
-```bash
-docker ps -a 
-```
-
-Luego, para ejecutar el contenedor que contiene Tomcat, MariaDB,CloudBeaver, etc y usa:
-
-```bash
-docker run -d -p 8080:8080 -p ... solucion-servicios
-```  
-
-### **Detener y eliminar contenedores**
-
-Cuando termines de trabajar, puedes detener y eliminar el contenedor con los siguientes comandos:
-
-```bash
-docker stop <nombre-contenedor>
-```
-
-> Para eliminar un contenedor
->
->```bash
->docker rm <nombre-contenedor>
->```
-
 ---
 
 ## Demuestra el funcionamiento
