@@ -90,16 +90,36 @@ En los siguientes ejercicios vamos a trabajar con los métodos que proporciona l
 
 ---
 
-## Resumen de las funciones CRUD que debes implementar
+```java
+public class Empleado {
+    private String id;
+    private String nombre;
 
-- **Insertar**: Añadir un nuevo elemento a la colección.
-- **Obtener**: Acceder a un elemento por su índice (para listas) o por su clave (para mapas).
-- **Buscar**: Verificar si un elemento o clave existe en la colección.
-- **Eliminar**: Eliminar un elemento de la colección (por índice, valor o clave).
-- **Actualizar**: Modificar un elemento ya existente en la colección.
-- **Operaciones adicionales**: Unión e intersección de conjuntos, obtener tamaño, vaciar la colección.
+    public Empleado(String id, String nombre) {
+        this.id = id;
+        this.nombre = nombre;
+    }
 
----
+    // Getters y Setters
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    
+```
+
 
 ## Ejercicio 6: **Gestión de Productos con `List`**
 
@@ -112,6 +132,40 @@ En los siguientes ejercicios vamos a trabajar con los métodos que proporciona l
 3. **buscar(String codigo):** Buscar un producto por su código en la lista.
 4. **eliminar(String codigo):** Eliminar un producto de la lista por su código.
 5. **actualizar(String codigo, Producto nuevoProducto):** Actualizar un producto en la lista por su código.
+
+```java
+public class Producto {
+    private String codigo;
+    private String nombre;
+
+    public Producto(String codigo, String nombre) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+    }
+
+    // Getters y Setters
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    @Override
+    public String toString() {
+        return "Producto{codigo='" + codigo + "', nombre='" + nombre + "'}";
+    }
+}
+```
 
 ---
 
@@ -126,6 +180,40 @@ En los siguientes ejercicios vamos a trabajar con los métodos que proporciona l
 3. **eliminar(String dni):** Eliminar un alumno del conjunto por su DNI.
 4. **obtenerTamanio():** Obtener el tamaño del conjunto de alumnos.
 5. **vaciar():** Eliminar todos los alumnos del conjunto.
+
+```java
+public class Alumno {
+    private String dni;
+    private String nombre;
+
+    public Alumno(String dni, String nombre) {
+        this.dni = dni;
+        this.nombre = nombre;
+    }
+
+    // Getters y Setters
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    @Override
+    public String toString() {
+        return "Alumno{dni='" + dni + "', nombre='" + nombre + "'}";
+    }
+}
+```
 
 ---
 
