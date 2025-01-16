@@ -24,7 +24,7 @@ Diseña un diagrama de paquetes para representar las siguientes funcionalidades 
 
 ## Referencias
 
-- [Ejemplo de Diagrama de Clases](https://github.com/jpexposito/code-learn/blob/main/primero/ets/unidades/unidad-4/DIAGRAMA-CLASES-EXPLICADO.md).
+- [Ejemplo de Diagrama de Paquetes](https://github.com/jpexposito/code-learn/tree/main/primero/ets/unidades/unidad-5).
 
 ---
 
