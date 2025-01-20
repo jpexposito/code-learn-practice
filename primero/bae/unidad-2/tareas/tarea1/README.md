@@ -1,7 +1,9 @@
 <div align="justify">
 
-# Ejercicios básicos de E/R
-## Descripción:
+# <img src=../../../../../images/computer.png width="40"> Code, Learn & Practice(E/R: Ejercicios básicos de E/R)
+
+## Descripción
+
 Representa las entidades, relaciones y cardinalidades mínimas y máximas para cada uno de los siguientes supuestos:
 
 - En una academia los profesores dan clase a los alumnos matriculados de modo que todo profesor da clase al menos a un alumno y todo alumno recibe clase de un único profesor.

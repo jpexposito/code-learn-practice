@@ -1,11 +1,11 @@
 <div align="justify">
 
-# Sistema de ventas
+# <img src=../../../../../images/computer.png width="40"> Code, Learn & Practice(E/R: Sistema de Ventas)
+
 
 <div align="center">
 <img src="img/sistema-ventas.png" width="400px"/>
 </div>
-
 
 Se desea realizar una BD que permita apoyar la gestión de un sistema de ventas. La empresa necesita llevar un control de proveedores, clientes, productos y ventas.
 
@@ -29,6 +29,5 @@ Se desea realizar una BD que permita apoyar la gestión de un sistema de ventas.
   </br>
   
 </details>
-
 
 </div>
