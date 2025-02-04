@@ -14,15 +14,15 @@ Representa las modelos relacionales de cada uno los siguientes supuestos:
     <img src="img/Ej-1.png">
     </br>
 
-  </details>     
+  </details>
+  
   <details>
         <summary>MODELO MR</summary>
     </br>
     <img src="../../img/estamos-trabajando.png" width="200px">
     </br>
 
-  </details>     
-
+  </details>
 
 - Los profesores de un centro pueden ser o no tutores de un alumno, en cualquier caso los alumnos solo podrán tener un único tutor.
 
