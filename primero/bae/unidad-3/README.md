@@ -3,6 +3,7 @@
 # MODELO RELACIONAL
 
 ## Introducción
+
 Los SGBD se pueden clasificar de acuerdo con el modelo lógico que soportan, el número de usuarios, el número de puestos, el coste… La clasificación más importante de los SGBD se basa en el modelo lógico, siendo los principales modelos que se utilizan en el mercado los siguientes:
 - Jerárquico.
 - En Red.

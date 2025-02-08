@@ -2,7 +2,7 @@
 
 <img src=images/empleado.png width="400">
 
-### Descripción
+## Descripción
 
 Imagina que trabajas en una empresa y necesitas implementar un sistema de gestión de empleados. Los empleados pueden ser de diferentes tipos, como **Desarrolladores**, **Diseñadores**, **Gerentes**, etc. Todos los empleados tienen propiedades comunes, como su **nombre**, **edad**, y un **salario**. Sin embargo, cada tipo de empleado tiene comportamientos específicos que deben ser definidos de manera diferente.
 

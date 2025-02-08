@@ -21,7 +21,7 @@ uno o más departamentos.
 - Un empleado puede tener varios hijos.
 - Un empleado puede tener varias habilidades, y una misma habilidad puede ser
 poseída por empleados diferentes.
-- Un centro de trabajo es dirigido por un empleado. Un mismo empleado puede
+- Un centro de trabajo es dirigido por un empleado. Un mismo empleado puede dirigir centros de trabajo distintos.
 
 ___Construye a través de diagrams.io.___
 
