@@ -49,6 +49,9 @@ A continuación, desglosamos las interacciones para cada operación:
 
 ---
 
+<details>
+      <summary>PULSA PARA VER LA SOLUCIÓN</summary>
+
 ```mermaid
 sequenceDiagram
     actor Usuario
@@ -80,6 +83,8 @@ sequenceDiagram
     Sistema-->>Usuario: Archivo eliminado
 
 ```
+
+ </details>
 
 ## Licencia 📄
 
