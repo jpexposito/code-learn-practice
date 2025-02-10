@@ -49,36 +49,36 @@ A continuación, desglosamos las interacciones para cada operación:
 
 ---
 
-```plantuml
-@startuml
-actor Usuario
-participant "Sistema de Gestión de Archivos" as Sistema
-participant "Fichero" as Fichero
+```mermaid
+sequenceDiagram
+    actor Usuario
+    participant "Sistema de Gestión de Archivos" as Sistema
+    participant "Fichero" as Fichero
 
-== Crear Archivo ==
-Usuario -> Sistema: CrearArchivo("datos.txt")
-Sistema -> Fichero: nuevo("datos.txt")
-Fichero --> Sistema: Confirmación
-Sistema --> Usuario: Archivo creado con éxito
+    %% Crear Archivo
+    Usuario->>Sistema: CrearArchivo("datos.txt")
+    Sistema->>Fichero: nuevo("datos.txt")
+    Fichero-->>Sistema: Confirmación
+    Sistema-->>Usuario: Archivo creado con éxito
 
-== Leer Archivo ==
-Usuario -> Sistema: LeerArchivo("datos.txt")
-Sistema -> Fichero: abrir("datos.txt")
-Fichero --> Sistema: contenido
-Sistema --> Usuario: Devolver contenido
+    %% Leer Archivo
+    Usuario->>Sistema: LeerArchivo("datos.txt")
+    Sistema->>Fichero: abrir("datos.txt")
+    Fichero-->>Sistema: contenido
+    Sistema-->>Usuario: Devolver contenido
 
-== Actualizar Archivo ==
-Usuario -> Sistema: ActualizarArchivo("datos.txt", nuevoContenido)
-Sistema -> Fichero: modificar("datos.txt", nuevoContenido)
-Fichero --> Sistema: Confirmación
-Sistema --> Usuario: Archivo actualizado
+    %% Actualizar Archivo
+    Usuario->>Sistema: ActualizarArchivo("datos.txt", nuevoContenido)
+    Sistema->>Fichero: modificar("datos.txt", nuevoContenido)
+    Fichero-->>Sistema: Confirmación
+    Sistema-->>Usuario: Archivo actualizado
 
-== Eliminar Archivo ==
-Usuario -> Sistema: EliminarArchivo("datos.txt")
-Sistema -> Fichero: borrar("datos.txt")
-Fichero --> Sistema: Confirmación
-Sistema --> Usuario: Archivo eliminado
-@enduml
+    %% Eliminar Archivo
+    Usuario->>Sistema: EliminarArchivo("datos.txt")
+    Sistema->>Fichero: borrar("datos.txt")
+    Fichero-->>Sistema: Confirmación
+    Sistema-->>Usuario: Archivo eliminado
+
 ```
 
 ## Licencia 📄
