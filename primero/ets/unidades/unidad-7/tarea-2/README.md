@@ -35,6 +35,7 @@ sequenceDiagram
         Sistema->>Jugador: Mostrar error de autenticación
     end
 ```
+
 </details>
 
 ## Licencia 📄
