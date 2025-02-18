@@ -20,4 +20,9 @@ Por último se quiere almacenar, en la base de datos, los datos de los president
 
 ___Transforma el modelo entidad-relación resultante al modelo relacional a través de diagrams.io.___
 
+<details>
+      <summary>PULSA PARA VER LA SOLUCIÓN</summary>
+      <img src="img/ejercicio.drawio.png">
+</details>
+
  </div>
