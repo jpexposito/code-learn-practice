@@ -25,4 +25,9 @@ poseída por empleados diferentes.
 
 ___Construye a través de diagrams.io.___
 
+<details>
+      <summary>PULSA PARA VER LA SOLUCIÓN</summary>
+      <img src="img/ejercicio.drawio.png">
+</details>
+
  </div>
