@@ -4,7 +4,7 @@
 
 ## Descripción
 
-En la siguiente tarea se premia el uso de [expresiones regulares]([../../sqlite/21_regexp.md](https://github.com/jpexposito/code-learn/blob/main/primero/bae/unidad-5/sqlite/21_regexp.md)) en BBDD.
+En la siguiente tarea se premia el uso de [expresiones regulares](https://github.com/jpexposito/code-learn/blob/main/primero/bae/unidad-5/sqlite/21_regexp.md) en BBDD.
 
 Realiza la lectura de la base de datos a través del fichero [base datos de clientes](files/base-datos-clientes.sql).
 
