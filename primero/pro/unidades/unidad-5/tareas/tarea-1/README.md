@@ -69,7 +69,8 @@ Desarrollar una aplicación de registro y autenticación que implemente las pant
 
 ## Diseño a implementar
 
-<img src=images/mock-pantallas.drawio.png width="400">
+<img src=images/mooks-app-1.drawio.png width="400">
+
 
 ## Nota
 
