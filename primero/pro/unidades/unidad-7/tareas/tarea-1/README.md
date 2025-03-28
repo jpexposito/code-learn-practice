@@ -9,10 +9,15 @@ Ahora que has definido las constantes para la interfaz, debes implementar la fun
 - Registrar nuevos usuarios (guardar "User/Email" y "Password" en la base de datos).
 - Listar usuarios registrados.
 - Recuperar contraseñas (buscar por email).
+- Evita duplicar usuarios, emails asociados a dos usuarios.
 
 ## Diseño a implementar
 
 <img src=images/mooks-app-2.drawio.png width="400">
+
+## Base de datos
+
+En el siguiente [enlace](sql/script-users.sql) puedes encontrar el script para definir la bbdd.
 
 ## Nota
 
