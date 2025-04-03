@@ -1,4 +1,4 @@
-# <img src=../../../../../../images/computer.png width="40"> Code, Learn & Practice(Programación: Trabajando con Ficheros: `Interfaces gráficas/ ficheros y bases de datos`
+# <img src=../../../../../../images/computer.png width="40"> Code, Learn & Practice(Programación: Trabajando con BBDD: `Juego del Ahorcado`
 
 ## Objetivo
 
