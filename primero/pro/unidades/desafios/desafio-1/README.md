@@ -126,11 +126,15 @@ Demostrar habilidades de programación implementando **uno** de los 5 juegos pro
 
    - Usar issues de GitHub para gestión de tareas
 
-3. **Patrones de diseño**:
+2. **Patrones de diseño**:
 
    - MVC para separación de concerns
    - Repository pattern para acceso a datos
    - Observer para eventos del juego
+
+3. **Ejemplo de diseño**:
+
+<img src=images/disenio.drawio.png width="200">
 
 ## Licencia 📄
 
