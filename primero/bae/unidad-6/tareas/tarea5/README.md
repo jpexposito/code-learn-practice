@@ -12,7 +12,7 @@ El __diagrama ER__ de esta BBDD es el siguiente:
 
 Se pide:
 
-### Carga de datos
+## Carga de datos
 
 - Realiza la carga de la BBDD de [Jardineria](file/jardineria.sql) y describe los pasos que has realizado.
 
@@ -85,15 +85,15 @@ Se pide:
   - Contiene la frase proviene de las costas en el nombre o en la descripción.
   - Crea un índice de tipo INDEX compuesto por las columnas apellido_contacto y nombre_contacto de la tabla cliente.
   - Una vez creado el índice del ejercicio anterior realice las siguientes consultas haciendo uso de EXPLAIN:
-    - Busca el cliente Javier Villar. ¿Cuántas filas se han examinado hasta encontrar el resultado?
-    - Busca el cliente anterior utilizando solamente el apellido Villar.
-    - ¿Cuántas filas se han examinado hasta encontrar el resultado?
-    - Busca el cliente anterior utilizando solamente el nombre Javier. ¿Cuántas filas se han examinado hasta encontrar el resultado? ¿Qué ha ocurrido en este caso?
+  - Busca el cliente Javier Villar. ¿Cuántas filas se han examinado hasta encontrar el resultado?
+  - Busca el cliente anterior utilizando solamente el apellido Villar.
+  - ¿Cuántas filas se han examinado hasta encontrar el resultado?
+  - Busca el cliente anterior utilizando solamente el nombre Javier. ¿Cuántas filas se han examinado hasta encontrar el resultado? ¿Qué ha ocurrido en este caso?
   - Calcula cuál podría ser un buen valor para crear un índice sobre un prefijo de la columna nombre_cliente de la tabla cliente. Tenga en cuenta que un buen valor será aquel que nos permita utilizar el menor número de caracteres para diferenciar todos los valores que existen en la columna sobre la que estamos creando el índice.
-    - En primer lugar calculamos cuántos valores distintos existen en la columna nombre_cliente. Necesitarás utilizar la función COUNT y DISTINCT.
-    - Haciendo uso de la función LEFT ve calculando el número de caracteres que necesitas utilizar como prefijo para diferenciar todos los valores de la columna. Necesitarás la función COUNT, DISTINCT y LEFT.
-    - Una vez que hayas encontrado el valor adecuado para el prefijo, crea el índice sobre la columna nombre_cliente de la tabla cliente.
-    - Ejecuta algunas consultas de prueba sobre el índice que acabas de crear.
+  - En primer lugar calculamos cuántos valores distintos existen en la columna nombre_cliente. Necesitarás utilizar la función COUNT y DISTINCT.
+  - Haciendo uso de la función LEFT ve calculando el número de caracteres que necesitas utilizar como prefijo para diferenciar todos los valores de la columna. Necesitarás la función COUNT, DISTINCT y LEFT.
+  - Una vez que hayas encontrado el valor adecuado para el prefijo, crea el índice sobre la columna nombre_cliente de la tabla cliente.
+  - Ejecuta algunas consultas de prueba sobre el índice que acabas de crear.
 
 ### Vistas
 
@@ -114,8 +114,9 @@ Se pide:
 - Elimine las vistas que ha creado en los pasos anteriores.
 
 >__Nota__: ___Realiza cada una de las acciones e indica la salida de estas___.
+
 ## Referencias
 
-- [Apuntes sobre índices](../../Indices.md).
+- [Apuntes sobre índices]([../../Indices.md](https://github.com/jpexposito/code-learn/blob/main/primero/bae/unidad-6/Indices.md)).
 
 </div>
