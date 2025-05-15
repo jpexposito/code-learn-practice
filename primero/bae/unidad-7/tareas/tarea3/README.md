@@ -1,6 +1,6 @@
 <div align="justify">
 
-# Trabajo con procedimientos y funciones
+# <img src=../../../../../images/computer.png width="40"> Programando en BBDD 3
 
 ```sql
 CREATE DATABASE IF NOT EXISTS ejercicios_db;

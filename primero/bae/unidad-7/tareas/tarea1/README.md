@@ -1,5 +1,7 @@
 <div align="justify">
 
+# <img src=../../../../../images/computer.png width="40"> Programando en BBDD 1
+
 <div align="center">
 <img src="https://danielme.com/wp-content/uploads/2023/08/image-16.png" width="300">
 </div>
@@ -151,9 +153,5 @@ Pasos:
   ```
 
   </br>
-
-
-
-</div>
 
 </div>

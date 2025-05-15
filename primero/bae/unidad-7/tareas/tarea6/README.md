@@ -1,6 +1,6 @@
 <div align="justify">
 
-# Trabajo con procedimientos de generación de información
+# <img src=../../../../../images/computer.png width="40"> Trabajo con procedimientos de generación de información
 
 Dado el procedimiento base:
 

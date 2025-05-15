@@ -1,6 +1,6 @@
 <div align="justify">
 
-# Trabajo con la BBDD Alumnos
+# <img src=../../../../../images/computer.png width="40"> Programando en BBDD 10: Trabajo con la BBDD Alumnos
 
 Modifica el ejercicio anterior y añade un nuevo trigger que las siguientes características:
 Trigger: __trigger_guardar_email_after_update__:

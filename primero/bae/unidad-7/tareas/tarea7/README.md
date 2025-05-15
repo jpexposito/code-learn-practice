@@ -1,6 +1,6 @@
 <div align="justify">
 
-# ¿El salario?
+# <img src=../../../../../images/computer.png width="40"> Programando en BBDD 7: ¿El salario?
 
 <div align="center">
 <img width="400" src="https://www.gestion.org/wp-content/uploads/2017/08/que-integra-el-salario-base-de-cotizacion-768x452.jpg"/>

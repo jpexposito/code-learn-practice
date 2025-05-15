@@ -1,6 +1,6 @@
 <div align="justify">
 
-# Trabajo con la BBDD Alumnos
+# <img src=../../../../../images/computer.png width="40"> Programando en BBDD 8: Trabajo con la BBDD Alumnos
 
 Crea una base de datos llamada test que contenga una tabla llamada alumnos con las siguientes columnas:
 
