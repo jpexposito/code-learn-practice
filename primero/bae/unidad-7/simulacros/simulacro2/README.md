@@ -96,55 +96,64 @@ También podemos acceder a través del navegador. Para ello utilizaremos **Admin
 1. Mostrar todos los cursos disponibles.
 
 ```sql
-
+SELECT * FROM cursos;
 ```
 
 2. Mostrar el nombre de todos los profesores.
 
 ```sql
+SELECT nombre FROM profesores;
 ```
 
 3. Listar todas las matrículas.
 
 ```sql
+SELECT * FROM matriculas;
 ```
 
 4. Ver los nombres y correos de los estudiantes.
 
 ```sql
+SELECT nombre, email FROM estudiantes;
 ```
 
 5. Ver los cursos y su número de créditos.
 
 ```sql
+SELECT nombre, creditos FROM cursos;
 ```
 ---
 
 ### B. Consultas con `WHERE`. Obligatorio utilizar **WHERE** donde se **combine dos o más tablas**
 
-1. Obtener los cursos impartidos por profesores del departamento de Informática.
+1. Mostrar cursos impartidos por profesores del departamento de Informática.
 
 ```sql
+SELECT c.nombre FROM cursos c, profesores p WHERE c.profesor_id=p.id and departamento = 'Informática';
 ```
 
-2. Obtener los estudiantes que viven en Madrid.
+2. Obtener estudiantes que viven en Madrid.
 
 ```sql
+SELECT * FROM estudiantes WHERE ciudad = 'Madrid';
 ```
 
-3. Mostrar los cursos con más de 5 créditos.
+3. Mostrar cursos con más de 5 créditos.
 
 ```sql
+SELECT * FROM cursos WHERE creditos > 5;
 ```
 
-4. Ver las matrículas realizadas después del año 2022.
+4. Listar matrículas realizadas después del año 2022.
 
 ```sql
+SELECT * FROM matriculas WHERE YEAR(fecha) > 2022;
 ```
 
-5. Ver los cursos impartidos por la profesora “Dra. Ana Torres”.
+5. Mostrar los cursos impartidos por la profesora “Dra. Ana Torres”.
 
 ```sql
+SELECT c.nombre FROM cursos c, profesores p WHERE c.profesor_id=p.id and p.nombre = 'Dra. Ana Torres';
 ```
 
 ---
@@ -156,27 +165,39 @@ También podemos acceder a través del navegador. Para ello utilizaremos **Admin
 1. Mostrar cursos impartidos por profesores del departamento de Informática.
 
 ```sql
+SELECT c.nombre 
+FROM cursos c
+JOIN profesores p ON c.profesor_id = p.id
+WHERE p.departamento = 'Informática';
 ```
 
 2. Obtener estudiantes que viven en Madrid.
 
 ```sql
+SELECT * FROM estudiantes WHERE ciudad = 'Madrid';
 ```
 
 3. Mostrar cursos con más de 5 créditos.
 
 ```sql
+SELECT * FROM cursos WHERE creditos > 5;
 ```
 
 4. Listar matrículas realizadas después del año 2022.
 
 ```sql
+SELECT * FROM matriculas WHERE YEAR(fecha) > 2022;
 ```
 
 5. Mostrar los cursos impartidos por la profesora “Dra. Ana Torres”.
 
 ```sql
+SELECT c.nombre 
+FROM cursos c
+JOIN profesores p ON c.profesor_id = p.id
+WHERE p.nombre = 'Dra. Ana Torres';
 ```
+
 ---
 
 ### D. Consultas con Subconsultas
@@ -186,26 +207,61 @@ También podemos acceder a través del navegador. Para ello utilizaremos **Admin
 1. Cursos impartidos por profesores del departamento de Informática.
 
 ```sql
+SELECT nombre 
+FROM cursos 
+WHERE profesor_id IN (
+  SELECT id 
+  FROM profesores 
+  WHERE departamento = 'Informática'
+);
 ```
 
 2. Estudiantes que viven en Madrid.
 
 ```sql
+SELECT * 
+FROM estudiantes 
+WHERE id IN (
+  SELECT id 
+  FROM estudiantes 
+  WHERE ciudad = 'Madrid'
+);
 ```
 
 3. Cursos con más de 5 créditos.
 
 ```sql
+SELECT * 
+FROM cursos 
+WHERE id IN (
+  SELECT id 
+  FROM cursos 
+  WHERE creditos > 5
+);
 ```
 
 4. Matrículas realizadas después del año 2022.
 
 ```sql
+SELECT * 
+FROM matriculas 
+WHERE id IN (
+  SELECT id 
+  FROM matriculas 
+  WHERE YEAR(fecha) > 2022
+);
 ```
 
 5. Cursos impartidos por la profesora “Dra. Ana Torres”.
 
 ```sql
+SELECT nombre 
+FROM cursos 
+WHERE profesor_id = (
+  SELECT id 
+  FROM profesores 
+  WHERE nombre = 'Dra. Ana Torres'
+);
 ```
 
 ---
@@ -215,21 +271,27 @@ También podemos acceder a través del navegador. Para ello utilizaremos **Admin
 1. Crear un índice en la columna `ciudad` de la tabla `estudiantes`.
 
 ```sql
+CREATE INDEX idx_ciudad_estudiantes ON estudiantes(ciudad);
 ```
 
 2. Crear un índice en la columna `departamento` de la tabla `profesores`.
 
 ```sql
+CREATE INDEX idx_departamento_profesores ON profesores(departamento);
 ```
 
 3. Consultar los índices creados.
 
 ```sql
+SHOW INDEX FROM estudiantes;
+SHOW INDEX FROM profesores;
 ```
 
 4. Eliminar ambos índices.
 
 ```sql
+DROP INDEX idx_ciudad_estudiantes ON estudiantes;
+DROP INDEX idx_departamento_profesores ON profesores;
 ```
 ---
 
@@ -241,16 +303,26 @@ También podemos acceder a través del navegador. Para ello utilizaremos **Admin
    - fecha de la matrícula.
 
 ```sql
+CREATE VIEW vista_matriculas_completas AS
+SELECT 
+  e.nombre AS nombre_estudiante,
+  c.nombre AS nombre_curso,
+  m.fecha
+FROM matriculas m
+JOIN estudiantes e ON m.estudiante_id = e.id
+JOIN cursos c ON m.curso_id = c.id;
 ```
 
 2. Consultar datos desde la vista, mostrando el nombre del estudiante y la fecha de matrícula.
 
 ```sql
+SELECT nombre_estudiante, fecha FROM vista_matriculas_completas;
 ```
 
 3. Eliminar la vista.
 
 ```sql
+DROP VIEW vista_matriculas_completas;
 ```
 
 ---
@@ -260,16 +332,29 @@ También podemos acceder a través del navegador. Para ello utilizaremos **Admin
 1. Crear un procedimiento llamado `cursos_por_profesor` que reciba el nombre del profesor como parámetro y devuelva los cursos que imparte y su número de créditos.
 
 ```sql
+DELIMITER $$
+
+CREATE PROCEDURE cursos_por_profesor(IN nombre_profesor VARCHAR(100))
+BEGIN
+  SELECT c.nombre, c.creditos
+  FROM cursos c
+  JOIN profesores p ON c.profesor_id = p.id
+  WHERE p.nombre = nombre_profesor;
+END $$
+
+DELIMITER ;
 ```
 
 2. Ejecutar el procedimiento con el nombre “Dr. Luis Gómez”.
 
 ```sql
+CALL cursos_por_profesor('Dr. Luis Gómez');
 ```
 
 3. Eliminar el procedimiento.
 
 ```sql
+DROP PROCEDURE cursos_por_profesor;
 ```
 
 ---
@@ -279,16 +364,35 @@ También podemos acceder a través del navegador. Para ello utilizaremos **Admin
 1. Crear una función llamada `total_creditos_estudiante` que reciba el ID de un estudiante y devuelva el total de créditos que ha matriculado.
 
 ```sql
+DELIMITER $$
+
+CREATE FUNCTION total_creditos_estudiante(est_id INT)
+RETURNS INT
+DETERMINISTIC
+BEGIN
+  DECLARE total INT;
+
+  SELECT SUM(c.creditos) INTO total
+  FROM matriculas m
+  JOIN cursos c ON m.curso_id = c.id
+  WHERE m.estudiante_id = est_id;
+
+  RETURN IFNULL(total, 0);
+END $$
+
+DELIMITER ;
 ```
 
 2. Ejecutar la función para un estudiante específico.
 
 ```sql
+SELECT total_creditos_estudiante(1);
 ```
 
 3. Eliminar la función.
 
 ```sql
+DROP FUNCTION total_creditos_estudiante;
 ```
 
 </div>
