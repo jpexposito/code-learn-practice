@@ -1,5 +1,15 @@
 # <img src=../../../../../images/computer.png width="40"> Code, Learn & Practice(Programación de Servicios y Procesos: "Procesos")
 
+## Instrucciones de la práctica  
+
+En esta práctica se trabajará en **dos fases complementarias**:
+
+1. **Parte teórica:** Responde a los conceptos solicitados mediante la **búsqueda de información confiable**, citando siempre las **fuentes consultadas** al final de cada respuesta.  
+2. **Parte práctica:** Ejecuta en Linux los **comandos indicados** y muestra la **salida obtenida** junto con una breve explicación de su significado.  
+
+El objetivo es afianzar la comprensión de los **procesos en sistemas operativos**, tanto desde el punto de vista conceptual como práctico.  
+
+
 ## Bloque 1: Conceptos básicos (teoría)
 
 ### Ejercicio 0 (ejemplo resuelto)  
