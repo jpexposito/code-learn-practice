@@ -1,4 +1,4 @@
-# <img src=../../../../images/computer.png width="40"> Code, Learn & Practice("Introducción a Php, uso de funciones")
+# <img src=../../../../../../images/computer.png width="40"> Code, Learn & Practice("Introducción a Php, uso de funciones")
 
 ## Número capicúa (palíndromo numérico)
 
@@ -17,8 +17,8 @@ Implementa una función __montañaAsteriscos(int $n, $m): void__ que imprima una
 > Ejemplo con entrada `4,2`:
 
 ```text
-*.     *
-**.   **
+*      *
+**    **
 ***  ***
 ********
 ```
