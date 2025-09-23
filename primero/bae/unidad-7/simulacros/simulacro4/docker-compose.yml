@@ -1,0 +1,36 @@
+services:
+  db:
+    image: mysql:latest
+    container_name: mysql_container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: bae           
+      MYSQL_DATABASE: bae                
+      MYSQL_USER: bae                    
+      MYSQL_PASSWORD: bae                
+    volumes:
+      - mysql_universidad_data:/var/lib/mysql
+      - ./docker-init:/docker-entrypoint-initdb.d
+    ports:
+      - "3309:3306"
+    networks:
+      - db-network
+
+  adminer:
+    image: adminer
+    container_name: adminer_container
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "8099:8080"  
+    networks:
+      - db-network
+
+networks:
+  db-network:
+    driver: bridge
+
+volumes:
+  mysql_universidad_data:
+    driver: local

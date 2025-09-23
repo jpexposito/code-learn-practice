@@ -1,6 +1,6 @@
 <div align="justify">
 
-# Trabajo con la BBDD Jardineria
+# <img src=../../../../../images/computer.png width="40"> Trabajo con la BBDD Jardineria
 
 Vamos a realizar el trabajo con una BBDD existente en la documentación  oficial de MySql. Su nombre es __jardineria__.
 

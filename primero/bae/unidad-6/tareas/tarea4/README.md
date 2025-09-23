@@ -1,6 +1,6 @@
 <div align="justify">
 
-# Trabajo con Sakila
+# <img src=../../../../../images/computer.png width="40"> Trabajo con Sakila
 
 Vamos a realizar el trabajo con una BBDD existente en la documentación  oficial de MySql. Su nombre es __Sakila__.
 

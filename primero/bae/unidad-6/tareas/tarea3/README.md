@@ -1,6 +1,6 @@
 <div align="justify">
 
-# Tarea 3 de trabajo con índices
+# <img src=../../../../../images/computer.png width="40"> Tarea 3 de trabajo con índices
 
 <div align="center">
 <img src="../../img/indices.png"/>

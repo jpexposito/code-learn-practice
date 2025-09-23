@@ -23,6 +23,7 @@ Comprobar versión de systemd y que el *user manager* está activo:
 systemctl --user --version | head -n1
 systemctl --user status --no-pager | head -n5
 ```
+
 **Pega salida aquí:**
 
 ```text
@@ -82,6 +83,7 @@ _Fuentes:_
 ```bash
 echo "PID=$$  PPID=$PPID"
 ```
+
 **Salida:**
 
 ```text
@@ -105,6 +107,7 @@ pidof systemd --user || pgrep -u "$USER" -x systemd
 ```text
 
 ```
+
 **Pregunta:** ¿Qué hace el *user manager* de systemd para tu sesión?  
 
 **Respuesta:**
@@ -124,7 +127,7 @@ cat << 'EOF' > "$DAM/bin/fecha_log.sh"
 mkdir -p "$HOME/dam/logs"
 echo "$(date --iso-8601=seconds) :: hello from user timer" >> "$HOME/dam/logs/fecha.log"
 EOF
-chmod +x "$DAM/bin/fecha_log.sh"
+chmod +x $DAM/bin/fecha_log.sh
 ```
 
 **14.** Crea el servicio **de usuario** `fecha-log.service` (**Type=simple**, ejecuta tu script).
@@ -143,11 +146,13 @@ systemctl --user daemon-reload
 systemctl --user start fecha-log.service
 systemctl --user status fecha-log.service --no-pager -l | sed -n '1,10p'
 ```
+
 **Salida (pega un extracto):**
 
 ```text
 
 ```
+
 **Pregunta:** ¿Se creó/actualizó `~/dam/logs/fecha.log`? Muestra las últimas líneas:
 
 ```bash
@@ -194,6 +199,7 @@ systemctl --user list-timers --all | grep fecha-log || true
 ```text
 
 ```
+
 **Pregunta:** ¿Qué diferencia hay entre `enable` y `start` cuando usas `systemctl --user`?  
 
 **Respuesta:**
@@ -211,6 +217,7 @@ journalctl --user -u fecha-log.service -n 10 --no-pager
 ```text
 
 ```
+
 **Pregunta:** ¿Ves ejecuciones activadas por el timer? ¿Cuándo fue la última?  
 
 **Respuesta:**
@@ -224,11 +231,13 @@ journalctl --user -u fecha-log.service -n 10 --no-pager
 ```bash
 lsof -i -P -n | grep LISTEN || ss -lntp
 ```
+
 **Salida:**
 
 ```text
 
 ```
+
 **Pregunta:** ¿Qué procesos *tuyos* están escuchando? (si no hay, explica por qué)  
 
 **Respuesta:**
@@ -247,6 +256,7 @@ ps -eo pid,ppid,cmd,stat | grep "[s]leep 200"
 ```text
 
 ```
+
 **Pregunta:** ¿Qué ventaja tiene lanzar con `systemd-run --user` respecto a ejecutarlo “a pelo”?  
 
 **Respuesta:**
@@ -258,11 +268,13 @@ ps -eo pid,ppid,cmd,stat | grep "[s]leep 200"
 ```bash
 top -b -n 1 | head -n 15
 ```
+
 **Salida (resumen):**
 
 ```text
 
 ```
+
 **Pregunta:** ¿Cuál es tu proceso con mayor `%CPU` en ese momento?  
 
 **Respuesta:**
@@ -282,6 +294,7 @@ strace -p "$pid" -e trace=nanosleep -tt -c -f 2>&1 | sed -n '1,10p'
 ```text
 
 ```
+
 **Pregunta:** Explica brevemente la syscall que observaste.  
 
 **Respuesta:**
@@ -301,6 +314,7 @@ pstree -p | head -n 50
 ```text
 
 ```
+
 **Pregunta:** ¿Bajo qué proceso aparece tu `systemd --user`?  
 
 **Respuesta:**
@@ -312,11 +326,13 @@ pstree -p | head -n 50
 ```bash
 ps -eo pid,ppid,stat,cmd | head -n 20
 ```
+
 **Salida:**
 
 ```text
 
 ```
+
 **Pregunta:** Explica 3 flags de `STAT` que veas (ej.: `R`, `S`, `T`, `Z`, `+`).  
 
 **Respuesta:**
@@ -338,11 +354,13 @@ kill -CONT "$pid"
 # Estado
 ps -o pid,stat,cmd -p "$pid"
 ```
+
 **Pega los dos estados (antes/después):**
 
 ```text
 
 ```
+
 **Pregunta:** ¿Qué flag indicó la suspensión?  
 
 **Respuesta:**
@@ -364,11 +382,13 @@ EOF
 gcc "$DAM/bin/zombie.c" -o "$DAM/bin/zombie" && "$DAM/bin/zombie" &
 ps -el | grep ' Z '
 ```
+
 **Salida (recorta):**
 
 ```text
 
 ```
+
 **Pregunta:** ¿Por qué el estado `Z` y qué lo limpia finalmente?  
 
 **Respuesta:**
@@ -390,6 +410,7 @@ rm -rf "$DAM/bin" "$DAM/logs" "$DAM/units"
 ---
 
 ## ¿Qué estás prácticando?
+
 - [ ] Pegaste **salidas reales**.  
 - [ ] Explicaste **qué significan**.  
 - [ ] Usaste **systemd --user** y **journalctl --user**.  
@@ -399,4 +420,5 @@ rm -rf "$DAM/bin" "$DAM/logs" "$DAM/units"
 ---
 
 ## Licencia 📄
+
 Licencia **Apache 2.0** — ver [LICENSE.md](https://github.com/jpexposito/code-learn-practice/blob/main/LICENSE).
