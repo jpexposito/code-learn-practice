@@ -1,63 +1,125 @@
-# <img src=../../../../../images/computer.png width="40"> Code, Learn & Practice(Programación: Introducción a la Programación "Ejercicios de Variables en Java")
+# <img src=../../../../../images/computer.png width="40"> Code, Learn & Practice(Programación: Introducción a la Programación "Ejercicios de condicionales y recepción y muestra de información")
 
-## Ejercicio 1: Tipo de Dato `int`
+## 1. Juego del clima loco
 
-Declara una variable de tipo `int` para representar la edad de una persona e inicialízala con un valor entero de ejemplo. Imprime el valor en la consola.
+**Descripción:** El usuario ingresa el clima y el programa responde con una ocurrencia.
 
----
+```pseudocode
+leer clima
+si clima = "soleado" entonces
+    mostrar "¡Ponte gafas de sol y a disfrutar!"
+sino si clima = "lluvioso" entonces
+    mostrar "¡Saca tu paraguas, hoy cantamos bajo la lluvia!"
+sino si clima = "nevando" entonces
+    mostrar "¡Hora de hacer un muñeco de nieve!"
+sino
+    mostrar "Clima misterioso... ¿acaso viene una tormenta intergaláctica?"
+```
 
-## Ejercicio 2: Tipo de Dato `double`
+<details>
+      <summary>SOLUCIÓN</summary>
+      
+```java
 
-Declara una variable de tipo `double` para representar el precio de un producto y asigna un valor decimal. Imprime el valor en la consola.
+import java.util.Scanner;
 
----
+public class ClimaLoco {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
-## Ejercicio 3: Tipo de Dato `char`
+        System.out.print("Ingresa el clima: ");
+        String clima = sc.nextLine().toLowerCase().trim();
 
-Declara una variable de tipo `char` que represente la inicial de un nombre. Imprime el valor en la consola.
+        if (clima.equals("soleado")) {
+            System.out.println("¡Ponte gafas de sol y a disfrutar!");
+        } else if (clima.equals("lluvioso")) {
+            System.out.println("¡Saca tu paraguas, hoy cantamos bajo la lluvia!");
+        } else if (clima.equals("nevando")) {
+            System.out.println("¡Hora de hacer un muñeco de nieve!");
+        } else {
+            System.out.println("Clima misterioso... ¿acaso viene una tormenta intergaláctica?");
+        }
 
----
+        sc.close();
+    }
+}
+```
+</details>  
 
-## Ejercicio 4: Tipo de Dato `boolean`
-
-Declara una variable de tipo `boolean` que indique si un estudiante está matriculado (true o false). Imprime el valor en la consola.
-
----
-
-## Ejercicio 5: Tipo de Dato `byte`
-
-Declara una variable de tipo `byte` para almacenar la temperatura en grados y asigna un valor pequeño. Imprime el valor en la consola.
-
----
-
-## Ejercicio 6: Tipo de Dato `short`
-
-Declara una variable de tipo `short` para representar la distancia en metros y asigna un valor. Imprime el valor en la consola.
-
----
-
-## Ejercicio 7: Tipo de Dato `long`
-
-Declara una variable de tipo `long` que represente la población mundial y asigna un valor grande. Imprime el valor en la consola.
-
----
-
-## Ejercicio 8: Tipo de Dato `float`
-
-Declara una variable de tipo `float` para representar la altura de una persona y asigna un valor decimal. Imprime el valor en la consola.
-
----
-
-## Ejercicio 9: Tipo de Dato `String`
-
-Declara una variable de tipo `String` para almacenar el nombre completo de una persona. Imprime el valor en la consola.
 
 ---
 
-## Ejercicio 10: Tipo de Dato `Array`
+## 2. Detector de edad divertida
 
-Declara un arreglo de tipo `int` que contenga cinco números. Imprime el primer elemento del arreglo en la consola.
+**Descripción:** Según la edad, el programa da un mensaje gracioso.
 
+```pseudocode
+leer edad
+si edad < 5 entonces
+    mostrar "Eres un bebé genio con teclado."
+sino si edad < 13 entonces
+    mostrar "¡Cuidado! Podrías estar en la fase gamer pro."
+sino si edad < 20 entonces
+    mostrar "Adolescente detectado: nivel experto en memes."
+sino si edad < 60 entonces
+    mostrar "Adulto en misión: sobrevivir al café diario."
+sino
+    mostrar "¡Leyenda viva! Sabes más que Google."
+```
+
+---
+
+## 3. Semáforo interactivo
+
+**Descripción:** El usuario ingresa un color de semáforo y el programa indica la acción.
+
+```pseudocode
+leer color
+si color = "rojo" entonces
+    mostrar "¡Alto! Ni se te ocurra moverte."
+sino si color = "amarillo" entonces
+    mostrar "Prepárate… ¡pero no corras!"
+sino si color = "verde" entonces
+    mostrar "¡Avanza como un rayo!"
+sino
+    mostrar "Ese color no existe en un semáforo… ¿arcoíris?"
+```
+
+---
+
+## 4. Adivina el animal
+
+**Descripción:** El usuario responde preguntas y el programa adivina un animal.
+
+```pseudocode
+leer tiene_alas (sí/no)
+leer vive_en_el_agua (sí/no)
+
+si tiene_alas = "sí" entonces
+    mostrar "Podría ser un pájaro… ¡o un dragón!"
+sino si vive_en_el_agua = "sí" entonces
+    mostrar "Seguro que eres un pez, o una sirena secreta."
+sino
+    mostrar "Mmm... tal vez un perro travieso."
+```
+
+---
+
+## 5. Máquina de la suerte
+
+**Descripción:** El usuario ingresa un número y el programa da una predicción graciosa.
+
+```pseudocode
+leer numero
+si numero = 1 entonces
+    mostrar "Hoy encontrarás una galleta… ¡y será deliciosa!"
+sino si numero = 2 entonces
+    mostrar "Un pato te mirará raro en la calle."
+sino si numero = 3 entonces
+    mostrar "Tendrás suerte… si compartes tu comida."
+sino
+    mostrar "Número misterioso: ¡prepárate para lo inesperado!"
+```
 
 
 ## Licencia 📄
