@@ -1,4 +1,4 @@
-# <img src=../../../../../images/computer.png width="40"> Code, Learn & Practice(Programación: Introducción a la Programación "Ejercicios de Switch en Java")
+# <img src=../../../../../../images/computer.png width="40"> Code, Learn & Practice(Programación: Introducción a la Programación "Ejercicios de Switch en Java")
 
 ### 1. Menú de días de la semana
 

@@ -1,4 +1,4 @@
-# <img src=../../../../../images/computer.png width="40"> Code, Learn & Practice(Programación: Introducción a la Programación "Ejercicios de Variables en Java")
+# <img src=../../../../../../images/computer.png width="40"> Code, Learn & Practice(Programación: Introducción a la Programación "Ejercicios de Variables en Java")
 
 ## Ejercicio 1: Tipo de Dato `int`
 
