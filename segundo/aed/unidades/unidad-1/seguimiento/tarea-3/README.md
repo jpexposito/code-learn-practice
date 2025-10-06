@@ -1,6 +1,6 @@
 # <img src=../../../../../../images/computer.png width="40"> Code, Learn & Practice(Acceso a Datos: "Trabajo con ficheros interfaz gráfica")
 
-<img src="https://laruletagiratoria.com/wp-content/uploads/ahorcado.jpg" width="200">
+<img src="https://laruletagiratoria.com/wp-content/uploads/ahorcado.jpg" width="250">
 
 ## Preparación
 
@@ -62,13 +62,15 @@ ahorcado/
 │  ├─ Storage.php
 │  └─ Renderer.php
 ├─ data/
-│  └─ words.txt              # lista de palabras (una por línea)
+│  └─ words.txt              
 ├─ images/
 │  ├─ mock.drawio.png
 ├─ tests/
 ├─ .gitignore
-├─ README.md                 # este archivo
+├─ README.md                 
 ```
+
+>> words.txt -> lista de palabras (una por línea).
 
 ### gitignore
 
