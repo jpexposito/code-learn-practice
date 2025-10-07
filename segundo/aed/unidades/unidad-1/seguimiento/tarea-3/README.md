@@ -56,13 +56,13 @@ git commit -m "docs: añade mock de la interfaz de la solución"
 ahorcado/
 ├─ public/
 │  └─ index.php
-├─ src/
-│  ├─ Game.php
-│  ├─ WordProvider.php
-│  ├─ Storage.php
-│  └─ Renderer.php
-├─ data/
-│  └─ words.txt              
+├── src/
+│   ├─ Game.php
+│   ├─ WordProvider.php
+│   ├─ Storage.php
+│   └─ Renderer.php
+├── data/
+│   └─ words.txt              
 ├─ images/
 │  ├─ mock.drawio.png
 ├─ tests/
