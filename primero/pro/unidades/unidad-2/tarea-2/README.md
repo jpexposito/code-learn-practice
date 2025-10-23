@@ -1,200 +1,235 @@
 # <img src=../../../../../images/computer.png width="40"> Code, Learn & Practice(Programación: Introducción a la Programación "Definición de Clases, constructores, getters, setters")
 
-## Ejercicio 1
+Practicar **clases simples en Java** usando exclusivamente:
 
-Crea una clase llamada `Persona` con los atributos `nombre` y `edad`. Define un constructor que inicialice estos valores.
+- **Constructores**
+- **Getters y Setters**
+- **`equals`**
+- **`toString`**
 
-### Solución
+## Lo que se evalúa
 
-```java
-public class Persona {
-    
-    private String nombre;
-    private int edad;
+1) **Siempre asignar valores a todas las propiedades** (vía **constructor** y al menos **un setter**).  
+2) **Mostrar el resultado por pantalla** con `toString()` (y getters cuando se pida).  
+3) **Usar `equals`** al menos una vez con **resultado `true`** y otra con **resultado `false`** (tras modificar datos cuando corresponda).
 
-    /**
-     *  Constructor por defecto de la clase
-     */ 
-    public Persona(String nombre, int edad) {
-        this.nombre = nombre;
-        this.edad = edad;
-    }
+> **Convención de nombres**: usa variables descriptivas como `persona1`, `libro2`, `usuarioModificado`.  
+> **Evita** abreviaturas crípticas como `p1`, `l1`, `a`, `b`.
 
-    /**
-     * Metodo que no forma parte de la tarea, solo es un ejemplo
-     */
-    public void mostrarInformacion() {
-        System.out.println("Nombre: " + nombre + ", Edad: " + edad);
-    }
+---
+
+
+### Opción con estructura sugerida
+
+```
+/src
+  Main.java
+  /model
+    Persona.java
+    Producto.java
+    Libro.java
+    Punto2D.java
+    Coche.java
+    Alumno.java
+    Pelicula.java
+    Direccion.java
+    Usuario.java
+    Pedido.java
 ```
 
-### Instancia y uso de la clase
+---
 
-Crea un objeto de la clase Persona con nombre __"Juan" y edad 30. Muestra la información de la persona.
+## Plantillas útiles
 
-## Ejercicio 2
+### Clase base (ajústala a cada ejercicio)
+
+```java
+import java.util.Objects;
 
-Modifica la clase `Persona` para que tenga métodos getter y setter para el atributo `edad`.
+public class Plantilla {
+    // Cambia estos campos por los del ejercicio
+    private String campo1;
+    private int campo2;
 
-### Instancia y uso de la clase
+    // Constructor (asigna todos los campos)
+    public Plantilla(String campo1, int campo2) {
+        this.campo1 = campo1;
+        this.campo2 = campo2;
+    }
 
-Crea un objeto de la clase Persona con nombre "Maria" y edad 25. Modifica la edad a 26 usando el setter y muestra la edad actualizada.
+    // Getters/Setters
+    public String getCampo1() { return campo1; }
+    public void setCampo1(String campo1) { this.campo1 = campo1; }
+    public int getCampo2() { return campo2; }
+    public void setCampo2(int campo2) { this.campo2 = campo2; }
 
-## Ejercicio 3
+    // equals: ajusta los campos usados en la comparación
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Plantilla)) return false;
+        Plantilla that = (Plantilla) o;
+        return campo2 == that.campo2 &&
+               Objects.equals(campo1, that.campo1);
+    }
 
-Crea una clase `Coche` con los atributos `marca`, `modelo` y `año`. Incluye un constructor y métodos getter y setter para cada atributo.
+    // toString legible
+    @Override
+    public String toString() {
+        return "Plantilla{campo1='" + campo1 + "', campo2=" + campo2 + "}";
+    }
+}
+```
 
-### Instancia y uso de la clase
+### Patrón de prueba en `Main`
 
-Crea un objeto de la clase Coche con marca "Toyota", modelo "Corolla", y año 2022. Muestra los atributos del coche (marca, modelo, año) usando getters.
+```java
+public class Main {
+    public static void main(String[] args) {
+        // Ejemplo del patrón general (sustituir por cada clase real):
+        // 1) Crear con constructor (asignación completa)
+        Persona persona1 = new Persona("Ada", 25);
+        Persona persona2 = new Persona("Ada", 25);
 
-## Ejercicio 4
+        // 2) Mostrar
+        System.out.println("persona1 = " + persona1.toString());
+        System.out.println("persona2 = " + persona2.toString());
 
-Modifica la clase `Coche` para que el setter del atributo `año` solo permita valores mayores o iguales a 1886 (año de creación del primer coche).
+        // 3) equals -> true inicialmente
+        System.out.println("¿persona1 equals persona2? " + persona1.equals(persona2)); // true
 
->***Nota***: Utilización de if
+        // 4) Modificar con setter al menos una propiedad
+        persona2.setEdad(26);
 
-### Instancia y uso de la clase
+        // 5) Mostrar de nuevo y volver a comparar (false)
+        System.out.println("persona2 (modificada) = " + persona2.toString());
+        System.out.println("¿persona1 equals persona2 tras cambio? " + persona1.equals(persona2)); // false
+    }
+}
+```
 
-Crea un objeto de la clase Coche con marca "Ford", modelo "Mustang", y año 2020. Intenta asignar un año menor a 1886 y muestra el resultado de la validación.
+---
 
-## Ejercicio 5
+## Los 10 ejercicios (instrucciones exactas)
 
-Crea una clase llamada `Rectangulo` con los atributos `base` y `altura`. Implementa un método que calcule el área del rectángulo. Usa getters y setters para los atributos.
+### 1) `Persona` (nombre, edad)
 
-### Instancia y uso de la clase
+**Implementa:** constructor, getters/setters, `equals` por `nombre` **y** `edad`, `toString`.  
+**En `main`:**
 
-Crea un objeto de la clase Rectangulo con base 5 y altura 10. Muestra el área calculada del rectángulo.
+- Crea `persona1("Ada", 25)` y `persona2("Ada", 25)`; **muestra** ambas.
+- `persona1.equals(persona2)` ⇒ **true**.
+- **Modifica** `persona2.setEdad(26)`; **muestra** `persona2` y compara de nuevo ⇒ **false**.
 
-## Ejercicio 6
+---
 
-Añade un método en la clase `Rectangulo` que calcule el perímetro del rectángulo.
+### 2) `Producto` (codigo, precio)
 
-La fórmula para calcular el perímetro de un rectángulo es:
+**Implementa:** `equals` por `codigo`, `toString`, constructores y getters/setters.  
+**En `main`:**
 
-𝑃 = 2⋅(𝑏+ℎ)
+- Crea `producto1("A123", 10.0)` y `producto2("A123", 12.0)`; **muestra** ambos.
+- `producto1.equals(producto2)` ⇒ **true**.
+- **Modifica** `producto2.setCodigo("B999")`; **muestra** `producto2` y compara ⇒ **false**.
 
-Donde:
+---
 
-- ***P*** es el perímetro.
-- ***b*** es la longitud de la base del rectángulo.
-- ***h*** es la altura del rectángulo.
+### 3) `Libro` (isbn, titulo)
 
-### Instancia y uso de la clase
+**Implementa:** `equals` por `isbn`, `toString`, constructores y getters/setters.  
+**En `main`:**
+- Crea `libro1("978-0-00-000000-1", "El primero")` y `libro2("978-0-00-000000-1", "Otro título")`; **muestra** ambos.
+- Usa getters para imprimir `libro2.getTitulo()`.
+- **Modifica** `libro2.setTitulo("Título actualizado")`; **muestra** `libro2`.
+- `libro1.equals(libro2)` ⇒ **true** (mismo ISBN en todo momento).
 
-Crea un objeto de la clase Rectangulo con base 4 y altura 7. Muestra el perímetro calculado del rectángulo.
+---
 
-## Ejercicio 7
+### 4) `Punto2D` (x, y)
 
-Crea una clase `Banco` con un atributo privado `saldo`. Implementa métodos para depositar y retirar dinero, y un método getter para consultar el saldo.
+**Implementa:** `equals` por `x` **e** `y`, `toString`, constructores y getters/setters.  
+**En `main`:**
 
-### Instancia y uso de la clase
+- Crea `punto1(3, 4)`, `punto2(3, 4)` y `punto3(5, 4)`; **muestra** los tres.
+- `punto1.equals(punto2)` ⇒ **true**; `punto1.equals(punto3)` ⇒ **false**.
+- **Modifica** `punto2.setX(7)`; **muestra** `punto2` y compara con `punto1` ⇒ **false**.
 
-Crea un objeto de la clase Banco con un saldo inicial de 1000. Deposita 500, retira 200 y muestra el saldo actual.
+---
 
-## Ejercicio 8
+### 5) `Coche` (matricula, marca, modelo)
 
-Crea una clase `Empleado` con los atributos `nombre`, `puesto` y `salario`. Usa getters y setters para cada atributo. El salario no puede ser negativo.
+**Implementa:** `equals` por `matricula`, `toString`, constructores y getters/setters.  
+**En `main`:**
 
-### Instancia y uso de la clase
+- Crea `coche1("1234-ABC", "Toyota", "Yaris")` y `coche2("1234-ABC", "Ford", "Focus")`; **muestra** ambos.
+- `coche1.equals(coche2)` ⇒ **true**.
+- **Modifica** `coche2.setMarca("Seat")`; **muestra** `coche2` y verifica que `equals` **sigue true** (la matrícula no cambió).
 
-Crea un objeto de la clase Empleado con nombre "Ana", puesto "Gerente", y salario 5000. Asegúrate de que el salario no sea negativo.
+---
 
-## Ejercicio 9
+### 6) `Alumno` (dni, nombre)
 
-Modifica la clase `Empleado` para que el setter de `puesto` no permita valores vacíos o nulos.
+**Implementa:** `equals` por `dni`, `toString`, constructores y getters/setters.  
+**En `main`:**
 
-### Instancia y uso de la clase
+- Crea `alumno1("12345678A", "Lucía")`; **muestra** `alumno1`, `alumno1.getDni()` y `alumno1.getNombre()`.
+- **Modifica** `alumno1.setNombre("Lucía Gómez")`; **muestra** `alumno1`.
+- (Opcional) Crea `alumno2("12345678A", "Otro")` y comprueba `alumno1.equals(alumno2)` ⇒ **true**.
 
-Crea un objeto de la clase Empleado con nombre "Carlos", puesto "Ingeniero" y salario 3000. Intenta asignar un puesto vacío y muestra el resultado de la validación.
+---
 
-## Ejercicio 10
+### 7) `Pelicula` (titulo, anio)
 
-Crea una clase `CuentaBancaria` con los atributos `titular` y `saldo`. Implementa un método para transferir dinero entre dos cuentas.
+**Implementa:** `equals` por `titulo` **y** `anio`, `toString`, constructores y getters/setters.  
+**En `main`:**
 
-### Instancia y uso de la clase
+- Crea `pelicula1("Matrix", 1999)`, `pelicula2("Matrix", 1999)` y `pelicula3("Matrix", 2003)`; **muestra** todas.
+- `pelicula1.equals(pelicula2)` ⇒ **true**; `pelicula1.equals(pelicula3)` ⇒ **false**.
+- **Modifica** `pelicula3.setAnio(1999)`; **muestra** `pelicula3` y comprueba ahora ⇒ **true** con `pelicula1`.
 
-Crea dos objetos de la clase CuentaBancaria con titulares "Pedro" y "Laura", y con saldo inicial de 1500 y 1000 respectivamente. Transfiere 500 de la cuenta de Pedro a la cuenta de Laura y muestra los saldos de ambas cuentas.
+---
 
-## Ejercicio 11
+### 8) `Direccion` (calle, numero, ciudad)
 
-Modifica la clase `CuentaBancaria` para que la transferencia no pueda realizarse si el saldo de la cuenta es insuficiente.
+**Implementa:** `equals` por `calle`, `numero`, `ciudad`, `toString`, constructores y getters/setters.  
+**En `main`:**
 
-### Instancia y uso de la clase
+- Crea `direccion1("Gran Vía", 10, "Madrid")` y `direccion2("Gran Vía", 10, "Madrid")`; **muestra** ambas.
+- Con getters, imprime: `"Vivo en " + direccion1.getCalle() + " " + direccion1.getNumero() + ", " + direccion1.getCiudad()`.
+- `direccion1.equals(direccion2)` ⇒ **true**.
+- **Modifica** `direccion2.setCiudad("Barcelona")`; **muestra** `direccion2` y compara ⇒ **false**.
 
-Crea dos objetos de la clase CuentaBancaria con titulares "Luis" y "Sofía", con saldos de 500 y 3000 respectivamente. Intenta transferir 1000 de la cuenta de Luis y muestra un mensaje de saldo insuficiente.
+---
 
-## Ejercicio 12
+### 9) `Usuario` (username, email)
 
-Crea una clase `Libro` con los atributos `titulo`, `autor` y `paginas`. Usa getters y setters para cada atributo, y asegura que el número de páginas sea un entero positivo.
+**Implementa:** `equals` por `username`, `toString`, constructores y getters/setters.  
+**En `main`:**
 
-### Instancia y uso de la clase
+- Crea `usuario1("ana", "ana@x.com")` y `usuario2("ana", "otra@x.com")`; **muestra** ambos.
+- `usuario1.equals(usuario2)` ⇒ **true**.
+- **Modifica** `usuario2.setUsername("ana2")`; **muestra** `usuario2` y compara ⇒ **false**.
 
-Crea un objeto de la clase Libro con título "El Quijote", autor "Cervantes", y 500 páginas. Asegúrate de que el número de páginas sea positivo.
+---
 
-## Ejercicio 13
+### 10) `Pedido` (id, total)
 
-Crea una clase `Alumno` con los atributos `nombre` y `nota`. Implementa un método que determine si el alumno ha aprobado (nota >= 6).
+**Implementa:** `equals` por `id`, `toString`, constructores y getters/setters.  
+**En `main`:**
 
-### Instancia y uso de la clase
+- Crea `pedido1("PED-001", 150.0)` y `pedido2("PED-001", 300.0)`; **muestra** ambos.
+- `pedido1.equals(pedido2)` ⇒ **true**.
+- **Modifica** `pedido2.setTotal(320.0)`; **muestra** `pedido2` y verifica que `equals` **sigue true**.
+- (Opcional) Cambia `pedido2.setId("PED-002")` y comprueba ⇒ **false**.
 
-Crea un objeto de la clase Alumno con nombre "Lucía" y nota 7. Determina si el alumno ha aprobado.
+---
 
-## Ejercicio 14
+## Consejos rápidos
 
-Modifica la clase `Alumno` para que la nota no pueda ser mayor a 10 ni menor a 0 en el setter.
-
-### Instancia y uso de la clase
-
-Crea un objeto de la clase Alumno con nombre "Jorge" y nota 11. Asegúrate de que la nota no pueda ser mayor que 10 ni menor que 0.
-
-## Ejercicio 15
-
-Crea una clase `Producto` con los atributos `nombre`, `precio` y `stock`. El precio no puede ser negativo y el stock debe ser al menos 0.
-
-### Instancia y uso de la clase
-
-Crea un objeto de la clase Producto con nombre "Laptop", precio 1000, y stock 50. Asegúrate de que el precio no sea negativo y que el stock no sea menor a 0.
-
-## Ejercicio 16
-
-Añade a la clase `Producto` un método para vender productos, que disminuya el stock y retorne el total de la venta.
-
-### Instancia y uso de la clase
-
-Crea un objeto de la clase Producto con nombre "Cámara", precio 300, y stock 20. Realiza una venta de 5 unidades y muestra el stock restante y el total de la venta.
-
-## Ejercicio 17
-
-Crea una clase `Vehiculo` con los atributos `marca`, `modelo` y `combustible`. Define un método que permita agregar combustible al vehículo.
-
-### Instancia y uso de la clase
-
-Crea un objeto de la clase Vehiculo con marca "Honda", modelo "Civic", y combustible 40 litros. Agrega 20 litros de combustible al vehículo.
-
-## Ejercicio 18
-
-Modifica la clase `Vehiculo` para que el setter de `combustible` no permita valores negativos.
-
-### Instancia y uso de la clase
-
-Crea un objeto de la clase Vehiculo con marca "Ford", modelo "Fiesta", y combustible 15 litros. Intenta asignar un valor negativo al combustible y muestra el resultado de la validación.
-
-## Ejercicio 19
-
-Crea una clase `Circulo` con un atributo `radio`. Implementa un método que calcule el área y el perímetro del círculo. Usa getters y setters para el radio.
-
-### Instancia y uso de la clase
-
-Crea un objeto de la clase Circulo con radio 5. Muestra el área y el perímetro del círculo.
-
-## Ejercicio 20
-
-Modifica la clase `Circulo` para que el setter de `radio` solo acepte valores positivos y mayores a 0.
-
-### Instancia y uso de la clase
-
-Crea un objeto de la clase Circulo con radio -3. Asegúrate de que el radio sea un valor positivo mayor a 0.
+- **Imprime siempre** los objetos antes y después de modificar con setters.  
+- Asegúrate de que `equals` compare **solo** los campos indicados en cada enunciado.  
+- No es necesario implementar `hashCode()` en estos ejercicios (aunque es buena práctica cuando se sobrescribe `equals`).  
+- Mantén los **campos privados** y accede mediante getters/setters.
 
 ## Licencia 📄
 
