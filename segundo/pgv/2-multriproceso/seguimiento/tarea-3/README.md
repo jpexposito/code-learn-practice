@@ -2,39 +2,27 @@
 
 ## Objetivo
 
-Construir una aplicación **Spring Boot (CLI)**  que **lanza procesos del sistema operativo** (Linux/Windows), captura **stdout/stderr** en tiempo real, aplica **timeout**, y **persiste** el historial de ejecuciones en **ficheros JSONL**, todo usando una **arquitectura por interfaces** con **@Component, @Service y @Repository**.
+Construir una aplicación **Spring Boot (CLI)**  que **lanza procesos del sistema operativo** (Linux), captura **stdout/stderr** en tiempo real, y **persiste** el historial de ejecuciones en **ficheros .txt**, todo usando una **arquitectura por interfaces** con **@Component, @Service y @Repository**.
 
 ## ¿Qué puedes hacer?
 
 - Ejecutar tareas y portables por SO:
-  - `PING` — `ping -c/-n`
-  - `LIST_DIR` — `ls -la` / `cmd /c dir`
-  - `HASH_SHA256` — `sha256sum` / `certutil -hashfile ... SHA256`
+  - lsof -i
+  - top
+  - ps aux | head
 - Ver la salida en **tiempo real** (con prefijos `[OUT]`/`[ERR]`).
-- Definir **timeout** (ms); si expira, se marca `TIMEOUT` y se mata el proceso.
-- Guardar **stdout/stderr** en ficheros (`app.logs-dir`).
-- Consultar el **resumen** (PID, exit code, estado) al finalizar cada ejecución.
-- REPL que **permanece** corriendo hasta **Ctrl+C**.
+- Guardar **stdout/stderr** en ficheros (`con extensión .txt`).
 
-## Arquitectura (propuesta)
+## Arquitectura
 
-- **domain/**
-  - `Job`, `JobStatus`, `JobType`.
-- **interfaces**:
-  - `ICommandFactory` (**@Component**) — traduce `JobType`+params a **List<String>** según SO.
-  - `IProcessExecutor` (**@Service**) — ejecuta el proceso, captura streams y devuelve `Result`.
-  - `ILogStorage` (**@Component**) — resuelve rutas de logs, utilidades (tail)/ etc.
-  - `IJobRepository` (**@Repository**) — persiste/lee `Job` en almacenamiento **fichero (JSON)**.
-- **services/**
-  - `JobService` (**@Service**) — orquesta: prepara logs, invoca `ProcessExecutor`, actualiza y persiste `Job`.
-- **cli/**
-  - `ConsoleRunner` (**@Component**, `CommandLineRunner`) — REPL (`run ...`) y gestión de Ctrl+C.
+Para la arquitectura ten en cuenta:
 
-Diagrama resumido:
-
-```console
-ConsoleRunner --> JobService --> (CommandFactory + ProcessExecutor + LogStorage + JobRepository)
-```
+- **domain/**: Elementos de dominio si se definen, por ejemplo la clase Job.
+- **repositories/interfaces**: Definición de la interface del repositorio que almacena la información.
+- **repositories**: Implementación del repositorio que realiza las operaciones necesarias de almacenamiento en el fichero.
+- **services/interfaces**: Definión de las interfaces de los servicios de cada uno de los comandos que debe de soportar la aplicación.
+- **services/**: Implementación de los servicios de cada uno de los comandos que debe de soportar la aplicación.
+- **controlers/**: Controlador principal que lanza la aplicación.
 
 ## Ejecutar
 
@@ -45,116 +33,56 @@ mvn clean spring-boot:run
 Prompt propuesto:
 
 ```console
-=== Lanzador de Procesos (CLI) Linux/Windows ===
+=== Lanzador de Procesos (CLI) Linux ===
 Comandos:
-  run PING host=8.8.8.8 count=4 timeoutMs=15000
-  run LIST_DIR path=.
-  run HASH_SHA256 file=README.md
-  help | os | exit
+  lsof -i
+  top
+  ps aux | head 
 ```
-
-### Ejemplos
-
-```console
-run PING host=8.8.8.8 count=4
-run LIST_DIR path=.
-run HASH_SHA256 file=README.md timeoutMs=5000
-```
-
-## Configuración
-
-- `app.logs-dir` (por defecto `logs/`)
-- `app.data-dir` (por defecto `data/`)
-- `app.default-timeout-ms` (por defecto `10000`)
-
-## Detalles de implementación
-
-- `ProcessExecutor` usa `ProcessBuilder`, consume **stdout**/**stderr**.
-- `JobRepository` escribe `Job` como **JSON** (`data/jobs.json`).
-- `LogStorage` organiza logs por día (`logs/yyyy-MM-dd/`) y ofrece `tail()` para mostrar las últimas N líneas en el resumen.
 
 ## Cerrar la app
 
-Pulsa **Ctrl+C** o escribe `exit`.
+Pulsa **Ctrl+C**.
 
 ## Arquitectura de paquetes propuesta
 
 ```text
-org.formacion.procesos/
-├─ domain/                 # Modelo de dominio (POJOs, enums, DTOs)
-│  ├─ JobId.java
-│  ├─ JobType.java         # PING | LIST_DIR | HASH_SHA256
-│  ├─ JobStatus.java       # PENDING | RUNNING | SUCCESS | ERROR | TIMEOUT | KILLED
-│  ├─ Job.java
-│  ├─ Result.java
-│  └─ RunRequest.java
-│
-├─ interfaces/             # Contratos (arquitectura por interfaces)
-│  ├─ ICommandFactory.java   @Component
-│  ├─ IProcessExecutor.java  @Service
-│  ├─ ILogStorage.java       @Component
-│  ├─ IJobRepository.java    @Repository
-│  └─ IConsole.java          @Component (opcional, para testear REPL)
-│
-├─ cli/                    # Entrada y REPL
-│  ├─ ConsoleRunner.java     @Component implements CommandLineRunner
-│  └─ CommandParser.java
-│
-├─ services/               # Orquestación y lógica de aplicación
-│  ├─ JobService.java        @Service (usa interfaces)
-│  └─ ProcessExecutor.java   @Service (impl de IProcessExecutor)
-│
-├─ component/              # Componentes auxiliares
-│  ├─ CommandFactory.java    @Component (impl de ICommandFactory; dependiente de SO)
-│  └─ LogStorage.java        @Component (impl de ILogStorage; rutas y tail)
-│
-├─ repository/             # Persistencia (ficheros JSONL)
-│  └─ JobRepository.java     @Repository (impl de IJobRepository; data/jobs.jsonl)
-│
-├─ config/                 # Configuración tipada
-│  ├─ AppProperties.java     @ConfigurationProperties(prefix="app")
-│  └─ AppConfig.java         @Configuration @EnableConfigurationProperties
-│
-└─ util/                   # Utilidades (opcional)
-   ├─ OsUtils.java
-   ├─ JsonlUtils.java
-   └─ IoUtils.java
+com.docencia.dam
+├─ domain/
+│  └─ Job.java
+├─ repositories/
+│  ├─ interfaces/
+│  │  └─ JobRepository.java
+│  └─ file/
+│     └─ FileJobRepository.java
+├─ services/
+│  ├─ interfaces/
+│  │  ├─ CommandService.java
+│  │  ├─ LsofService.java
+│  │  ├─ TopService.java
+│  │  └─ PsHeadService.java
+│  └─ impl/
+│     ├─ LsofServiceImpl.java
+│     ├─ TopServiceImpl.java
+│     └─ PsHeadServiceImpl.java
+├─ controllers/      (controlador CLI)
+│  └─ CliController.java
+└─ ProcCliApplication.java
 ```
 
----
+- **ProcCliApplication.java**. Clase configurada en el arranque de **Spring-Boot**. Puede tener otro nombre, depende del momento de contrucción de la solución.
+- **CliController.java**. Muestra el menú y lanza el programa.
+- El resto del elemento descritos realiza el procesamiento, tratamiento y almacenamiento de la información del proceso que se pretende lanzar.
 
-## Rol de cada paquete
+>**IMPORTANTE**: si un proceso no se ajusta a los parámetros de entrada o no esta la lista de procesos permitidos, debe de generar un error y lanzar a través de consola este, y almancenar la imformación. Por ejemplo, lanzar un **ls -la**.
+>**Test de verificación: Genera al menos la verificación del 80% del código de la aplicación resultante. Para verificar el % conseguido integra dentro a [jacoco](https://www.baeldung.com/jacoco).
+>**Documentación**. Recuerda documentar las clases que construyas de forma adecuada.
 
-- **domain/**: núcleo del negocio sin dependencias de Spring.  
-- **interfaces/**: contratos que desacoplan la orquestación de las implementaciones.  
-- **cli/**: REPL y parsing de comandos; mantiene viva la app hasta `Ctrl+C`.  
-- **services/**: orquesta una ejecución (`JobService`) y ejecuta procesos del SO (`ProcessExecutor`).  
-- **component/**: utilidades de comandos por SO y gestión de logs (rutas `logs/yyyy-MM-dd/`, `tail(N)`).  
-- **repository/**: persistencia **JSONL** (`data/jobs.jsonl`), operaciones `append/find`.  
-- **config/**: propiedades `app.logs-dir`, `app.data-dir`, `app.default-timeout-ms`.  
-- **util/**: helpers transversales (opcional).  
+## Referencias y ayuda
 
----
-
-## Diagrama lógico
-
-```text
-ConsoleRunner (CLI)
-   └─ JobService (@Service)
-        ├─ ICommandFactory (@Component) -> CommandFactory
-        ├─ IProcessExecutor (@Service)  -> ProcessExecutor
-        ├─ ILogStorage (@Component)     -> LogStorage
-        └─ IJobRepository (@Repository) -> JobRepository (JSONL)
-```
-
----
-
-## Propiedades recomendadas (application.properties)
-
-```properties
-app.logs-dir=logs/
-app.data-dir=data/
-```
+- Ejercicio desarrollado en clase.
+- [Lanzamiento de procesos en Java](https://github.com/jpexposito/code-learn/blob/main/segundo/pgv/2-multriproceso/PROCESOS-JAVA.md).
+- [Manipulación de ficheros](https://github.com/jpexposito/code-learn/blob/main/segundo/aed/unidades/unidad-1/Manipulacion-ficheros-Files.md).
 
 ## Licencia 📄
 
