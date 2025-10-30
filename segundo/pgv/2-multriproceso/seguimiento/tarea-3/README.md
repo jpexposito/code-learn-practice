@@ -36,7 +36,7 @@ Prompt propuesto:
 === Lanzador de Procesos (CLI) Linux ===
 Comandos:
   lsof -i
-  top
+  top -b -n1
   ps aux | head 
 ```
 
@@ -58,9 +58,6 @@ com.docencia.dam
 ├─ services/
 │  ├─ interfaces/
 │  │  ├─ CommandService.java
-│  │  ├─ LsofService.java
-│  │  ├─ TopService.java
-│  │  └─ PsHeadService.java
 │  └─ impl/
 │     ├─ LsofServiceImpl.java
 │     ├─ TopServiceImpl.java
@@ -76,6 +73,43 @@ com.docencia.dam
 
 >**IMPORTANTE**: si un proceso no se ajusta a los parámetros de entrada o no esta la lista de procesos permitidos, debe de generar un error y lanzar a través de consola este, y almancenar la imformación. Por ejemplo, lanzar un **ls -la**.
 >**Test de verificación: Genera al menos la verificación del 80% del código de la aplicación resultante. Para verificar el % conseguido integra dentro a [jacoco](https://www.baeldung.com/jacoco).
+
+```xml
+<plugin>
+  <groupId>org.jacoco</groupId>
+  <artifactId>jacoco-maven-plugin</artifactId>
+  <version>0.8.11</version>
+
+  <executions>
+    <execution>
+      <id>prepare-agent</id>
+      <goals>
+        <goal>prepare-agent</goal>
+      </goals>
+    </execution>
+    <execution>
+      <id>report</id>
+      <phase>test</phase>
+      <goals>
+        <goal>report</goal>
+      </goals>
+    </execution>
+  </executions>
+</plugin>
+```
+
+Ejecuta 
+
+```console
+mvn clean test
+```
+
+y abre
+
+```console
+target/site/jacoco/index.html
+```
+
 >**Documentación**. Recuerda documentar las clases que construyas de forma adecuada.
 
 ## Referencias y ayuda
