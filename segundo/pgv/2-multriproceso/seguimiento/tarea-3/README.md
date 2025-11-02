@@ -8,7 +8,7 @@ Construir una aplicación **Spring Boot (CLI)**  que **lanza procesos del sistem
 
 - Ejecutar tareas y portables por SO:
   - lsof -i
-  - top
+  - top -b -n1
   - ps aux | head
 - Ver la salida en **tiempo real** (con prefijos `[OUT]`/`[ERR]`).
 - Guardar **stdout/stderr** en ficheros (`con extensión .txt`).
