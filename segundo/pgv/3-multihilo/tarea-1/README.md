@@ -6,6 +6,12 @@
 
 ## Ejemplo ejecutable: Carrera entre Goku y Vegeta
 
+<div align="center">
+
+<img src=https://cinepremiere.com.mx/wp-content/uploads/2021/01/Goku-vs-Vegeta.jpg width="400">
+
+</div>
+
 ### Código Java
 
 ```java
@@ -85,23 +91,6 @@ public class SaiyanRaceTest {
 }
 ```
 
-### Cómo compilar y ejecutar
-
-**Compilación simple con `javac`:**
-```bash
-# Compilar
-javac -d out src/main/java/SaiyanRace.java
-
-# Ejecutar
-java -cp out SaiyanRace
-```
-
-**Con Maven (opcional):**
-- `pom.xml` debe incluir JUnit 5 (scope `test`). Luego:
-```bash
-mvn -q -DskipTests=false test
-```
-
 ---
 
 ## Guía de portado del pseudocódigo a Java
@@ -124,7 +113,14 @@ mvn -q -DskipTests=false test
 
 ### Ejercicio 1: Batalla Pokémon
 
+<div align="center">
+
+<img src=https://wallpapers.com/images/hd/pokemon-battle-background-snpr84zisrk1qj2b.jpg width="400">
+
+</div>
+
 **Pseudocódigo**
+
 ```text
 class BatallaPokemon {
     atomic boolean juegoTerminado = false
@@ -173,6 +169,7 @@ class BatallaPokemon {
 ```
 
 **Test**
+
 ```text
 test BatallaPokemon_debeHaberGanador():
     capturarSalida()
@@ -188,7 +185,14 @@ test BatallaPokemon_debeHaberGanador():
 
 ### Ejercicio 2: Caza de Horrocruxes
 
+<div align="center">
+
+<img src=https://static1.colliderimages.com/wordpress/wp-content/uploads/2021/11/harry-potter-horcruxes.jpg width="400">
+
+</div>
+
 **Pseudocódigo**
+
 ```text
 class CazaHorrocruxes {
     atomic boolean encontrado = false
@@ -211,8 +215,9 @@ class CazaHorrocruxes {
 ```
 
 **Test**
+
 ```text
-test CazaHorrocruxes_existeUnGanadorYUnSoloHallazgo():
+test CazaHorrocruxesUnGanadorYUnSoloHallazgo():
     capturarSalida()
     sim = new CazaHorrocruxes()
     sim.main()
@@ -226,7 +231,14 @@ test CazaHorrocruxes_existeUnGanadorYUnSoloHallazgo():
 
 ### Ejercicio 3: Fábrica de Droids
 
+<div align="center">
+
+<img src=https://i.ytimg.com/vi/z3r2dBzs6B4/maxresdefault.jpg width="400">
+
+</div>
+
 **Pseudocódigo**
+
 ```text
 class FabricaDroids {
     BlockingQueue<String> ensamblados = new BlockingQueue()
@@ -257,8 +269,9 @@ class FabricaDroids {
 ```
 
 **Test**
+
 ```text
-test FabricaDroids_noSeActivaAntesDeEnsamblar_yCuentaCorrecta():
+test FabricaDroidsNoSeActivaAntesDeEnsamblaryCuentaCorrecta():
     capturarSalida()
     fab = new FabricaDroids()
     fab.main()
@@ -274,7 +287,14 @@ test FabricaDroids_noSeActivaAntesDeEnsamblar_yCuentaCorrecta():
 
 ### Ejercicio 4: Competencia de Quidditch
 
+<div align="center">
+
+<img src=https://www.aventurasnerd.com/wp-content/uploads/2024/07/unnamed-4-1.jpg width="400">
+
+</div>
+
 **Pseudocódigo**
+
 ```text
 class Quidditch {
     atomic boolean snitchAtrapada = false
@@ -315,6 +335,7 @@ class Quidditch {
 ```
 
 **Test**
+
 ```text
 test Quidditch_terminaCuandoSnitchAtrapada():
     capturarSalida()
@@ -329,7 +350,14 @@ test Quidditch_terminaCuandoSnitchAtrapada():
 
 ### Ejercicio 5: Exploradores Jedi
 
+<div align="center">
+
+<img src=https://cdn1.forevergeek.com/uploads/33/2022/11/123-1140x641.jpg width="400">
+
+</div>
+
 **Pseudocódigo**
+
 ```text
 class ExploradoresJedi {
     atomic boolean pistaEncontrada = false
@@ -350,8 +378,9 @@ class ExploradoresJedi {
 ```
 
 **Test**
+
 ```text
-test ExploradoresJedi_hayUnSoloGanador():
+test ExploradoresJediUnSoloGanador():
     capturarSalida()
     e = new ExploradoresJedi()
     e.main()
@@ -362,11 +391,19 @@ test ExploradoresJedi_hayUnSoloGanador():
 
 ---
 
-### Ejercicio 6: Simulación de la TARDIS
+### Ejercicio 6: Simulación de la Tardis
+
+<div align="center">
+
+<img src=https://static1.srcdn.com/wordpress/wp-content/uploads/2023/03/doctor-who-tardis-rooms.jpg width="400">
+
+</div>
+
 
 **Pseudocódigo**
+
 ```text
-class TARDIS {
+class Tardis {
     atomic boolean destinoAlcanzado = false
     atomic String eraGanadora = null
 
@@ -387,8 +424,9 @@ class TARDIS {
 ```
 
 **Test**
+
 ```text
-test TARDIS_existeUnaEraGanadora():
+test TardisExisteUnaEraGanadora():
     capturarSalida()
     t = new TARDIS()
     t.main()
@@ -402,7 +440,14 @@ test TARDIS_existeUnaEraGanadora():
 
 ### Ejercicio 7: Superhéroes salvando la ciudad
 
+<div align="center">
+
+<img src=https://img.freepik.com/fotos-premium/grupo-diversos-superheroes-unen-horizonte-ciudad_14117-766641.jpg width="400">
+
+</div>
+
 **Pseudocódigo**
+
 ```text
 class CiudadEnPeligro {
     atomic boolean amenazaNeutralizada = false
@@ -438,8 +483,9 @@ class CiudadEnPeligro {
 ```
 
 **Test**
+
 ```text
-test CiudadEnPeligro_unSoloNeutraliza_yElOtroSeDetiene():
+test CiudadEnPeligroSoloNeutralizaElOtroSeDetiene():
     capturarSalida()
     c = new CiudadEnPeligro()
     c.main()
@@ -448,12 +494,18 @@ test CiudadEnPeligro_unSoloNeutraliza_yElOtroSeDetiene():
     assert( c.ganador in ["Superman","Batman"] )
     assert( salida.count("Amenaza neutralizada") == 1 )
 ```
-
 ---
 
 ### Ejercicio 8: Thor vs Hulk - Competencia de fuerza
 
+<div align="center">
+
+<img src=https://images4.alphacoders.com/874/874960.jpg width="400">
+
+</div>
+
 **Pseudocódigo**
+
 ```text
 class FuerzaThorHulk {
     durationMS = 5000
@@ -493,6 +545,7 @@ class FuerzaThorHulk {
 ```
 
 **Test**
+
 ```text
 test FuerzaThorHulk_terminaPorTiempo_yDeclaraResultado():
     capturarSalida()
@@ -507,7 +560,14 @@ test FuerzaThorHulk_terminaPorTiempo_yDeclaraResultado():
 
 ### Ejercicio 9: Simulación del Millenium Falcon
 
+<div align="center">
+
+<img src=https://i.ytimg.com/vi/ONmXxHHgxYw/maxresdefault.jpg width="400">
+
+</div>
+
 **Pseudocódigo**
+
 ```text
 class MilleniumFalcon {
     atomic boolean fin = false
@@ -547,6 +607,7 @@ class MilleniumFalcon {
 ```
 
 **Test**
+
 ```text
 test MilleniumFalcon_finalizaConEscapeODestruccion():
     capturarSalida()
@@ -560,7 +621,14 @@ test MilleniumFalcon_finalizaConEscapeODestruccion():
 
 ### Ejercicio 10: Batalla entre magos
 
+<div align="center">
+
+<img src=https://www.divulgadoresdelmisterio.net/wp-content/uploads/2020/09/batalla-de-magos.jpg width="400">
+
+</div>
+
 **Pseudocódigo**
+
 ```text
 class BatallaMagos {
     int energiaGandalf = 120
