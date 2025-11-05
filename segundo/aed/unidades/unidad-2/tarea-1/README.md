@@ -7,7 +7,7 @@ Vas a construir la capa de persistencia (repositorios) de un dominio hotelero.
 Al final del ejercicio deberias tener:
 
 - Entidades JPA que representan el dominio (Hotel, Room, Guest, Booking).
-- Interfaces de repositorio (nivel dominio) con las operaciones que la aplicacion necesita.
+- Interfaces de repositorio con las operaciones que la aplicacion necesita.
 - Una clase base abstracta de repositorio JPA reutilizable.
 - Implementaciones concretas JPA de cada repositorio.
 - Tests de integracion contra una BBDD SQLite de prueba.
@@ -20,7 +20,7 @@ El ejercicio se realiza bajo el paquete base `org.docencia.hotel`.
 
 Crea esta estructura dentro de `src/main/java`:
 
-- `org.docencia.hotel.domain.model`
+- `org.docencia.hotel.model`
   - Aqui iran las entidades del dominio (Hotel, Room, Guest, Booking).
   - Cada entidad debe estar mapeada con anotaciones JPA (`@Entity`, `@Table`, `@Id`, etc).
   - Define tambien las relaciones entre entidades (por ejemplo, un Hotel tiene muchas Room, una Booking pertenece a una Room y a un Guest, etc.).
@@ -38,10 +38,10 @@ Crea esta estructura dentro de `src/main/java`:
   - Aqui iran las clases que **implementan** las interfaces anteriores usando JPA/Hibernate.
   - Incluye una clase abstracta comun (por ejemplo `AbstractJpaRepository<T, ID>`) que ofrezca operaciones CRUD genericas reutilizables.
   - Incluye una clase concreta por cada interfaz de repositorio:
-    - HotelJpaRepository
-    - RoomJpaRepository
-    - GuestJpaRepository
-    - BookingJpaRepository
+    - IHotelJpaRepository
+    - IRoomJpaRepository
+    - IGuestJpaRepository
+    - IBookingJpaRepository
   - Cada clase concreta:
     - debe extender la clase abstracta generica,
     - debe implementar la interfaz del dominio correspondiente,
@@ -54,7 +54,7 @@ Crea tambien en `src/test/java` un paquete equivalente para las pruebas de integ
 
 ---
 
-## 3. Entidades del dominio (`org.docencia.hotel.domain.model`)
+## 3. Entidades del dominio (`org.docencia.hotel.model`)
 
 Debes crear al menos cuatro entidades:
 
@@ -108,36 +108,36 @@ Ademas, algunos repositorios necesitan metodos de dominio especificos. Incluyelo
 
 ## 5. Clase abstracta generica de persistencia (`org.docencia.hotel.persistence.jpa`)
 
-Si detectas funciones que se repiten, crea una clase **abstracta** reutilizable.
+`Si detectas funciones que se repiten, crea una clase` **abstracta** `reutilizable`.
 
 ---
 
 ## 6. Implementaciones concretas JPA (`org.docencia.hotel.persistence.jpa`)
 
-Por cada interfaz de `org.docencia.hotel.domain.repository`, crea una implementacion en esta capa.
+Por cada interfaz de `org.docencia.hotel.repository`, crea una implementacion en esta capa.
 
 Ejemplos de responsabilidades que TIENES que cubrir en cada una de las clases concretas:
 
 - **HotelJpaRepository**
   - Heredar de la clase abstracta generica.
-  - Implementar la interfaz `HotelRepository`.
+  - Implementar la interfaz `IHotelRepository`.
   - Delegar en la clase base las operaciones CRUD basicas.
   - Esta implementacion deberia poder ser detectada por Spring para inyeccion (por ejemplo mediante anotaciones de estereotipo de repositorio).
 
 - **RoomJpaRepository**
   - Heredar de la clase abstracta generica.
-  - Implementar la interfaz `RoomRepository`.
+  - Implementar la interfaz `IRoomRepository`.
   - Incluir la logica para recuperar las habitaciones de un hotel concreto (consulta filtrada por id de hotel).
   - Tambien debe ser detectable por Spring.
 
 - **GuestJpaRepository**
   - Heredar de la clase abstracta generica.
-  - Implementar la interfaz `GuestRepository`.
+  - Implementar la interfaz `IGuestRepository`.
   - Delegar operaciones CRUD.
 
 - **BookingJpaRepository**
   - Heredar de la clase abstracta generica.
-  - Implementar la interfaz `BookingRepository`.
+  - Implementar la interfaz `IBookingRepository`.
   - Incluir la consulta que devuelve las reservas de una habitacion dada dentro de un rango de fechas dado.
     - Este metodo te servira para comprobar si hay solapes de reservas.
   - Tambien debe ser componente Spring.
@@ -207,8 +207,8 @@ El fichero generado se llama `hotel_puerto.db`.
 ## 10. ¿Qué debes de implementar?
 
 1. **Paquetes creados correctamente**
-   - `org.docencia.hotel.domain.model`
-   - `org.docencia.hotel.domain.repository`
+   - `org.docencia.hotel.model`
+   - `org.docencia.hotel.repository`
    - `org.docencia.hotel.persistence.jpa`
 
 2. **Entidades del dominio**
