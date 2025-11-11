@@ -1,94 +1,178 @@
-# <img src=../../../../images/computer.png width="40"> Code, Learn & Practice(Programación de Servicios y Procesos: "Cazadores de Monstruos")
+# <img src=../../../../images/computer.png width="40"> Code, Learn & Practice(Programación de Servicios y Procesos: "Hilos y Semáforos en Java")
 
-<img src="https://i.ytimg.com/vi/t-tfbMcZ8Hc/maxresdefault.jpg" width="300px">
-
-Imagina un mundo lleno de monstruos y cazadores. El objetivo del juego es que cada cazador intente atrapar tantos monstruos como sea posible en un tiempo limitado. Cada cazador se moverá aleatoriamente por el mapa y tendrá una tasa de éxito para atrapar un monstruo cuando se encuentre en la misma ubicación que uno. Cada cazador también tendrá un tiempo de espera entre cada intento de captura, lo que simula la acción de cazar.
-
-## Requisitos del Juego
-
-1. **Clases Principales**:
-   - `Cazador`: Representa a un cazador que se mueve por el mapa y puede intentar atrapar monstruos.
-   - `Monstruo`: Representa a un monstruo que aparece en ubicaciones aleatorias en el mapa.
-   - `Mapa`: Una clase que mantiene el estado del mapa, incluyendo la ubicación de los monstruos y los cazadores.
-
-2. **Características**:
-   - Cada cazador debe ser un hilo (`Thread`) que se mueve por el mapa en intervalos de tiempo aleatorios.
-   - Los monstruos deben aparecer en el mapa en ubicaciones aleatorias y deben desaparecer después de un tiempo si no son atrapados.
-   - Los cazadores intentan atrapar monstruos en su ubicación actual y tienen una tasa de éxito (por ejemplo, 70% de probabilidad de atrapar un monstruo).
-   - El juego debe finalizar después de un tiempo determinado, y se debe mostrar la cantidad total de monstruos atrapados por cada cazador.
-
-3. **Interacción**:
-   - Los cazadores y los monstruos deben interactuar en el mapa: si un cazador y un monstruo se encuentran en la misma ubicación, el cazador intenta atrapar al monstruo.
-
-## Implementación
-
-La implementación puede seguir los siguientes pasos:
-
-1. **Crear las Clases**:
-   - Implementar las clases `Cazador`, `Monstruo`, y `Mapa`.
-   - La clase `Cazador` debe extender `Thread` y contener la lógica de movimiento y captura de monstruos.
-   - La clase `Monstruo` puede ser una clase simple que tenga propiedades como su ubicación y estado (atrapado o no).
-   - La clase `Mapa` debe gestionar la posición de los cazadores y los monstruos.
-
-2. **Lógica de Juego**:
-   - En el método `run()` de la clase `Cazador`, implementar la lógica de movimiento aleatorio y captura de monstruos.
-   - Usar `Thread.sleep()` para simular el tiempo de espera entre intentos de captura.
-   - Generar monstruos en el mapa de forma aleatoria y permitir que los cazadores intenten atraparlos.
-
-3. **Finalización del Juego**:
-   - Implementar un temporizador para finalizar el juego después de un tiempo determinado y mostrar el resultado final.
-
-
-## La Clase `Mapa`
-
-Esta clase define un mapa bidimensional donde se ubican tanto cazadores como monstruos. Se utiliza un `ConcurrentHashMap` para mantener las posiciones de todos los personajes de forma segura en un entorno concurrente.
-
-### Atributos
-
-- **`size`**: Define el tamaño del mapa, que es cuadrado (ej: 10x10).
-- **`ubicaciones`**: Un `ConcurrentHashMap` que almacena la posición de los cazadores y monstruos en el mapa. Las llaves son los nombres de los personajes y los valores son las coordenadas (`x,y`).
-
-### Métodos
-
-- **`generarUbicacion()`**: Este método genera una ubicación aleatoria en el mapa, con coordenadas en formato `x,y`.
-- **`moverCazador(Cazador cazador, String nuevaUbicacion)`**: Permite mover a un cazador a una nueva ubicación.
-- **`agregarMonstruo(Monstruo monstruo, String ubicacion)`**: Añade un monstruo en una ubicación específica del mapa.
-
-> Será necesario crear otros métodos adicionales controlan la interacción entre los personajes y el mapa.
+> Los **10 ejercicios** están en este README en **pseudocódigo** con sus **tests** (también en pseudocódigo). Puedes crear sus clases Java bajo `src/main/java` y sus tests en `src/test/java` siguiendo el patrón del ejemplo.
 
 ---
 
-## 2. Concurrencia
+Para resolver la carrera entre `Goku` y `Vegeta` usando **semáforos** (`java.util.concurrent.Semaphore`).  
+Aprenderás a:
 
-El uso de `ConcurrentHashMap` permite que el mapa sea actualizado simultáneamente por múltiples hilos. Tanto los cazadores como los monstruos se mueven de forma concurrente, lo que añade realismo al juego, evitando bloqueos o condiciones de carrera.
+- Alternar turnos entre hilos con **semáforos binarios**.
+- Evitar bloqueos tras declarar un ganador (liberación de permisos).
+- Diseñar un test robusto con JUnit 5.
 
 ---
 
-## Representación del Mapa
+## 🎯 Objetivo didáctico
 
-Imaginemos un mapa de tamaño `5x5`, con un cazador y un monstruo ubicados en diferentes posiciones. El símbolo **"C"** representa un cazador y **"M"** un monstruo. Las coordenadas van desde `(0,0)` hasta `(4,4)`.
+1. Modelar una carrera con dos hilos (`Goku`, `Vegeta`) que **se alternan por turnos**.
+2. Declarar **un único ganador** de manera segura.
+3. Asegurar que **ningún hilo quede bloqueado** cuando la carrera termina.
 
-### Ejemplo Mapa (5x5)
+---
 
-```plaintext
-.  .  .  .  M
-.  C  .  .  .
-.  .  .  .  .
-.  .  .  .  .
-.  .  .  .  .
+## 🧩 Conceptos clave de `Semaphore`
+
+- Un **Semaphore** controla el número de **permisos** disponibles.
+  - **Binario** (`new Semaphore(1)`) ≈ *mutex*: a la vez solo entra uno.
+  - **Contador** (`new Semaphore(k)`) ≈ *k recursos*: a la vez pueden entrar k.
+- `acquire()` **bloquea** si no hay permisos; `release()` **devuelve** un permiso.
+- El semáforo **no guarda “de quién es el turno”**: lo define tu **protocolo**.  
+  Para alternar Goku/Vegeta:
+  - `turnGoku = new Semaphore(1)`  → Goku puede empezar.
+  - `turnVegeta = new Semaphore(0)` → Vegeta espera a que Goku libere.
+
+---
+
+## Diseñando de la solución
+
+- **Alternancia por turnos** con **dos semáforos** (Goku/Vegeta).
+- **Ganador único** con `AtomicBoolean.compareAndSet(false, true)`.
+- **Salida limpia**: si un hilo detecta que la carrera ya acabó, hace `release()` del semáforo del rival para que **no se quede bloqueado**.
+
+---
+
+## Código Java (Semáforos)
+
+### `SaiyanRaceSemaphore.java`
+
+```java
+import java.util.concurrent.Semaphore;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.atomic.AtomicBoolean;
+
+public class SaiyanRaceSemaphore implements Runnable {
+    private final String name;
+    private int distance = 0;
+
+    private static final int GOAL = 100;
+
+    private static final Semaphore turnGoku = new Semaphore(1);  
+    private static final Semaphore turnVegeta = new Semaphore(0); 
+
+    private static final AtomicBoolean winnerDeclared = new AtomicBoolean(false);
+
+    public SaiyanRaceSemaphore(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public void run() {
+        final boolean isGoku = "Goku".equals(name);
+        final Semaphore myTurn = isGoku ? turnGoku : turnVegeta;
+        final Semaphore otherTurn = isGoku ? turnVegeta : turnGoku;
+
+        try {
+            while (!winnerDeclared.get() && distance < GOAL) {
+                myTurn.acquire();
+                if (winnerDeclared.get()) {
+                    otherTurn.release(); 
+                    break;
+                }
+                int step = ThreadLocalRandom.current().nextInt(1, 11);
+                distance += step;
+                System.out.println(name + " avanzó " + step + " metros. Distancia total: " + distance + " metros.");
+
+                if (distance >= GOAL) {
+                    if (winnerDeclared.compareAndSet(false, true)) {
+                        System.out.println(name + " ha ganado la carrera!");
+                    }
+                }
+                otherTurn.release();
+
+                try {
+                    Thread.sleep(ThreadLocalRandom.current().nextInt(200, 401));
+                } catch (InterruptedException ie) {
+                    Thread.currentThread().interrupt();
+                    otherTurn.release();
+                    break;
+                }
+            }
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            (isGoku ? turnVegeta : turnGoku).release();
+        }
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        Thread goku = new Thread(new SaiyanRaceSemaphore("Goku"));
+        Thread vegeta = new Thread(new SaiyanRaceSemaphore("Vegeta"));
+
+        goku.start();
+        vegeta.start();
+
+        goku.join();
+        vegeta.join();
+    }
+}
 ```
 
-### Leyenda
+---
 
-- `.`: Representa una casilla vacía.
-- `C`: Representa a un cazador en una coordenada específica. Ubicado en la posición `(0,4)`.
-- `M`: Representa a un monstruo en una coordenada específica. Ubicado en la posición `(1,1)`.
+## Test JUnit 5
 
-## Se pide
+### `SaiyanRaceSemaphoreTest.java`
 
-- Implementa la solución en una rama del repositorio.
-- Describe en el README.md de las soluciones aportadas, asi como la descripción del código, salida de este derante la ejecución con 3 valores de salida.
-- Realiza la misma operación con las versiones 1 y 2 de la tarea que deben de estar en ramas distintas.
+```java
+import org.junit.jupiter.api.Test;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
+public class SaiyanRaceSemaphoreTest {
+
+    @Test
+    public void testCarreraConSemaforos() throws InterruptedException {
+        PrintStream originalOut = System.out;
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        try {
+            Thread goku = new Thread(new SaiyanRaceSemaphore("Goku"));
+            Thread vegeta = new Thread(new SaiyanRaceSemaphore("Vegeta"));
+
+            goku.start();
+            vegeta.start();
+            goku.join(15_000);
+            vegeta.join(15_000);
+
+            if (goku.isAlive() || vegeta.isAlive()) {
+                fail("La carrera no terminó dentro del tiempo esperado.");
+            }
+
+            String output = outContent.toString();
+            boolean gokuWin = output.contains("Goku ha ganado la carrera!");
+            boolean vegetaWin = output.contains("Vegeta ha ganado la carrera!");
+            assertTrue(gokuWin ^ vegetaWin, "Debe haber un único ganador.");
+        } finally {
+            System.setOut(originalOut);
+        }
+    }
+}
+```
+
+> **Nota:** Este test es deliberadamente laxo con la alternancia porque puede haber mensajes seguidos (por ejemplo, el anuncio de victoria). La **alternancia efectiva** se garantiza por el protocolo de semáforos.
+
+
+
+## Licencia
+
+Este proyecto está bajo **Apache 2.0** — consulta el archivo `LICENSE` del repositorio original:
+- https://github.com/jpexposito/code-learn-practice/blob/main/LICENSE
+
+> Realiza __TESTING__ para verificar el correcto funcionamiento.
 
 ## Licencia 📄
 
