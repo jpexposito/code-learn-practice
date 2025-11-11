@@ -105,6 +105,122 @@ public class SaiyanRaceTest {
 
 ---
 
+### Descripción y mejora del ejercicio
+
+Este ejemplo describe un ejemplo de hilos `(threads)` en Java: dos `Runnable` compiten por alcanzar una meta.
+
+Las mejoras que vamos a añadir son:
+
+- **Ganador atómico:** `volatile boolean` no evita la condición de carrera en el patrón *check-then-act*. Se reemplaza por `AtomicBoolean` y `compareAndSet(false, true)` para garantizar **un único ganador**.
+- **Aleatoriedad por hilo:** `Random` por defecto puede tener semillas iguales si los hilos arrancan juntos. Se usa `ThreadLocalRandom`.
+
+#### Conceptos clave
+
+- **`volatile` vs `AtomicBoolean`:**  
+  - `volatile` asegura **visibilidad** entre hilos, pero no hace atómico *leer→comprobar→escribir*.  
+  - `AtomicBoolean` proporciona operaciones atómicas (p. ej. `compareAndSet`) que **evitan condiciones de carrera** en ese patrón.
+- **`ThreadLocalRandom`:** generador de números aleatorios optimizado por hilo; evita contención y semillas idénticas al iniciar casi simultáneamente.
+- **Señalización de interrupción:** al capturar `InterruptedException`, es buena práctica llamar `Thread.currentThread().interrupt()` para **preservar** el estado de interrupción.
+
+### El código corregido y optimizado
+
+#### `SaiyanRace.java`
+
+```java
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.atomic.AtomicBoolean;
+
+public class SaiyanRace implements Runnable {
+    private final String name;
+    private int distance = 0;
+    private static final int GOAL = 100;
+    private static final AtomicBoolean WINNER_DECLARED = new AtomicBoolean(false);
+
+    public SaiyanRace(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public void run() {
+        while (distance < GOAL && !WINNER_DECLARED.get()) {
+            int step = ThreadLocalRandom.current().nextInt(1, 11); 
+            distance += step;
+            System.out.println(name + " avanzó " + step + " metros. Distancia total: " + distance + " metros.");
+
+            if (distance >= GOAL) {
+                if (WINNER_DECLARED.compareAndSet(false, true)) {
+                    System.out.println(name + " ha ganado la carrera!");
+                }
+            }
+
+            try {
+                Thread.sleep(500); 
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                return;
+            }
+        }
+    }
+
+    public static void resetWinner() {
+        WINNER_DECLARED.set(false);
+    }
+
+    public static void main(String[] args) {
+        Thread goku = new Thread(new SaiyanRace("Goku"));
+        Thread vegeta = new Thread(new SaiyanRace("Vegeta"));
+
+        goku.start();
+        vegeta.start();
+    }
+}
+```
+
+### `SaiyanRaceTest.java` (JUnit 5)
+
+```java
+import org.junit.jupiter.api.Test;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
+public class SaiyanRaceTest {
+
+    @Test
+    public void testSaiyanRace() throws InterruptedException {
+        SaiyanRace.resetWinner();
+        PrintStream originalOut = System.out;
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        try {
+            Thread goku = new Thread(new SaiyanRace("Goku"));
+            Thread vegeta = new Thread(new SaiyanRace("Vegeta"));
+
+            goku.start();
+            vegeta.start();
+            goku.join(15_000);
+            vegeta.join(15_000);
+
+            if (goku.isAlive() || vegeta.isAlive()) {
+                fail("La carrera no terminó dentro del tiempo esperado.");
+            }
+
+            String output = outContent.toString();
+            assertTrue(
+                output.contains("Goku ha ganado la carrera!") ||
+                output.contains("Vegeta ha ganado la carrera!"),
+                "Debe anunciarse un único ganador."
+            );
+        } finally {
+            System.setOut(originalOut);
+        }
+    }
+}
+```
+
 ## Ejercicios (pseudocódigo + tests)
 
 > Los siguientes ejercicios están en **pseudocódigo** y cada uno incluye un **test de verificación**. Puedes convertirlos a Java siguiendo la guía anterior.
