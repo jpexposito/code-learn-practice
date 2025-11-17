@@ -378,14 +378,6 @@ Crea una clase `App` (por ejemplo, en el paquete `com.docencia.app`) con un `mai
 
 ---
 
-## 💬 Sugerencias de uso en clase
-
-- **Trabajo individual o en parejas:** los ejercicios están pensados para que se puedan repartir entre sesiones.
-- **Correcciones guiadas:** al final de cada bloque (clases, encapsulación, herencia, interfaces, colecciones) puedes hacer corrección en directo sobre 1–2 ejercicios clave.
-- **Repositorio de soluciones:** puedes crear una rama o carpeta `soluciones/` con tu propia implementación para tenerla como referencia docente.
-
----
-
 ## Licencia 📄
 
 Este proyecto está bajo la Licencia (Apache 2.0) - mira el archivo [LICENSE.md]([../../../LICENSE.md](https://github.com/jpexposito/code-learn-practice/blob/main/LICENSE)) para detalles.
