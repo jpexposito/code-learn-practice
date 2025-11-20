@@ -1,4 +1,4 @@
-# <img src=../../../../images/computer.png width="40"> Code, Learn & Practice(Programación de Servicios y Procesos: "Cazadores de Monstruos")
+# <img src=../../../../images/computer.png  width="40"> Code, Learn & Practice(Programación de Servicios y Procesos: "Cazadores de Monstruos")
 
 En esta tarea vamos a aprender **thread pools en Java** simulando un **servidor de videojuegos** con varios escenarios:
 
