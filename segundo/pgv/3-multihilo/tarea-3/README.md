@@ -8,6 +8,8 @@ En esta tarea vamos a aprender **thread pools en Java** simulando un **servidor 
 
 La idea es que veas **para qué sirven los pools de hilos** y cómo usarlos de forma correcta, pero disfrazado de cosas que te suenen a MMORPG, D&D o similar.
 
+> __IMPORTANTE__: Debes de crear el proyecto en java, con las dependencias necesarias, y realizar los test necesarios para verificar el correcto funcionamiento.
+
 ---
 
 ## 1. Objetivos de la tarea
