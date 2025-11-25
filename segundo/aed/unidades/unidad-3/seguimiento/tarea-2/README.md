@@ -1,4 +1,4 @@
-# <img src=../../../../../../images/computer.png width="40"> Code, Learn & Practice(Programación de Servicios y Procesos: "Atributos “duros” en SQL, atributos “flexibles” en NoSQL")
+# <img src=../../../../../../images/computer.png width="40"> Code, Learn & Practice(Acceso a Datos: "Atributos “duros” en SQL, atributos “flexibles” en NoSQL")
 
 Al finalizar este ejemplo, debes de entender:
 
