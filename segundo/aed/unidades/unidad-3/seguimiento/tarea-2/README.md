@@ -41,7 +41,7 @@ Tabla `producto`:
 
 | Columna      | Tipo           | Notas                 |
 |--------------|----------------|-----------------------|
-| id           | BIGINT (PK)    | Identificador único   |
+| id           | INT (PK)       | Identificador único   |
 | nombre       | VARCHAR        | No nulo               |
 | precio       | DECIMAL        | No nulo               |
 | categoria_id | BIGINT (FK)    | Referencia a categoría|
@@ -90,7 +90,7 @@ Ahora unimos ambas partes en clases Java.
 ```java
 public class Producto {
     // Parte relacional
-    private Long id;
+    private id id;
     private String nombre;
     private BigDecimal precio;
     private int stock;
@@ -146,51 +146,8 @@ public class DetalleProductoDocument {
 Interfaz (dominio):
 
 ```java
-public interface ProductoRelationalRepository {
-    Optional<Producto> findById(Long id);
-    List<Producto> findAll();
-    Producto save(Producto producto);
-    void deleteById(Long id);
-}
-```
-
-Implementación JPA:
-
-```java
-@Repository
-public class ProductoJpaRepository implements ProductoRelationalRepository {
-
-    @PersistenceContext
-    private EntityManager em;
-
-    @Override
-    public Optional<Producto> findById(Long id) {
-        return Optional.ofNullable(em.find(Producto.class, id));
-    }
-
-    @Override
-    public List<Producto> findAll() {
-        return em.createQuery("SELECT p FROM Producto p", Producto.class)
-                 .getResultList();
-    }
-
-    @Override
-    public Producto save(Producto producto) {
-        if (producto.getId() == null) {
-            em.persist(producto);
-            return producto;
-        } else {
-            return em.merge(producto);
-        }
-    }
-
-    @Override
-    public void deleteById(Long id) {
-        Producto p = em.find(Producto.class, id);
-        if (p != null) {
-            em.remove(p);
-        }
-    }
+public interface PersonaRepository extends MongoRepository<Producto, Integer> {
+...
 }
 ```
 
@@ -199,51 +156,18 @@ public class ProductoJpaRepository implements ProductoRelationalRepository {
 Interfaz:
 
 ```java
-public interface DetalleProductoRepository {
-    Optional<DetalleProducto> findByProductoId(Long productoId);
-    DetalleProducto save(Long productoId, DetalleProducto detalle);
-    void deleteByProductoId(Long productoId);
-}
-```
-
-Implementación (**Mongo**):
-
-```java
 @Repository
-public class DetalleProductoMongoRepository implements DetalleProductoRepository {
-
-    private final MongoTemplate mongoTemplate;
-
-    public DetalleProductoMongoRepository(MongoTemplate mongoTemplate) {
-        this.mongoTemplate = mongoTemplate;
-    }
-
-    @Override
-    public Optional<DetalleProducto> findByProductoId(Long productoId) {
-        Query query = new Query(Criteria.where("productoId").is(productoId));
-        DetalleProductoDocument doc = mongoTemplate.findOne(query, DetalleProductoDocument.class);
-        return Optional.ofNullable(mapToDomain(doc));
-    }
-
-    @Override
-    public DetalleProducto save(Long productoId, DetalleProducto detalle) {
-        DetalleProductoDocument doc = mapToDocument(productoId, detalle);
-        mongoTemplate.save(doc);
-        return detalle;
-    }
-
-    @Override
-    public void deleteByProductoId(Long productoId) {
-        Query query = new Query(Criteria.where("productoId").is(productoId));
-        mongoTemplate.remove(query, DetalleProductoDocument.class);
-    }
-
+public interface DetalleProductoRepository extends MongoRepository<DetalleProducto, Integer> {
+ {
+    Optional<DetalleProducto> findByProductoId(int productoId);
+    DetalleProducto save(int productoId, DetalleProducto detalle);
+    void deleteByProductoId(int productoId);
 }
 ```
 
 ### 5.3. Repositorio “polyglot” de `Producto`
 
-Este es el repositorio que verá la capa de aplicación/dominio.
+Este es el repositorio que verá la capa de aplicación/dominio o actualizamos el anterior de `jpa` como única entrada.
 
 ```java
 public interface ProductoRepository {
@@ -260,20 +184,20 @@ Implementación:
 @Repository
 public class ProductoPolyglotRepository implements ProductoRepository {
 
-    private final ProductoRelationalRepository productoRelationalRepo;
-    private final DetalleProductoRepository detalleProductoRepo;
+    private final ProductoRepository productoRepository;
+    private final DetalleProductoRepository detalleProductoRepository;
 
-    public ProductoPolyglotRepository(ProductoRelationalRepository productoRelationalRepo,
-                                      DetalleProductoRepository detalleProductoRepo) {
-        this.productoRelationalRepo = productoRelationalRepo;
-        this.detalleProductoRepo = detalleProductoRepo;
+    public ProductoPolyglotRepository(ProductoRelationalRepository productoRepository,
+                                      DetalleProductoRepository productoRepository) {
+        this.productoRelationalRepo = productoRepository;
+        this.detalleProductoRepository = detalleProductoRepository;
     }
 
     @Override
     public Optional<Producto> findById(Long id) {
-        return productoRelationalRepo.findById(id)
+        return productoRepository.findById(id)
                 .map(producto -> {
-                    detalleProductoRepo.findByProductoId(id)
+                    detalleProductoRepository.findByProductoId(id)
                             .ifPresent(producto::setDetalle);
                     return producto;
                 });
@@ -281,10 +205,10 @@ public class ProductoPolyglotRepository implements ProductoRepository {
 
     @Override
     public List<Producto> findAll() {
-        List<Producto> productos = productoRelationalRepo.findAll();
+        List<Producto> productos = productoRepository.findAll();
         // Opcional: cargar detalles en lote (para el ejercicio, basta con la idea)
         productos.forEach(p ->
-                detalleProductoRepo.findByProductoId(p.getId())
+                detalleProductoRepository.findByProductoId(p.getId())
                         .ifPresent(p::setDetalle)
         );
         return productos;
@@ -293,11 +217,11 @@ public class ProductoPolyglotRepository implements ProductoRepository {
     @Override
     public Producto save(Producto producto) {
         // 1. Guardar la parte relacional
-        Producto guardado = productoRelationalRepo.save(producto);
+        Producto guardado = productoRepository.save(producto);
 
         // 2. Guardar la parte NoSQL (si existe)
         if (producto.getDetalle() != null) {
-            detalleProductoRepo.save(guardado.getId(), producto.getDetalle());
+            detalleProductoRepository.save(guardado.getId(), producto.getDetalle());
         }
 
         return guardado;
@@ -306,8 +230,8 @@ public class ProductoPolyglotRepository implements ProductoRepository {
     @Override
     public void deleteById(Long id) {
         // Borrar en ambas BBDD
-        productoRelationalRepo.deleteById(id);
-        detalleProductoRepo.deleteByProductoId(id);
+        productoRepository.deleteById(id);
+        detalleProductoRepository.deleteByProductoId(id);
     }
 }
 ```
@@ -343,11 +267,11 @@ productoRepository.save(p);
 ### ¿Qué ocurre internamente?
 
 1. `ProductoPolyglotRepository.save(p)` recibe el producto.
-2. Llama a `productoRelationalRepo.save(p)`:
+2. Llama a `detalleProductoRepository.save(p)`:
    - Se inserta una fila en la tabla `producto`.
    - El producto recupera un `id` generado (por ejemplo, 42).
 3. Si `p.getDetalle() != null`:
-   - Llama a `detalleProductoRepo.save(guardado.getId(), p.getDetalle())`.
+   - Llama a `detalleProducto.save(guardado.getId(), p.getDetalle())`.
    - Se inserta (o actualiza) un documento en la colección `producto_detalle` con `productoId = 42`.
 4. Resultado:  
    - Parte dura en SQL, parte flexible en NoSQL, pero la aplicación trabaja con un único objeto `Producto`.
@@ -368,10 +292,10 @@ opt.ifPresent(p -> {
 
 ### ¿Qué hace el repositorio polyglot?
 
-1. Llama a `productoRelationalRepo.findById(42)`:
+1. Llama a `productoRelational.findById(42)`:
    - Hace un `SELECT * FROM producto WHERE id = 42`.
    - Devuelve un `Producto` sin detalle (campo `detalle` aún `null`).
-2. Llama a `detalleProductoRepo.findByProductoId(42)`:
+2. Llama a `detalleProducto.findByProductoId(42)`:
    - Hace una búsqueda en la colección `producto_detalle`.
    - Devuelve un `DetalleProducto`.
 3. Asigna el detalle al producto:
@@ -398,9 +322,9 @@ opt.ifPresent(p -> {
 2. Crear la tabla `producto` en una BBDD relacional (H2/MySQL).
 3. Crear la colección `producto_detalle` en una BBDD NoSQL (Mongo).
 4. Implementar:
-   - `ProductoRelationalRepository` (JPA).
+   - `ProductoRepository` (JPA).
    - `DetalleProductoRepository` (Mongo).
-   - `ProductoRepository` (polyglot) que combine ambos.
+   - `ProductoRepository` (polyglot) que combine ambos, o se reutiliza el primero de `jpa`.
 5. Escribir un pequeño **test de integración** que:
    - Guarde un producto con detalle.
    - Lo recupere por id.
