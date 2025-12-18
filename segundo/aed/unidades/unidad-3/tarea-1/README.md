@@ -38,6 +38,13 @@ Reglas:
 - Los Mappers se usan **en Servicios**.
 - Persistencia se encapsula en repositorios.
 
+Vista a través del modelo hexagonal:
+
+<div align="center">
+  <img src=images/arquitectura-hexagonal.png width="450">
+</div>
+
+
 ---
 
 ## 3. Estructura de paquetes (conjunta)
